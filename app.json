@@ -1,0 +1,42 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FE546F",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#ACACAC",
+    "selectedColor": "#FE546F",
+    "list": [
+      {
+        "selectedIconPath": "images/nabar1.png",
+        "iconPath": "images/nabar1-a.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/nabar2.png",
+        "iconPath": "images/nabar2-a.png",
+        "pagePath": "pages/mall/mall",
+        "text": "需求"
+      },
+      {
+        "selectedIconPath": "images/nabar3.png",
+        "iconPath": "images/nabar3-a.png",
+        "pagePath": "pages/cart/cart",
+        "text": "案例"
+      },
+      {
+        "selectedIconPath": "images/nabar4.png",
+        "iconPath": "images/nabar4-a.png",
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  }
+}
