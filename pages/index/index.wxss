@@ -36,11 +36,13 @@ input{
   border:1px solid grey;
   border-radius:20px;
 }
-	input::-webkit-input-placeholder{ /*WebKit browsers*/
-
-color:black;
-
+::-webkit-input-placeholder{    color:#909;
 }
+
+:-moz-placeholder { 
+   color:#909;
+   font-size:12px;
+  }
 /*********搜索框***********/
 
 

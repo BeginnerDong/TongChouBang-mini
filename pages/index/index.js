@@ -12,9 +12,9 @@ Page({
     interval: 3000,
     duration: 1000
   },
-  integral_mall: function () {
+  detail: function () {
     wx.navigateTo({
-      url: '/pages/index/integral_mall/integral_mall'
+      url: '/pages/goodsDetails/goodsDetails'
     })
   }
  

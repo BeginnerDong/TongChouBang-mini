@@ -13,7 +13,8 @@
   <!--搜索框-->
   <view class="center-container">
      <view class="search-container">
-       <input type="text" placeholder="搜索团建游等"/>
+       <!-- <input type="text" placeholder="搜索团建游等"/> -->
+       <input type="text" />
        <!-- <image src="#"/> -->
      </view>
     <view><image src="/images/home-banner.png"/></view>
@@ -35,7 +36,7 @@
         <!--上海环球港-->
            <view class="center-content">
              
-             <view class="center-little-container">
+             <view class="center-little-container" bindtap="detail">
                <view><image src="/images/home-img2.png"/></view>
                <view class="img-text">
                   <view class="title">
@@ -46,7 +47,7 @@
                </view>
             </view>
 
-             <view class="center-little-container">
+             <view class="center-little-container" bindtap="detail">
                <view><image src="/images/home-img2.png"/></view>
                <view class="img-text">
                   <view class="title">
@@ -62,7 +63,7 @@
              <!--上海环球港-->
              <view class="center-content">
              
-             <view class="center-little-container">
+             <view class="center-little-container" bindtap="detail">
                <view><image src="/images/home-img2.png"/></view>
                <view class="img-text">
                   <view class="title">
@@ -73,7 +74,7 @@
                </view>
             </view>
             
-             <view class="center-little-container">
+             <view class="center-little-container" bindtap="detail">
                <view><image src="/images/home-img2.png"/></view>
                <view class="img-text">
                   <view class="title">
