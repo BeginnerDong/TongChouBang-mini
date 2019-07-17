@@ -1,0 +1,37 @@
+/* pages/helpCenter/helpCenter.wxss */
+/*************帮助中心************/
+.helpCenter-container{
+  width:100%;
+  height:100%;
+  margin:0;
+  padding:0 6%;
+}
+.helpCenter{
+  font-size:Ping-SC-Medium;
+  width:88%;
+  margin:15px 0px 15px 0px;
+}
+.text-container{
+  width:90%;
+  height:100px;
+  box-shadow:0.5px 0.5px 4px #9E9E9E;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+.text-container .title{
+   font-size:13px;
+   color:#000000;
+}
+.text-container .text{
+   font-size:12px;
+   color:#9E9E9E;
+   margin-top:15px;
+   line-height:20px;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 3;
+   -webkit-box-orient: vertical;
+}
+/*************帮助中心************/
