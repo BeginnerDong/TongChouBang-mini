@@ -1,0 +1,30 @@
+<!--pages/connectUs/connectUs.wxml-->
+<view  class="connectUs-container">
+   <view class="title"><text>北京相予科技有限公司</text></view>
+   <view class="img"><image src="/images/contact us-icon1.png"/></view>
+   <view class="phone-container">
+      <view class="phone"><text>联系电话</text></view>
+      <view class="num"><text>13126608897/13551287433</text></view>
+   </view>
+   <!--地址、邮箱 -->
+   <view class="img-container">
+      <view class="location-container">
+         <view><image src="/images/contact us-icon2.png"/></view>
+         <view class="address-text"><text>联系地址</text></view>
+         <view><text>北京实景山万达F座</text></view>
+      </view>
+      <view class="email-container">
+         <view><image src="/images/contact us-icon3.png"/></view>
+         <view class="email-text"><text>联系邮箱</text></view>
+         <view><text>1193519645@qq.com</text></view>
+      </view>
+   </view>
+ <!--地址、邮箱 -->
+
+ <!--二维码-->
+  <view class="code-container">
+     <view><image src="/images/contact us-img.png"/></view>
+     <view><image src="/images/contact us-img.png"/></view>
+  </view>
+ <!--二维码-->
+</view>

@@ -1,0 +1,79 @@
+<!--pages/myCenter/myCenter.wxml-->
+<view class="myCenter-container">
+   
+   <view class="nickname-container">
+      <view><image src="/images/about-img.png"/></view>
+      <view class="nickname"><text>昵称昵称昵称</text></view>
+   </view>
+
+   <view class="big-container">
+      <!--我的订单-->
+      <view class="myOrders">
+        <view class="banner">
+            <view>我的订单</view>
+            <view class="chakan">查看</view>
+            <!-- <view><image src="/images/home-icon2.png"/></view> -->
+         </view>
+         
+         <view class="state-container"> 
+           <view class="item" bindtap="addPingjia">
+               <view><image src="/images/about-icon1.png"/></view>
+               <view><text>待确认</text></view>
+            </view>
+            
+            <view class="item" bindtap="addPingjia">
+               <view><image src="/images/about-icon2.png"/></view>
+               <view><text>进行中</text></view>
+            </view>
+
+            <view class="item" bindtap="addPingjia">
+               <view><image src="/images/about-icon3.png"/></view>
+               <view><text>待评价</text></view>
+            </view>
+
+            <view class="item" bindtap="addPingjia">
+               <view><image src="/images/about-icon4.png"/></view>
+               <view><text>已评价</text></view>
+            </view>
+
+             <view class="item" bindtap="addPingjia">
+               <view><image src="/images/about-icon5.png"/></view>
+               <view><text>已取消</text></view>
+            </view> 
+         </view>
+       </view>  
+       <!--我的订单-->
+        
+     
+   </view> 
+
+</view>
+
+<!--底部tab键-->
+<view class="navbar">
+	<view class="navbar_item">
+		<view class="nav_img">
+			<image src="/images/nabar1-a.png"></image>
+		</view>
+		<view class="text this-text">首页</view>
+	</view>
+	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/activityNeed/activityNeed">
+		<view class="nav_img">
+			<image src="/images/nabar2.png"></image>
+		</view>
+		<view class="text">需求</view>
+	</view>
+	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/case/case">
+		<view class="nav_img">
+			<image src="/images/nabar3.png" style="width: 50rpx;"></image>
+		</view>
+		<view class="text">案例</view>
+	</view>
+	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/login/login">
+		<view class="nav_img">
+			<image src="/images/nabar4.png" style="width: 44rpx;"></image>
+		</view>
+		<view class="text">我的</view>
+	</view>
+</view>
+<!--底部tab键-->
