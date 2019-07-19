@@ -1,0 +1,137 @@
+<!--pages/feaPlace/feaPlace.wxml-->
+<view style="background-color:#F5F5F5;padding-top:10px;position:relative;">
+    <!--搜索框-->
+     <view class="search-container">
+        <view><input type="text" placeholder="搜索您要找的" placeholder-style="margin-left:10px;"/></view>
+         <view class="search-img"><image src="/images/login-icon5.png"/></view>
+     </view>
+    
+    <!--搜索框-->
+
+    <!--内容-->
+      <view class="center-container">
+         
+         <!-- <view class="center-banner-container">
+            <view class="active-item">推荐排序</view>
+            <view class="item">价格排序</view>
+            <view class="item">销量排序</view>
+            <view class="item">折扣排序</view>
+         </view> -->
+
+         <view class="tip-container">
+           <view class="item"><text>场地类型</text></view>
+           <view class="item"><text>位置区域</text></view>
+           <view class="item"><text>价格</text></view>
+           <view class="item"><text>场地特点</text></view>
+           <view class="item"><text>层高</text></view>
+           <view class="item"><text>面积</text></view>
+           <view class="item"><text>容纳人数</text></view>
+           <view class="item"><text>场地设施</text></view>
+           <view class="item"><text>可接活动类型</text></view>
+         </view>
+
+           <view scroll-x="true" class="img-container">
+              <view><image src="/images/goods-img1.png"/></view>
+              <view><image src="/images/goods-img3.png"/></view>
+              <view><image src="/images/goods-img1.png"/></view>
+              <view><image src="/images/goods-img3.png"/></view>
+              <view><image src="/images/goods-img1.png"/></view>
+           </view>
+     <!-- 预订价格  -->
+          <view class="price-container">
+          <!-- 一个-->
+           <view class="price-little-container">
+              <!--图片、文字  -->
+              <view class="price-img-container">
+                
+                <view><image src="/images/goods-img2.png"/></view>
+                <view class="text-cotainer">
+                    <view class="title"><text>标题标题标题标题标题标题</text></view>
+                    <view class="content"><text>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</text></view>
+                     <view class="tip-container">
+                      <view class="now-price">现价:988元/起</view>
+                      <view class="init-price">原价:1888元/起</view>
+                      <view class="discount">7折</view>
+                     </view> 
+                 </view>
+              
+               </view>
+              <!--图片、文字  -->
+               
+               <!--按钮  -->
+              <view class="button-container">
+                  <view></view>
+                  <view class="button" bindtap="bookOrder"><button>立即预定</button></view>
+              </view>
+               <!--按钮  -->
+            </view> 
+          <!-- 一个-->
+
+              <!-- 一个-->
+           <view class="price-little-container">
+              <!--图片、文字  -->
+              <view class="price-img-container">
+                
+                <view><image src="/images/goods-img2.png"/></view>
+                <view class="text-cotainer">
+                    <view class="title"><text>标题标题标题标题标题标题</text></view>
+                    <view class="content"><text>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</text></view>
+                     <view class="tip-container">
+                      <view class="now-price">现价:988元/起</view>
+                      <view class="init-price">原价:1888元/起</view>
+                      <view class="discount">7折</view>
+                     </view> 
+                 </view>
+              
+               </view>
+              <!--图片、文字  -->
+               
+               <!--按钮  -->
+              <view class="button-container">
+                  <view></view>
+                  <view class="button" bindtap="bookOrder"><button>立即预定</button></view>
+              </view>
+               <!--按钮  -->
+            </view> 
+          <!-- 一个-->
+
+
+
+              <!-- 一个-->
+           <view class="price-little-container">
+              <!--图片、文字  -->
+              <view class="price-img-container">
+                
+                <view><image src="/images/goods-img2.png"/></view>
+                <view class="text-cotainer">
+                    <view class="title"><text>标题标题标题标题标题标题</text></view>
+                    <view class="content"><text>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</text></view>
+                     <view class="tip-container">
+                      <view class="now-price">现价:988元/起</view>
+                      <view class="init-price">原价:1888元/起</view>
+                      <view class="discount">7折</view>
+                     </view> 
+                 </view>
+              
+               </view>
+              <!--图片、文字  -->
+               
+               <!--按钮  -->
+              <view class="button-container">
+                  <view></view>
+                  <view class="button" bindtap="bookOrder"><button>立即预定</button></view>
+              </view>
+               <!--按钮  -->
+            </view> 
+          <!-- 一个-->
+          
+          </view>
+ <!-- 预订价格  -->
+      
+      </view>
+    <!--内容-->
+
+    <!--活动需求 -->
+        <view class="need" bindtap="activityNeed"><text>活动需求</text></view>
+    <!--活动需求 -->
+</view>

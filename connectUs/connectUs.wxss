@@ -1,0 +1,62 @@
+/* pages/connectUs/connectUs.wxss */
+.connectUs-container{
+  width:100%;
+  height:100%;
+  margin:0;
+  padding:0;
+  font-family:PingFang-SC-Bold;
+}
+.title{
+  text-align:center;
+  color:#212121;
+  font-size:15px;
+  margin:25px 0px;
+  font-weight:bold; 
+}
+.img{
+   text-align:center;
+   margin-bottom:20px;
+}
+image{
+  width:100px;
+  height:100px;
+}
+.phone-container{
+  text-align:center;
+}
+.phone{
+  font-size:15px;
+  color:#251204;
+}
+.num{
+  font-size:13px;
+  color:#212121;
+  margin-bottom:30px;
+}
+.img-container{
+  display:flex;
+  justify-content:space-between;
+  text-align:center;
+  padding:0 7.5%;
+  font-size:15px;
+  color:#212121;
+}
+.address-text{
+  margin:15px 0px;
+}
+.email-text{
+  margin:15px 0px;
+}
+
+
+.code-container{
+  display:flex;
+  justify-content:space-between;
+  padding:0 15%;
+  margin:50px 0px 100px 0px;
+}
+.code-container image{
+  width:100px;
+  height:100px;
+}
+
