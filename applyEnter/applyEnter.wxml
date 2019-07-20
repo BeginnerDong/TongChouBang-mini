@@ -1,0 +1,75 @@
+<!--pages/applyEnter/applyEnter.wxml-->
+<!--pages/bookOrder/bookOrder.wxml-->
+<view class="bookOrder-container">
+  
+  <view class="info-containner">
+    <!-- 注册信息-->
+      <view class="book-info">
+         <view class="title"><text>注册信息</text></view>
+         <view class="content">
+            <view class="tip"><text>*</text></view>
+            <view class="little-title"><text>手机号码</text></view>
+            <view><input type="text" placeholder="请输入手机号" placeholder-style="color:#666666;font-size:10px;"/></view>
+         </view>
+
+         <view class="content">
+            <view class="tip"><text>*</text></view>
+            <view class="little-title"><text>短信验证</text></view>
+            <view><input type="text" placeholder="请输入验证码" style="font-size:10px;"/></view>
+         </view> 
+      
+      </view>
+    <!-- 注册信息-->
+
+    <!-- 商家信息-->
+        <view class="contact-info">
+            <view class="title">商家信息</view>
+            <view class="content">
+              <view class="tip"><text>*</text></view>
+              <view class="little-title"><text>联系人姓名</text></view>
+              <view><input type="text" placeholder="请输入联系人姓名,只需填写一位"/></view>
+            </view>
+
+            <view class="content">
+              <view class="tip"><text>*</text></view>
+              <view class="little-title" style="margin-right:20px;"><text>商家名称</text></view>
+              <view><input type="text" placeholder="请输入商家名称"/></view>
+            </view>
+
+
+            <view class="content">
+              <view class="tip"><text>*</text></view>
+              <view class="little-title" style="margin-right:20px;"><text>服务类型</text></view>
+              <view><input type="text" placeholder="请输入服务类型"/></view>
+            </view>
+
+            <view class="content">
+              <view class="tip"><text>*</text></view>
+              <view class="little-title" style="margin-right:20px;"><text>所在城市</text></view>
+              <view><input type="text" placeholder="请选择"/></view>
+            </view>
+
+
+          <view class="content">
+            <view><text></text></view>
+            <view class="little-title"><text style="margin-left:15px;">备注</text></view>
+            <view><textarea type="text" placeholder="请简单描述...（非必填）" placeholder-style="font-size:10px;color:#999999;"/></view>
+         </view>
+        </view>    
+    <!--商家信息-->
+  </view>
+    <!--按钮-->
+
+      <view class="button">
+        <view class="mianze">
+          <view class="tips"><image src="/images/login-icon5.png"/></view>
+          <view class="exceptions">免责条款</view>
+          <view class="icon"><image src="/images/login-icon4.png"/></view>
+        </view>
+        <view><button>提交</button></view>
+      </view>
+
+    <!--按钮-->
+
+</view>
+

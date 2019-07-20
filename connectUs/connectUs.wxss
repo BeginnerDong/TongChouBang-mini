@@ -4,22 +4,23 @@
   height:100%;
   margin:0;
   padding:0;
+  background-color:#F5F5F5;
   font-family:PingFang-SC-Bold;
 }
 .title{
   text-align:center;
   color:#212121;
   font-size:15px;
-  margin:25px 0px;
+  margin:18px 0px;
   font-weight:bold; 
 }
 .img{
    text-align:center;
-   margin-bottom:20px;
+   margin-bottom:5px;
 }
 image{
-  width:100px;
-  height:100px;
+  width:80px;
+  height:80px;
 }
 .phone-container{
   text-align:center;
@@ -27,6 +28,10 @@ image{
 .phone{
   font-size:15px;
   color:#251204;
+  margin-bottom:5px;
+}
+.line{
+  margin:0px 5px;
 }
 .num{
   font-size:13px;

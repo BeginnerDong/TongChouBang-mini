@@ -10,16 +10,30 @@
          <view><image src="/images/login-icon3.png"/></view>
          <view><input type="text" placeholder="输入登录密码"/></view>
       </view>
-      <view class="button" bindtap="myCenter"><button>登录</button></view>
    </view>
-   <!-- <view class="mianze-container">
-      <view class="tips"><image src="/images/login-icon6.png"/></view>
-      <view>免责条款</view>
-      <view class="icon"><image src="/images/login-icon4.png"/></view>
-   </view>-->
+<!--登录、免责  -->
+   <view class="login-container">
+
+    <view class="button" bindtap="myCenter"><button>登录</button></view>
+    
+    <view class="mianze-container">
+     <view class="mianze">
+       <view class="tips"><image src="/images/login-icon5.png"/></view>
+       <view class="exceptions">免责条款</view>
+       <view class="icon"><image src="/images/login-icon4.png"/></view>
+     </view>
+    </view>
+   
+   </view>
+<!--登录、免责  -->
    <view class="foot-container">
-      <view class="register" bindtap="register">注册</view>
-      <view>|</view>
-      <view class="login" bindtap="changePassword">修改密码</view>
+     <view></view>
+     <view class="footer-center">
+       <view class="register" bindtap="register">注册</view>
+       <view>|</view>
+       <view class="login" bindtap="changePassword">修改密码</view>
+     </view> 
+     <view></view>
    </view> 
+
 </view>

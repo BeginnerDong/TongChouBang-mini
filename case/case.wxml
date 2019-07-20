@@ -19,7 +19,6 @@
 
   <!--精选案例-->
     <view  class="jingxuan-case">
-       <view class="bg"></view>
       
           <view class="case-center">
              <!--一个案例-->
@@ -64,8 +63,6 @@
                </view>
              <!--一个案例-->
           </view>
-      
-      <view class="bg"></view>
     </view>
   <!--精选案例-->
 </view>
@@ -74,9 +71,9 @@
 <view class="navbar">
 	<view class="navbar_item">
 		<view class="nav_img">
-			<image src="/images/nabar1-a.png"></image>
+			<image src="/images/nabar1.png"></image>
 		</view>
-		<view class="text this-text">首页</view>
+		<view class="text">首页</view>
 	</view>
 	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/activityNeed/activityNeed">
 		<view class="nav_img">
@@ -86,9 +83,9 @@
 	</view>
 	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/case/case">
 		<view class="nav_img">
-			<image src="/images/nabar3.png" style="width: 50rpx;"></image>
+			<image src="/images/nabar3-a.png" style="width: 50rpx;"></image>
 		</view>
-		<view class="text">案例</view>
+		<view class="text this-text">案例</view>
 	</view>
 	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/login/login">
 		<view class="nav_img">

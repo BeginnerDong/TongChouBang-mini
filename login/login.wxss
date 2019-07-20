@@ -39,14 +39,7 @@
   margin-right:15px;
   margin-left:50px;
 }
-.foot-container{
-  display:flex;
-  flex-direction:row;
-  color:grey;
-  font-size:15px;
-  margin-top:100px;
-  padding-left:40%;
-}
+
 button{
   font-family:PingFang-SC-Medium;
   margin-top:50px;
@@ -57,21 +50,65 @@ button{
   color:#ffffff;
   font-size:15px;
 }
+/**********注册、修改密码************/
+.foot-container{
+  display:flex;
+  justify-content:space-around;
+  margin-top:70px;
+}
+.footer-center{
+  display:flex;
+  flex-direction:row;
+  font-size:13px;
+  color:#6A6A6A;
+}
+
+
+/************注册、修改密码**********/
+
+
 .register{
   margin-right:5px;
 }
 .login{
   margin-left:5px;
 }
+/************免责条款***********/
+.login-container{
+ position:relative;
+}
 .mianze-container{
   display:flex;
   flex-direction:row;
+  text-align:center;
+  width:270px;
+  padding:0x 8%;
+  margin-left:17%;
+  margin-top:1%;
+  position:absolute;
 }
-.mianze-container .tips{
-  width:100px;
-  height:50px;
+.mianze{
+  display:flex;
+  flex-direction:row;
 }
-.mianze-container .icon{
-  width:50px;
-  height:10px;
+
+.tips image{
+  width:12px;
+  height:13px;
+  align-items: center;
 }
+.icon image{
+  width:15px;
+  height:13px;
+  align-items: center;
+}
+.exceptions{
+  font-size:8px;
+  color:#6A6A6A;
+  height:13px;
+  margin:8px 8px 0px 8px;
+  align-items: center;
+}
+/************免责条款*********/
+
+

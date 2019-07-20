@@ -34,9 +34,9 @@
 
 .myOrders{
  width:88%;
- height:134px;
+ height:110px;
  margin-top:-30px;
- box-shadow:1px 1px 8px #9E9E9E;
+ box-shadow:1px 1px 5px #9E9E9E;
  border-radius:8px;
  padding:20px 0% 20px 0%;
  background-color:#ffffff;
@@ -52,15 +52,15 @@
   margin:0px 10px;
   padding-bottom:10px;
   font-size:14px;
-  border-bottom:1px solid lightgrey;
+  border-bottom:1px solid #F1F1F1;
 }
 .banner .title{
   color:#4A4A4A;
   font-size:14px;
 }
 .banner image{
-  width:8px;
-  height:8px;
+  width:7px;
+  height:7px;
 }
 .state-container{
   display:flex;
@@ -83,17 +83,17 @@
 
 .enter-container{
   width:79%;
-  box-shadow:1px 1px 8px #9E9E9E;
+  box-shadow:1px 1px 5px #9E9E9E;
   margin:25px 0px 220px 0px;
   border-radius:8px;
-  padding:10px 20px 0px 15px;
+  padding:9px 20px 0px 15px;
 }
 .apply-enter{
   display:flex;
   justify-content:space-between;
-  border-bottom:1px solid lightgrey;
-  padding-bottom:15px;
-  margin-top:15px;
+  border-bottom:1px solid #F1F1F1;
+  padding-bottom:8px;
+  margin-top:8px;
 }
 .apply-text{
  display:flex;
@@ -109,4 +109,14 @@
 .home-img{
   width:8px;
   height:8px;
+}
+
+.circel-nav{
+	width: 25%;
+	text-align: center;
+}
+.circel-nav image{
+	width: 90rpx;
+	height: 90rpx;
+	margin: 50rpx 0rpx 30rpx;
 }

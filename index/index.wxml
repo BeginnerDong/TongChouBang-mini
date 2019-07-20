@@ -11,12 +11,13 @@
   <!--导航栏-->
 
   <!--搜索框-->
-  <view class="center-container">
+  <view class="center-container" bindtap="search">
      <view class="search-container">
-        <input type="text" placeholder="搜索团建游、目的地等"/> 
-       <!-- <image src="#"/> -->
+        <input type="text" placeholder="搜索团建游、目的地等"/>
      </view>
-    <view><image src="/images/home-banner.png"/></view>
+      <view><image src="/images/home-banner.png"/></view>
+       <!-- <view class="search-img"><image src="/images/login-icon5.png"/></view>
+       <view></view> -->
   </view>
  <!--搜索框-->
 
@@ -56,11 +57,6 @@
                   <view class="neirong">内容内容内容</view>
                </view>
             </view>
-            </view>
-            <!--上海环球港-->
-
-             <!--上海环球港-->
-             <view class="center-content">
              
              <view class="center-little-container" bindtap="detail">
                <view><image src="/images/home-img2.png"/></view>
@@ -104,7 +100,7 @@
         <!--上海环球港-->
            <view class="center-content">
              
-             <view class="center-little-container">
+             <view class="center-little-container" bindtap="detail">
                <view><image src="/images/home-img2.png"/></view>
                <view class="img-text">
                   <view class="title">
@@ -115,7 +111,7 @@
                </view>
             </view>
 
-             <view class="center-little-container">
+             <view class="center-little-container" bindtap="detail">
                <view><image src="/images/home-img2.png"/></view>
                <view class="img-text">
                   <view class="title">
@@ -125,13 +121,8 @@
                   <view class="neirong">内容内容内容</view>
                </view>
             </view>
-            </view>
-            <!--上海环球港-->
-
-             <!--上海环球港-->
-             <view class="center-content">
-             
-             <view class="center-little-container">
+  
+             <view class="center-little-container" bindtap="detail">
                <view><image src="/images/home-img2.png"/></view>
                <view class="img-text">
                   <view class="title">
@@ -142,7 +133,7 @@
                </view>
             </view>
             
-             <view class="center-little-container">
+             <view class="center-little-container" bindtap="detail">
                <view><image src="/images/home-img2.png"/></view>
                <view class="img-text">
                   <view class="title">
@@ -173,7 +164,7 @@
         <!--上海环球港-->
            <view class="center-content">
              
-             <view class="center-little-container">
+             <view class="center-little-container" bindtap="detail">
                <view><image src="/images/home-img2.png"/></view>
                <view class="img-text">
                   <view class="title">
@@ -184,7 +175,7 @@
                </view>
             </view>
 
-             <view class="center-little-container">
+             <view class="center-little-container" bindtap="detail">
                <view><image src="/images/home-img2.png"/></view>
                <view class="img-text">
                   <view class="title">
@@ -194,13 +185,8 @@
                   <view class="neirong">内容内容内容</view>
                </view>
             </view>
-            </view>
-            <!--上海环球港-->
-
-             <!--上海环球港-->
-             <view class="center-content">
              
-             <view class="center-little-container">
+             <view class="center-little-container" bindtap="detail">
                <view><image src="/images/home-img2.png"/></view>
                <view class="img-text">
                   <view class="title">
@@ -211,7 +197,7 @@
                </view>
             </view>
             
-             <view class="center-little-container">
+             <view class="center-little-container" bindtap="detail">
                <view><image src="/images/home-img2.png"/></view>
                <view class="img-text">
                   <view class="title">
@@ -242,7 +228,7 @@
         <!--上海环球港-->
            <view class="center-content">
              
-             <view class="center-little-container">
+             <view class="center-little-container" bindtap="detail">
                <view><image src="/images/home-img2.png"/></view>
                <view class="img-text">
                   <view class="title">
@@ -253,7 +239,7 @@
                </view>
             </view>
 
-             <view class="center-little-container">
+             <view class="center-little-container" bindtap="detail">
                <view><image src="/images/home-img2.png"/></view>
                <view class="img-text">
                   <view class="title">
@@ -263,13 +249,9 @@
                   <view class="neirong">内容内容内容</view>
                </view>
             </view>
-            </view>
-            <!--上海环球港-->
 
-             <!--上海环球港-->
-             <view class="center-content">
              
-             <view class="center-little-container">
+             <view class="center-little-container" bindtap="detail">
                <view><image src="/images/home-img2.png"/></view>
                <view class="img-text">
                   <view class="title">
@@ -280,7 +262,7 @@
                </view>
             </view>
             
-             <view class="center-little-container">
+             <view class="center-little-container" bindtap="detail">
                <view><image src="/images/home-img2.png"/></view>
                <view class="img-text">
                   <view class="title">

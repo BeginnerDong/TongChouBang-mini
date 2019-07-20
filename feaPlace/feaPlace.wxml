@@ -4,6 +4,7 @@
      <view class="search-container">
         <view><input type="text" placeholder="搜索您要找的" placeholder-style="margin-left:10px;"/></view>
          <view class="search-img"><image src="/images/login-icon5.png"/></view>
+         <view></view>
      </view>
     
     <!--搜索框-->

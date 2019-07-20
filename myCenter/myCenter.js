@@ -32,6 +32,21 @@ Page({
       url: '/pages/myOrder/myOrder'
     })
   },
+  applyEnter: function () {
+    wx.navigateTo({
+      url: '/pages/applyEnter/applyEnter'
+    })
+  },
+  helpCenter:function() {
+    wx.navigateTo({
+      url: '/pages/helpCenter/helpCenter'
+    })
+  },
+  connectUs: function () {
+    wx.navigateTo({
+      url: '/pages/connectUs/connectUs'
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -91,5 +106,10 @@ Page({
   intoPathRedirect(e) {
     const self = this;
     api.pathTo(api.getDataSet(e, 'path'), 'redi');
+  },
+  intoPath(e) {
+    const self = this;
+    api.pathTo(api.getDataSet(e, 'path'), 'nav');
   }
+
 })

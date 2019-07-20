@@ -50,7 +50,6 @@
 button{
   font-family:PingFang-SC-Medium;
   margin-top:50px;
-  margin-bottom:50px;
   width:270px;
   height:40px;
   background-color:#FF556f;
@@ -63,18 +62,6 @@ button{
 }
 .login{
   margin-left:2px;
-}
-.mianze-container{
-  display:flex;
-  flex-direction:row;
-}
-.mianze-container .tips{
-  width:100px;
-  height:50px;
-}
-.mianze-container .icon{
-  width:50px;
-  height:10px;
 }
 #img2{
   width:18px;
@@ -94,3 +81,32 @@ button{
   margin-right:18px;
   margin-left:48px;
 }
+/************免责条款***********/
+.mianze-container{
+  display:flex;
+  flex-direction:row;
+  padding:0x 8%;
+  margin:8px 0% 8px 14%;
+}
+.mianze{
+  display:flex;
+  flex-direction:row;
+}
+
+.tips image{
+  width:12px;
+  height:12px;
+}
+.icon image{
+  width:15px;
+  height:13px;
+}
+.exceptions{
+  font-size:8px;
+  color:#6A6A6A;
+  margin:8px 8px 0px 8px;
+}
+/************免责条款*********/
+
+
+

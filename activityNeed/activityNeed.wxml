@@ -34,9 +34,9 @@
       </view>
 
       <view class="container">
-          <view><text>验证码：</text></view>
-          <view><input type="text"/></view>
-          <view class="icon">获取验证码</view>     
+          <view style="width:50px;"><text>验证码：</text></view>
+          <view><input type="text" style="width:180px;"/></view>
+          <view class="icon" style="width:90px;">获取验证码</view>     
       </view>
 
       <view class="container">
@@ -57,15 +57,15 @@
 <view class="navbar">
 	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/index/index">
 		<view class="nav_img">
-			<image src="/images/nabar1-a.png"></image>
+			<image src="/images/nabar1.png"></image>
 		</view>
-		<view class="text this-text">首页</view>
+		<view class="text ">首页</view>
 	</view>
 	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/activityNeed/activityNeed">
 		<view class="nav_img">
-			<image src="/images/nabar2.png"></image>
+			<image src="/images/nabar2-a.png"></image>
 		</view>
-		<view class="text">需求</view>
+		<view class="text this-text">需求</view>
 	</view>
 	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/case/case">
 		<view class="nav_img">

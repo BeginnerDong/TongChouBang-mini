@@ -1,6 +1,16 @@
 <!--pages/addPingjia/addPingjia.wxml-->
 <view class="addPingjia-container">
    <view class="big-container">
+       <!--导航栏-->
+       <view class="banner-container">
+          <view class="item">全部</view>
+          <view class="item">待确认</view>
+          <view class="item">进行中</view>
+          <view class="active-item">待评价</view>
+          <view class="item">已评价</view>
+          <view class="item">已取消</view>
+       </view>
+       <!--导航栏-->
 
        <!--待添加评价-->
          <view class="pingjia-container">
@@ -8,7 +18,7 @@
                <view class="pingjia-container-text">
                   <view class="date-container">
                     <view class="date">交易时间:2018-08-30</view>
-                    <view class="tips"></view>
+                    <view class="tips">待评价</view>
                   </view>
                   <view class="img-text-container">
                     <view><image src="/images/details-img2.png"/></view>
@@ -21,7 +31,7 @@
                   <!--按钮-->
                   <view class="button">
                     <view></view>
-                    <view></view>
+                    <view><button>去评价</button></view>
                   </view>
                   <!--按钮-->
                </view>
@@ -31,7 +41,7 @@
                <view class="pingjia-container-text">
                   <view class="date-container">
                     <view class="date">交易时间:2018-08-30</view>
-                    <view class="tips"></view>
+                    <view class="tips">待评价</view>
                   </view>
                   <view class="img-text-container">
                     <view><image src="/images/details-img2.png"/></view>
@@ -44,37 +54,12 @@
                   <!--按钮-->
                   <view class="button">
                     <view></view>
-                    <view></view>
+                    <view><button>去评价</button></view>
                   </view>
                   <!--按钮-->
                </view>
              <!--一个待添加评价-->
          </view>
        <!--待添加评价-->
-
-<view class="add-area">
-<!--添加评价-->
-       <view class="star-container">
-                <view class="star-text">
-                   <view>星级评价</view>
-                   <view class="star">
-                      <view><image src="/images/evaluation-icon4.png"/></view>
-                      <view><image src="/images/evaluation-icon4.png"/></view>
-                      <view><image src="/images/evaluation-icon4.png"/></view>
-                      <view><image src="/images/evaluation-icon4.png"/></view>
-                      <view><image src="/images/evaluation-icon4.png"/></view>
-                   </view>
-                </view>
-                <view class="add">填写评价</view>
-        </view>
- <!--添加评价-->
-
-
- <!--评价区域  -->
-   <view class="textarea-container">
-     <view><textarea placeholder="请写下您对这次交易的看法" placeholder-style="font-size:12px;color:#999999;"/></view>
-   </view>
- <!--评价区域  -->
- </view>
    </view>
 </view>

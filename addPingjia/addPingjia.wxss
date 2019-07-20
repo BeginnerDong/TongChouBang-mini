@@ -4,45 +4,24 @@
   height:100%;
   margin:0;
   padding:0;
+  background-color:#F4F4F4;
+  padding-top:1px;
 }
-/*****************导航栏***************/
-.banner-container{
-  width:100%;
-  height:30px;
-  display:flex;
-  flex-direction:row;
-  padding:16px  6% 0px 6% ;
-  box-shadow:0.5px 0.5px 0.05px lightgray; 
-}
-.banner-container .active-item{
-  font-family:PingFang-SC-Bold;
-  font-size:15px;
-  margin-right:20px;
-  color:#FE546F;
-  padding-bottom:15px;
-  font-weight: bold;
-  border-bottom:2px solid #FE546F;
-}
-.banner-container .item{
-  font-family:PingFang-SC-Medium;
-  font-size:13px;
-  color:FEFEFE;
-  padding-bottom:15px;
-  margin-right:20px;
-}
-/******************导航栏**************/
 
 /******************待添加评价**************/
 .pingjia-container{
   font-family:PingFang-SC-Medium;
   padding:0px 0% 0px 6%;
+  background-color:#F4F4F4;
+  margin:0px 0px;
 }
 .pingjia-container-text{
   box-shadow:0.5px 0.5px 4px lightgray;
   width:89%;
-  height:165px;
-  padding:15px 0px 0px 15px;
+  height:125px;
+  padding:10px 0px 0px 15px;
   margin-top:15px;
+  background-color:#ffffff;
 }
 .img-text-container{
   display:flex;
@@ -67,20 +46,7 @@
   font-size:12px;
   margin-top:16px;
 }
-.button{
-  display:flex;
-  justify-content:space-between;
-  padding-right:15px;
-}
-button{
-  font-family:PingFang-SC-Regular;
-  width:65px;
-  height:25px;
-  color:#9E9E9E;
-  font-size:11px;
-  text-align:center;
-  padding-bottom:15px;
-}
+
 .date-container{
   display:flex;
   justify-content:space-between;
@@ -96,3 +62,55 @@ button{
   padding-right:15px;
 }
 /******************待添加评价*************/
+
+/******************星级评价*************/
+.add-area{
+background-color:#ffffff;
+margin-top:14px;
+}
+.star-container{
+  width:100%;
+  height:50px;
+  background-color:#ffffff;
+  padding:10px 6%;
+  font-size:14px;
+  color:#000000;
+}
+.star-text{
+  display:flex;
+  flex-direction:row;
+}
+.star{
+  display:flex;
+  flex-direction:row;
+  margin-left:45px;
+}
+.star-container image{
+  width:14px;
+  height:14px;
+  margin-right:6px;
+}
+.add{
+  margin-top:8px;
+}
+
+/******************星级评价*************/
+
+
+/******************评价区域*************/
+
+.textarea-container{
+  width:100%;
+  padding:0px 6%;
+  padding-bottom:40px;
+}
+
+textarea{
+width:80%;
+height:150px;
+padding:15px 15px;
+background-color:#F0F0F0;
+border-radius:4px;
+}
+
+/******************评价区域*************/

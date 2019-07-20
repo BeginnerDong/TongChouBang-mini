@@ -24,6 +24,16 @@
          <view><input type="text" placeholder="输入登录密码" placeholder-style="font-size:13px;color:#999999;"/></view>
       </view>
       <view class="button" bindtap="login"><button>注册</button></view>
+
+      <!--免责条款-->
+    <view class="mianze-container">
+     <view class="mianze">
+      <view class="tips"><image src="/images/login-icon5.png"/></view>
+      <view class="exceptions">免责条款</view>
+      <view class="icon"><image src="/images/login-icon4.png"/></view>
+    </view>
+   </view>
+      <!--免责条款-->
    </view> 
 </view>
 

@@ -1,0 +1,138 @@
+/* pages/applyEnter/applyEnter.wxss */
+/* pages/bookOrder/bookOrder.wxss */
+.bookOrder-container{
+width:100%;
+height:100%;
+margin:0;
+padding:0;
+font-family:PingFang-SC-Medium ;
+}
+.book-info{
+  width:100%;
+  margin:0px 4%;
+}
+.title{
+  font-size:14px;
+  color:#222222;
+  margin-top:25px; 
+  font-weight:bold;
+  padding-left:8px;
+  border-left:3px solid #FF556F;
+}
+.content{
+display:flex;
+flex-direction:row;
+margin-top:20px;
+padding-left:5px;
+}
+.tip{
+  color:#FF556F;
+  margin-right:5px;
+  margin-top:6px;
+}
+.little-title{
+font-size:12px;
+color:#666666;
+margin-right:10px;
+margin-top:6px;
+}
+input{
+  width:220px;
+  height:30px;
+  border:1px solid lightgrey;
+  padding-left:8px;
+}
+.book-info input{
+  width:231px;
+}
+.num-container{
+  display:flex;
+  flex-direction:row;
+  border:0.5px solid lightgrey;
+  margin-right:8px;
+}
+.num-container .icon{
+  width:24px;
+  height:23px;
+  color:#666666;
+  text-align:center;
+  background-color:#F4F4F4;
+  border-right:1px solid lightgrey;
+}
+.num-container .icon2{
+  width:24px;
+  height:23px;
+  color:#666666;
+  text-align:center;
+  background-color:#F4F4F4;
+  border-left:1px solid lightgrey;
+}
+.num-container input{
+  width:40px;
+  height:23px;
+  border:none;
+  font-size:14px;
+}
+.num-info{
+  font-size:9px;
+  color:#999999;
+  padding-top:8px;
+}
+textarea{
+  width:220px;
+  height:60px;  
+  border:1px solid lightgrey;
+  font-size:10px;
+  padding:5px;
+  margin-left:33px;
+  line-height:20px; 
+}
+
+
+.contact-info{
+  width:100%;
+  margin:0px 4%;
+}
+.contact-info input{
+  color:#666666;
+  font-size:10px;
+}
+.button{
+  text-align:center;
+  margin:80px 0px 50px 0px;
+  position:relative;
+}
+button{
+  width:70%; 
+  height:40px;
+  font-size:14px;
+  background-color:#FF556F;
+  color:#ffffff;
+}
+/************免责条款***********/
+.mianze{
+  display:flex;
+  flex-direction:row;
+  position:absolute;
+  margin-top:-33px;
+  margin-left:58px;
+}
+
+.tips image{
+  width:12px;
+  height:13px;
+  align-items: center;
+}
+.icon image{
+  width:15px;
+  height:13px;
+  align-items: center;
+}
+.exceptions{
+  font-size:8px;
+  color:#6A6A6A;
+  height:13px;
+  margin:8px 8px 0px 8px;
+  align-items: center;
+}
+/************免责条款*********/

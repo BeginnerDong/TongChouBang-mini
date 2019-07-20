@@ -14,27 +14,28 @@
 .search-container input{
   border:0.5px solid #D3D3D3;
   width:80%;
+  height:28px;
   border-radius:15px;
   box-shadow:1px 1px 8px #9E9E9E;
 }
 .search-img{
 width:60px;
-height:24px;
+height:28px;
 border-radius:15px;
 background-color:#FF556F; 
 margin-top:1px;
 text-align:center;
 padding-top:3px;
 position:absolute;
-margin-top:-27px;
-margin-left:250px;
+top:-2%;
+left:70%;
 }
 .search-container image{
   width:20px;
-  height:20px;
+  height:2px;
   position:absolute;
-  margin-top:-27px;
-  margin-left:260px;
+  margin-top:-28px;
+  left:200%;
 }
 /*********搜索框***********/
 .center-banner-container{

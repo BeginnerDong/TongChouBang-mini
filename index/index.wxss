@@ -14,7 +14,7 @@
   display:flex;
   flex-direction:row;
   text-align:center;
-  border-bottom:1px solid GREY;
+  border-bottom:1px solid lightgrey;
   font-family:PingFang-SC-Bold; 
 }
 .banner-container .item{
@@ -26,19 +26,24 @@
 
 /*********搜索框***********/
 .center-container{
+   width:100%;
    margin-bottom:15px;  
 }
-
 input{
-  width:96%;
-  height:30px;
+  width:84%;
+  height:28px;
+  margin-left:6%;
   padding-left:10px;
-  border:1px solid grey;
+  border:1px solid lightgrey;
   border-radius:20px;
   color:#999999;
   font-size:12px;
 }
-
+.center-container image{
+  width:88%;
+  height:160px;
+  margin-left:6%;
+}
 /*********搜索框***********/
 
 
@@ -56,20 +61,21 @@ input{
   display:flex;
   flex-direction:row; 
   background-color:white;
-  margin-top:20px;
+  margin-top:5px;
   padding-bottom:20px;
 }
 .nianhui .bg{
-  width:8%;
+  width:6%;
 }
 .nianhui .center{
   font-size:PingFang-SC-Bold;
-  width:84%;
+  width:88%;
 }
 
 .nianhui .center-content{
-  display:flex;
-  justify-content:space-between;
+ display:flex;
+ flex-direction:row;
+ flex-wrap:wrap;
 }
 .nianhui .title-container{
   margin:20px 0px 0px 0px;
@@ -77,15 +83,13 @@ input{
   justify-content:space-between; 
 }
 .nianhui .item{
- width:40%;
+ width:48%;
  height:20px;
  font-size:15px;
  color:#212121;
+ font-weight:bold;
 }
 .nianhui .more{
-
-
-  
  width:40%;
  height:20px;
  text-align:right; 
@@ -93,7 +97,8 @@ input{
  color:#C1C1C1;
 }
 .center-little-container{
-  width:48%;
+  width:47%;
+  margin:0px 1.5%;
 }
 
 .nianhui image{
@@ -101,8 +106,14 @@ input{
   height:134px;
   margin-top:15px;
 }
+.img-text{
+ padding:8px;
+ margin-top:-8px;
+ border:0.5px solid #F1F1F1;
+ 
+}
 .img-text .title{
-  display:flex;
+ display:flex;
  justify-content:space-between;
 }
 .img-text .title:first-child{
