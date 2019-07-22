@@ -7,6 +7,11 @@ Page({
   data: {
 
   },
+  search: function () {
+    wx.navigateTo({
+      url: '/pages/search/search'
+    })
+  },
   bookOrder: function () {
     wx.navigateTo({
       url: '/pages/bookOrder/bookOrder'

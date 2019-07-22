@@ -23,7 +23,7 @@
          <view><image src="/images/registered-icon5.png"/></view>
          <view><input type="text" placeholder="输入登录密码" placeholder-style="font-size:13px;color:#999999;"/></view>
       </view>
-      <view class="button" bindtap="login"><button>注册</button></view>
+      <view class="button"><button>注册</button></view>
 
       <!--免责条款-->
     <view class="mianze-container">

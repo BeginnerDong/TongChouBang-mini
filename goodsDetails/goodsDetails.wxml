@@ -81,7 +81,7 @@
       <view class="text">内容内容内容内容内容内容内容内容</view>
       <view class="ordre-info">
          <view class="price">￥<text>288</text>/人起</view>
-         <view class="button"><button>预定</button></view>
+         <view class="button" bindtap="bookOrder"><button>预定</button></view>
       </view>
   </view>
  
@@ -222,11 +222,11 @@
  <!--酒店图集-->
  <view class="jiudian-container">
     <view class="title">北京帝京豪庭酒店图集</view>
-    <view class="tuji">
-       <view><image src="/images/details-img3.png"/></view>
-       <view><image src="/images/details-img3.png"/></view>
-       <view><image src="/images/details-img3.png"/></view>
-    </view>
+    <scroll-view class="tuji" scroll-x="true">
+       <image src="/images/details-img3.png"/>
+       <image src="/images/details-img3.png"/>
+       <image src="/images/details-img3.png"/>
+    </scroll-view>
  </view>
  <!--酒店图集-->
 
@@ -241,7 +241,7 @@
  <!--历史活动-->
  <view class="his-container">
     <view class="title">历史活动</view>
-    <view class="his-content-container">
+    <scroll-view class="his-content-container" scroll-x="true">
    
     <view class="his-text">
        <view><image src="/images/details-img3.png"/></view>
@@ -267,7 +267,7 @@
        </view>
     </view>
 
-    </view>
+    </scroll-view>
  
  </view>
  <!--历史活动-->

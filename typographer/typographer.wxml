@@ -3,7 +3,7 @@
     <!--搜索框-->
      <view class="search-container">
         <view><input type="text" placeholder="搜索您要找的" placeholder-style="margin-left:10px;"/></view>
-         <view class="search-img"><image src="/images/login-icon5.png"/></view>
+         <view class="search-img" bindtap="search"><image src="/images/home-icon1.png"/></view>
      </view>
     
     <!--搜索框-->
@@ -22,13 +22,13 @@
            <view class="item"><text>场地类型</text></view>
          </view>
 
-           <view scroll-x="true" class="img-container">
-              <view><image src="/images/goods-img1.png"/></view>
-              <view><image src="/images/goods-img3.png"/></view>
-              <view><image src="/images/goods-img1.png"/></view>
-              <view><image src="/images/goods-img3.png"/></view>
-              <view><image src="/images/goods-img1.png"/></view>
-           </view>
+           <scroll-view class="img-container" scroll-x="true">
+              <image src="/images/goods-img1.png"/>
+              <image src="/images/goods-img3.png"/>
+              <image src="/images/goods-img1.png"/>
+              <image src="/images/goods-img3.png"/>
+              <image src="/images/goods-img1.png"/>
+           </scroll-view>
      <!-- 预订价格  -->
           <view class="price-container">
           <!-- 一个-->
@@ -40,7 +40,7 @@
                 <view class="text-cotainer">
                     <view class="title"><text>标题标题标题标题标题标题</text></view>
                     <view class="content"><text>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</text></view>
-                     <view class="tip-container">
+                     <view class="tip2-container">
                       <view class="now-price">现价:988元/起</view>
                       <view class="init-price">原价:1888元/起</view>
                       <view class="discount">7折</view>
@@ -68,7 +68,7 @@
                 <view class="text-cotainer">
                     <view class="title"><text>标题标题标题标题标题标题</text></view>
                     <view class="content"><text>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</text></view>
-                     <view class="tip-container">
+                     <view class="tip2-container">
                       <view class="now-price">现价:988元/起</view>
                       <view class="init-price">原价:1888元/起</view>
                       <view class="discount">7折</view>
@@ -98,7 +98,7 @@
                 <view class="text-cotainer">
                     <view class="title"><text>标题标题标题标题标题标题</text></view>
                     <view class="content"><text>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</text></view>
-                     <view class="tip-container">
+                     <view class="tip2-container">
                       <view class="now-price">现价:988元/起</view>
                       <view class="init-price">原价:1888元/起</view>
                       <view class="discount">7折</view>

@@ -1,16 +1,26 @@
 <!--index.wxml-->
 <view class="container">
   <!--导航栏-->
-  <view class="banner-container">
-     <view class="item">首页</view>
-     <view class="item" >特色会场</view>
-     <view class="item">印刷商</view>
-     <view class="item">找兼职</view>
-     <view class="item">店铺转让</view>
+  <scroll-view class='banner-container' scroll-x="true">
+  <view data-num="0" class="item {{num==0?'active-item':''}}" bindtap="menuClick">
+    <text>首页</text>
   </view>
-  <!--导航栏-->
-
-  <!--搜索框-->
+  <view data-num="1" class="item {{num==1?'active-item':''}}" bindtap="menuClick">
+    <text>特色会场</text>
+  </view>
+  <view data-num="2" class="item {{num==2?'active-item':''}}" bindtap="menuClick">
+    <text>印刷商</text>
+  </view>
+  <view data-num="3" class="item {{num==3?'active-item':''}}" bindtap="menuClick">
+    <text>找兼职</text>
+  </view>
+  <view data-num="4" class="item {{num==4?'active-item':''}}" bindtap="menuClick">
+    <text>店铺转让</text>
+  </view>
+</scroll-view>
+<!--导航栏-->
+<view style="width: 100%;height: 30rpx;"></view>
+<!--搜索框-->
   <view class="center-container" bindtap="search">
      <view class="search-container">
         <input type="text" placeholder="索团建游、目的地等"/>

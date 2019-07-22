@@ -5,14 +5,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    num:0,
+    winWidth: 0,
+    winHeight: 0,
   },
-
+  submit: function (e) {
+    var that = this;
+    //console.log(e);
+    that.setData({
+      num: e.currentTarget.dataset.num
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this;
+
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          winWidth: res.windowWidth,
+          winHeight: res.windowHeight
+        });
+      }
+    });
   },
 
   /**

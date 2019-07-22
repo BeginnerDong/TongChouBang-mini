@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+  num:0
   },
 
   /**
@@ -13,6 +13,18 @@ Page({
    */
   onLoad: function (options) {
   
+  },
+  menuClick: function (e) {
+    var that = this;
+    //console.log(e);
+    that.setData({
+      num: e.currentTarget.dataset.num
+    })
+  },
+  addPingjia: function () {
+    wx.navigateTo({
+      url: '/pages/addPingjia/addPingjia'
+    })
   },
 
   /**

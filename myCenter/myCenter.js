@@ -17,9 +17,9 @@ Page({
   data: {
   
   },
-  addPingjia: function () {
-    wx.navigateTo({
-      url: '/pages/addPingjia/addPingjia'
+  myOrder: function () {
+    wx.redirectTo({
+      url: '/pages/myOrder/myOrder'
     })
   },
   detail: function () {

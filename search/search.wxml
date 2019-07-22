@@ -190,7 +190,7 @@
     <!--内容-->
 
     <!--活动需求 -->
-        <view class="need" bindtap="activityNeed"><text>活动需求</text></view>
+        <view class="need" bindtap="activityNeed" style="top:{{winHeight-380}}px;left:{{winWidth-70}}px;"><text>活动需求</text></view>
     <!--活动需求 -->
 </view>
 

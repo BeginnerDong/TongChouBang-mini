@@ -141,7 +141,7 @@
 }
 .button button{
   width:60px;
-  height:25px;
+  height:24px;
   margin:-20px 0px 0px 120px;
   font-size:11px;
   color:#ffffff;
@@ -206,7 +206,7 @@
 .taocan-container button{
   width:200px;
   margin-top:30px;
-  height:35px;
+  height:32px;
   font-size:14px;
   color:#ffffff;
   background-color:#FF556B;
@@ -221,8 +221,7 @@
 .banner-container{
   width:90%;
   display:flex;
-  flex-direction:row;
-  flex-wrap:wrap;
+  white-space:nowrap;
   background-color:#ffffff;
   padding:15px 0% 0px 6%;
 }
@@ -304,15 +303,14 @@
 }
 .jiudian-container .tuji{
   display:flex;
-  flex-direction:row;
-  padding:0px;
-  margin:0px;
+  white-space:nowrap;
   width:100%;
 }
 .jiudian-container image{
   width:130px;
   height:100px;
   margin-right:15px;
+  display:inline-block;
 }
 /*************酒店图集**********/
 
@@ -347,7 +345,11 @@
 }
 .his-content-container{
   display:flex;
-  flex-direction:row;
+  white-space:nowrap;
+  width:100%;
+}
+.his-content-container .his-text{
+  display:inline-block;
 }
 .his-container image{
   width:106px;
@@ -378,7 +380,7 @@
 
 .star-container{
   display:flex;
-  flex-direction:row;
+  white-space:nowrap;
   text-align:right;
   border-top:1px solid #EBEBEB;
   padding-top:15px;

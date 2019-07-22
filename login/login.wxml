@@ -16,7 +16,7 @@
 
     <view class="button" bindtap="myCenter"><button>登录</button></view>
     
-    <view class="mianze-container">
+    <view class="mianze-container" bindtap="isShow">
      <view class="mianze">
        <view class="tips"><image src="/images/login-icon5.png"/></view>
        <view class="exceptions">免责条款</view>
@@ -35,5 +35,19 @@
      </view> 
      <view></view>
    </view> 
-
+ <!--弹框-->
+  
+    <!--弹框-->
 </view>
+
+ <view class="model-container"  wx:if="{{web_show}}"> 
+	<view class="model">
+	  <view class="close">免责条款</view>
+	    <view class="con">1.内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容.</view>
+	    <view class=".text"><text>1.内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容.</text></view>
+	    <view class="close2"  bindtap="isShow">
+			<image  src="../../images/login-icon5.png" />
+		</view>
+	 </view>
+ </view>
+   

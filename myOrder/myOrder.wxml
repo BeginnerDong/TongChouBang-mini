@@ -2,14 +2,14 @@
 <view class="addPingjia-container">
    <view class="big-container">
        <!--导航栏-->
-       <view class="banner-container">
-          <view class="item">全部</view>
-          <view class="item">待确认</view>
-          <view class="item">进行中</view>
-          <view class="active-item">待评价</view>
-          <view class="item">已评价</view>
-          <view class="item">已取消</view>
-       </view>
+       <scroll-view class="banner-container" scroll-x="true">
+          <view data-num="0" class="item {{num==0?'active-item':''}}" bindtap="menuClick">全部</view>
+          <view data-num="1" class="item {{num==1?'active-item':''}}" bindtap="menuClick">待确认</view>
+          <view data-num="2" class="item {{num==2?'active-item':''}}" bindtap="menuClick">进行中</view>
+          <view data-num="3" class="item {{num==3?'active-item':''}}" bindtap="menuClick">待评价</view>
+          <view data-num="4" class="item {{num==4?'active-item':''}}" bindtap="menuClick">已评价</view>
+          <view data-num="5" class="item {{num==5?'active-item':''}}" bindtap="menuClick">已取消</view>
+       </scroll-view>
        <!--导航栏-->
 
        <!--待添加评价-->
@@ -29,7 +29,7 @@
                     </view>
                   </view>
                   <!--按钮-->
-                  <view class="button">
+                  <view class="button" bindtap="addPingjia">
                     <view></view>
                     <view><button>去评价</button></view>
                   </view>
@@ -52,7 +52,7 @@
                     </view>
                   </view>
                   <!--按钮-->
-                  <view class="button">
+                  <view class="button" bindtap="addPingjia">
                     <view></view>
                     <view><button>去评价</button></view>
                   </view>

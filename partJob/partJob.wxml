@@ -2,8 +2,8 @@
 <view style="background-color:#F5F5F5;padding-top:10px;position:relative;">
     <!--搜索框-->
      <view class="search-container">
-        <view><input type="text" placeholder="搜索您要找的" placeholder-style="margin-left:10px;"/></view>
-         <view class="search-img"><image src="/images/login-icon5.png"/></view>
+        <view><input type="text"  disabled="true"  placeholder="搜索您要找的" placeholder-style="margin-left:10px;"/></view>
+         <view class="search-img" bindtap="search"><image src="/images/home-icon1.png"/></view>
      </view>
     
     <!--搜索框-->
@@ -44,7 +44,7 @@
                 <view class="text-cotainer">
                     <view class="title"><text>标题标题标题标题标题标题</text></view>
                     <view class="content"><text>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</text></view>
-                     <view class="tip-container">
+                     <view class="tip2-container">
                       <view class="now-price">现价:988元/起</view>
                       <view class="init-price">原价:1888元/起</view>
                       <view class="discount">7折</view>
@@ -72,7 +72,7 @@
                 <view class="text-cotainer">
                     <view class="title"><text>标题标题标题标题标题标题</text></view>
                     <view class="content"><text>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</text></view>
-                     <view class="tip-container">
+                     <view class="tip2-container">
                       <view class="now-price">现价:988元/起</view>
                       <view class="init-price">原价:1888元/起</view>
                       <view class="discount">7折</view>
@@ -102,7 +102,7 @@
                 <view class="text-cotainer">
                     <view class="title"><text>标题标题标题标题标题标题</text></view>
                     <view class="content"><text>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</text></view>
-                     <view class="tip-container">
+                     <view class="tip2-container">
                       <view class="now-price">现价:988元/起</view>
                       <view class="init-price">原价:1888元/起</view>
                       <view class="discount">7折</view>

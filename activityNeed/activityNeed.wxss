@@ -51,12 +51,16 @@ image{
 }
 .button{
   text-align:center;
-  margin:70px 0px 60px 0px;
+  margin:70px 0px 90px 0px;
 }
 button{
-  width:280px;
-  height:35px;
+  width:270px;
+  height:32px;
   background-color:#FE546F;
   color:#ffffff;
+  font-size:12px;
+}
+input{
+  color:#212121;
   font-size:12px;
 }

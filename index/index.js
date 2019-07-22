@@ -14,7 +14,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    num: 0
   },
   detail: function () {
     wx.navigateTo({
@@ -26,6 +26,35 @@ Page({
       url: '/pages/search/search'
     })
   },
+ menuClick: function (e) {
+   var that=this;
+   //console.log(e);
+   var num = e.currentTarget.dataset.num;
+   that.setData({
+     num: e.currentTarget.dataset.num
+   })
+   if (num==0){
+     wx.navigateTo({
+       url: '/pages/index/index'
+     })
+   } else if (num == 1){
+     wx.navigateTo({
+       url: '/pages/feaPlace/feaPlace'
+     })
+   } else if (num == 2) {
+     wx.navigateTo({
+       url: '/pages/typographer/typographer'
+     })
+   } else if (num == 3) {
+     wx.navigateTo({
+       url: '/pages/partJob/partJob'
+     })
+   } else if (num == 4) {
+     wx.navigateTo({
+       url: '/pages/shopTransfer/shopTransfer'
+     })
+   }
+ },
 
   /**
    * 生命周期函数--监听页面加载
