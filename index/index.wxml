@@ -13,7 +13,7 @@
   <!--搜索框-->
   <view class="center-container" bindtap="search">
      <view class="search-container">
-        <input type="text" placeholder="搜索团建游、目的地等"/>
+        <input type="text" placeholder="索团建游、目的地等"/>
      </view>
       <view><image src="/images/home-banner.png"/></view>
        <!-- <view class="search-img"><image src="/images/login-icon5.png"/></view>
