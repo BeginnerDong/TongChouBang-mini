@@ -8,7 +8,7 @@ Page({
   
   },
   login: function () {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/login/login'
     })
   },

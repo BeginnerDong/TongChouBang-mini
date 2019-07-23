@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
@@ -101,6 +101,66 @@
 					"id": 12,
 					"name": "预约订单",
 					"pathName": "pages/bookOrder/bookOrder",
+					"query": ""
+				},
+				{
+					"id": 12,
+					"name": "特色会场",
+					"pathName": "pages/feaPlace/feaPlace",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商品详情",
+					"pathName": "pages/goodsDetails/goodsDetails",
+					"query": ""
+				},
+				{
+					"id": 14,
+					"name": "印刷商",
+					"pathName": "pages/typographer/typographer",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "找兼职",
+					"pathName": "pages/partJob/partJob",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "店铺转让",
+					"pathName": "pages/shopTransfer/shopTransfer",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "搜索页",
+					"pathName": "pages/search/search",
+					"query": ""
+				},
+				{
+					"id": 18,
+					"name": "我的订单",
+					"pathName": "pages/myOrder/myOrder",
+					"query": ""
+				},
+				{
+					"id": 19,
+					"name": "评价订单",
+					"pathName": "pages/addPingjia/addPingjia",
+					"query": ""
+				},
+				{
+					"id": 20,
+					"name": "申请入驻",
+					"pathName": "pages/applyEnter/applyEnter",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/myCenter/myCenter",
 					"query": ""
 				}
 			]

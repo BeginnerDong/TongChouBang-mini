@@ -1,2 +1,0 @@
-# TongChouBang-mini
-miniprogram

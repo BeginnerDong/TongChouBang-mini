@@ -5,13 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+     show:false
   },
  myCenter: function () {
     wx.navigateTo({
       url: '/pages/myCenter/myCenter'
     })
   },
+ myCenter: function () {
+   wx.navigateTo({
+     url: '/pages/myCenter/myCenter'
+   })
+ },
 
   register: function () {
     wx.navigateTo({
@@ -28,9 +33,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+	this.setData({
+		web_show:this.data.show
+	})
   },
-
+	
+	
+	isShow(){
+		this.data.show =!this.data.show
+		this.setData({
+			web_show:this.data.show
+		})
+	},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -14,7 +14,14 @@
     "pages/connectUs/connectUs",
     "pages/activityNeed/activityNeed",
     "pages/myCenter/myCenter",
-    "pages/bookOrder/bookOrder"
+    "pages/bookOrder/bookOrder",
+    "pages/feaPlace/feaPlace",
+    "pages/typographer/typographer",
+    "pages/partJob/partJob",
+    "pages/shopTransfer/shopTransfer",
+    "pages/search/search",
+    "pages/myOrder/myOrder",
+    "pages/applyEnter/applyEnter"
   ],
   "window": {
     "backgroundTextStyle": "light",

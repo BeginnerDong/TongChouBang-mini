@@ -2,24 +2,33 @@
 <view class="case-container">
   <!--搜索框-->
      <view class="search-container">
-        <input type="text" placeholder="搜索案例"/> 
+         <view><input type="text" placeholder="搜索案例" placeholder-style="margin-left:10px;"/></view>
+         <view class="search-img" bindtap="search"><image src="/images/home-icon1.png"/></view>
      </view>
  <!--搜索框-->
 
  <!--导航栏-->
-  <view class="banner-container">
-     <view class="active-item">首页</view>
-     <view class="item" >特色会场</view>
-     <view class="item">印刷商</view>
-     <view class="item">找兼职</view>
-     <view class="item">店铺转让</view>
-     <view class="item">会议自助餐</view>
+  <scroll-view class='banner-container' scroll-x="true">
+  <view data-num="0" class="item {{num==0?'active-item':''}}" bindtap="menuClick">
+    <text>首页</text>
   </view>
+  <view data-num="1" class="item {{num==1?'active-item':''}}" bindtap="menuClick">
+    <text>特色会场</text>
+  </view>
+  <view data-num="2" class="item {{num==2?'active-item':''}}" bindtap="menuClick">
+    <text>印刷商</text>
+  </view>
+  <view data-num="3" class="item {{num==3?'active-item':''}}" bindtap="menuClick">
+    <text>找兼职</text>
+  </view>
+  <view data-num="4" class="item {{num==4?'active-item':''}}" bindtap="menuClick">
+    <text>店铺转让</text>
+  </view>
+</scroll-view>
   <!--导航栏-->
 
   <!--精选案例-->
     <view  class="jingxuan-case">
-       <view class="bg"></view>
       
           <view class="case-center">
              <!--一个案例-->
@@ -64,8 +73,6 @@
                </view>
              <!--一个案例-->
           </view>
-      
-      <view class="bg"></view>
     </view>
   <!--精选案例-->
 </view>
@@ -74,9 +81,9 @@
 <view class="navbar">
 	<view class="navbar_item">
 		<view class="nav_img">
-			<image src="/images/nabar1-a.png"></image>
+			<image src="/images/nabar1.png"></image>
 		</view>
-		<view class="text this-text">首页</view>
+		<view class="text">首页</view>
 	</view>
 	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/activityNeed/activityNeed">
 		<view class="nav_img">
@@ -86,9 +93,9 @@
 	</view>
 	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/case/case">
 		<view class="nav_img">
-			<image src="/images/nabar3.png" style="width: 50rpx;"></image>
+			<image src="/images/nabar3-a.png" style="width: 50rpx;"></image>
 		</view>
-		<view class="text">案例</view>
+		<view class="text this-text">案例</view>
 	</view>
 	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/login/login">
 		<view class="nav_img">

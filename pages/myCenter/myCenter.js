@@ -17,9 +17,34 @@ Page({
   data: {
   
   },
-  addPingjia: function () {
+  myOrder: function () {
+    wx.redirectTo({
+      url: '/pages/myOrder/myOrder'
+    })
+  },
+  detail: function () {
     wx.navigateTo({
-      url: '/pages/addPingjia/addPingjia'
+      url: '/pages/goodsDetails/goodsDetails'
+    })
+  },
+  myOrder: function () {
+    wx.navigateTo({
+      url: '/pages/myOrder/myOrder'
+    })
+  },
+  applyEnter: function () {
+    wx.navigateTo({
+      url: '/pages/applyEnter/applyEnter'
+    })
+  },
+  helpCenter:function() {
+    wx.navigateTo({
+      url: '/pages/helpCenter/helpCenter'
+    })
+  },
+  connectUs: function () {
+    wx.navigateTo({
+      url: '/pages/connectUs/connectUs'
     })
   },
 
@@ -81,5 +106,10 @@ Page({
   intoPathRedirect(e) {
     const self = this;
     api.pathTo(api.getDataSet(e, 'path'), 'redi');
+  },
+  intoPath(e) {
+    const self = this;
+    api.pathTo(api.getDataSet(e, 'path'), 'nav');
   }
+
 })

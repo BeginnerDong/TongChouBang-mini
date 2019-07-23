@@ -15,7 +15,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+  num:0
+  },
+  menuClick: function (e) {
+    console.log(e);
+    this.setData({
+      num: e.currentTarget.dataset.num
+    })
+    },
+  search: function () {
+    wx.navigateTo({
+      url: '/pages/search/search'
+    })
   },
   caseDetail: function () {
     wx.navigateTo({
