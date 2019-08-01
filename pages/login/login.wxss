@@ -121,7 +121,7 @@ button{
   align-items: center;
 }
 /************免责条款*********/
-
+@import "../../wxParse/wxParse.wxss";
 /************弹框*********/
 .model{
 height:80%;
@@ -146,7 +146,10 @@ margin-bottom:10px;
   } 
   .model .close2{
 text-align:center;
-margin-top:100%;
+position: absolute;
+top: 80%;
+left: 50%;
+
 } 
 .close2 image{
 	width: 15px;

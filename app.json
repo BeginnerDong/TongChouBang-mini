@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/goodsDetails/goodsDetails",
+	 "pages/goodsDetailsTwo/goodsDetailsTwo",
     "pages/case/case",
     "pages/caseDetails/caseDetails",
     "pages/helpCenter/helpCenter",
@@ -21,12 +22,17 @@
     "pages/shopTransfer/shopTransfer",
     "pages/search/search",
     "pages/myOrder/myOrder",
-    "pages/applyEnter/applyEnter"
+    "pages/conferenceBuffet/conferenceBuffet",
+	"pages/lease/lease",
+	"pages/advertising/advertising",
+	"pages/giftPurchasing/giftPurchasing",
+	"pages/applyEnter/applyEnter"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#FE546F",
     "navigationBarTitleText": "首页",
     "navigationBarTextStyle": "white"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

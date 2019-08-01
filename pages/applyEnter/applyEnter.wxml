@@ -9,7 +9,8 @@
          <view class="content">
             <view class="tip"><text>*</text></view>
             <view class="little-title"><text>手机号码</text></view>
-            <view><input type="text" placeholder="请输入手机号" placeholder-style="color:#666666;font-size:10px;"/></view>
+            <view><input type="text" placeholder="请输入手机号" placeholder-style="color:#666666;font-size:10px;"
+			 value="{{web_submitData.phone}}"  data-key="phone" bindblur="bindInputChange"/></view>
          </view>
 
          <view class="content">
@@ -27,33 +28,50 @@
             <view class="content">
               <view class="tip"><text>*</text></view>
               <view class="little-title"><text>联系人姓名</text></view>
-              <view><input type="text" placeholder="请输入联系人姓名,只需填写一位"/></view>
+              <view><input type="text" placeholder="请输入联系人姓名,只需填写一位"  
+			  value="{{web_submitData.title}}"  data-key="title" bindblur="bindInputChange"/></view>
             </view>
 
             <view class="content">
               <view class="tip"><text>*</text></view>
               <view class="little-title" style="margin-right:20px;"><text>商家名称</text></view>
-              <view><input type="text" placeholder="请输入商家名称"/></view>
+              <view><input type="text" placeholder="请输入商家名称"  
+			  value="{{web_submitData.title}}"  data-key="title" bindblur="bindInputChange"/></view>
             </view>
 
 
             <view class="content">
               <view class="tip"><text>*</text></view>
               <view class="little-title" style="margin-right:20px;"><text>服务类型</text></view>
-              <view><input type="text" placeholder="请输入服务类型"/></view>
+              <view>
+				  <view style="width: 440rpx;height:290rpx;border:1px solid lightgrey;display: flex;flex-wrap: wrap;">
+					  <block wx:for="{{type}}">
+						  <view style="width: 50%;height:70rpx;display: flex;">
+						  	<view style="width: 20%;display: flex;align-items: center;justify-content: center;" bindtap="selectType" data-index="{{index}}">
+						  		<view style="width: 10px;height:10px;border:1px solid lightgrey;{{item.isSelect?'background: #FF556F':''}}"></view>
+						  	</view>
+						  	<view style="line-height: 70rpx;font-size: 12px;">{{item.name}}</view>
+						  </view>
+					  </block>
+						
+				  </view>
+			  </view>
             </view>
 
             <view class="content">
               <view class="tip"><text>*</text></view>
               <view class="little-title" style="margin-right:20px;"><text>所在城市</text></view>
-              <view><input type="text" placeholder="请选择"/></view>
+              <view><picker  bindchange="cityChange"  style="color: #666666;font-size: 10px;width: 220px;height: 30px;line-height:30px;border: 1px solid lightgrey;padding-left: 8px;" mode="selector" range="{{web_cityData}}" range-key="title">
+				{{web_cityData[web_index].title?web_cityData[web_index].title:'请选择'}}
+			  </picker></view>
             </view>
 
 
           <view class="content">
             <view><text></text></view>
             <view class="little-title"><text style="margin-left:15px;">备注</text></view>
-            <view><textarea type="text" placeholder="请简单描述...（非必填）" placeholder-style="font-size:10px;color:#999999;"/></view>
+            <view><textarea type="text" placeholder="请简单描述...（非必填）" placeholder-style="font-size:10px;color:#999999;" 
+			value="{{web_submitData.content}}"  data-key="content" bindblur="bindInputChange"/></view>
          </view>
         </view>    
     <!--商家信息-->
@@ -62,11 +80,11 @@
 
       <view class="button">
         <view class="mianze">
-          <view class="tips"><image src="/images/login-icon5.png"/></view>
+          <view class="tips" bindtap="read"><image src="{{web_isRead?'/images/login-icon6.png':'/images/login-icon5.png'}}"/></view>
           <view class="exceptions">免责条款</view>
           <view class="icon"><image src="/images/login-icon4.png"/></view>
         </view>
-        <view><button>提交</button></view>
+        <view ><button bindtap="{{web_buttonCanClick?'submit':''}}">提交</button></view>
       </view>
 
     <!--按钮-->

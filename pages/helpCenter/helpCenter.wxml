@@ -1,32 +1,15 @@
 <!--pages/helpCenter/helpCenter.wxml-->
 <view  class="helpCenter-container">
    <view class="helpCenter">
+	   <block wx:for="{{web_mainData}}">
+		   
+		   <view class="text-container" bindtap="intoPath" data-path="/pages/helpCenterDetails/helpCenterDetails?id={{item.id}}">
+		       <view class="title">{{item.title}}</view>
+		       <view class="text">{{item.description}}</view>
+		   </view>
+	   </block>
       <!--一个图文消息-->
-         <view class="text-container">
-             <view class="title">标题标题标题标题标题标题</view>
-             <view class="text">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</view>
-         </view>
-      <!--一个图文消息-->
-
-      <!--一个图文消息-->
-         <view class="text-container">
-             <view class="title">标题标题标题标题标题标题</view>
-             <view class="text">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</view>
-         </view>
-      <!--一个图文消息-->
-
-      <!--一个图文消息-->
-         <view class="text-container">
-             <view class="title">标题标题标题标题标题标题</view>
-             <view class="text">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</view>
-         </view>
-      <!--一个图文消息-->
-
-      <!--一个图文消息-->
-         <view class="text-container">
-             <view class="title">标题标题标题标题标题标题</view>
-             <view class="text">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</view>
-         </view>
+         
       <!--一个图文消息-->
    </view>
 </view>

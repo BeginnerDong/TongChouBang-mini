@@ -1,86 +1,132 @@
-// pages/search/search.js
+import {
+	Api
+} from '../../utils/api.js';
+const api = new Api();
+const app = getApp();
+import {
+	Token
+} from '../../utils/token.js';
+const token = new Token();
+
+
+
 Page({
+	data: {
+		num: '',
+		mainData: [],
+		searchItem: {},
+		isFirstLoadAllStandard: ['getMainData'],
+		labelData:[]
+	},
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    winWidth: 0,
-    winHeight: 0,
-  },
-  bookOrder: function () {
-    wx.navigateTo({
-      url: '/pages/bookOrder/bookOrder'
-    })
-  },
-  activityNeed: function () {
-    wx.navigateTo({
-      url: '/pages/activityNeed/activityNeed'
-    })
-  },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    var that = this;
+	onLoad(options) {
+		const self = this;
+		api.commonInit(self);
+		console.log(options)
+		self.data.title = options.title;
+		self.getLabelData();
+		
 
-    wx.getSystemInfo({
-      success: function (res) {
-        that.setData({
-          winWidth: res.windowWidth,
-          winHeight: res.windowHeight
-         });
-      }
-    });
-  },
+	},
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+	onShow() {
+		const self = this;
 
-  },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+	},
+	getLabelData() {
+		var self = this;
+		var postData = {};
 
-  },
+		postData.searchItem = api.cloneForm(self.data.searchItem);
+		postData.getBefore = {
+			Label: {
+				tableName: 'Label',
+				middleKey: 'parentid',
+				key: 'id',
+				searchItem: {
+					title: ['in', ['精选案例']]
+				},
+				condition: 'in'
+			}
+		};
+		postData.order = {
+			listorder: 'desc'
+		};
+		var callback = function(res) {
+			if (res.info.data.length > 0) {
+				self.data.labelData.push.apply(self.data.labelData, res.info.data);
+				self.data.num = self.data.labelData[0].id; 
+				self.data.searchItem.menu_id = self.data.num
+			}
+			self.setData({
+				num:self.data.num,
+				web_labelData: self.data.labelData,
+			});
+			self.getMainData()
+		};
+		api.labelGet(postData, callback);
+	},
+	
+	
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
 
-  },
+	getMainData(isNew) {
+		const self = this;
+		if (isNew) {
+			api.clearPageIndex(self);
+		};
+		const postData = {};
+		postData.paginate = api.cloneForm(self.data.paginate);
+		postData.searchItem = {
+			title: ['LIKE', ['%' + self.data.title + '%']]
+		}
+		postData.order = {
+			listorder: 'desc'
+		};
+		const callback = (res) => {
+			if (res.solely_code == 100000) {
+				if (res.info.data.length > 0) {
+					self.data.mainData.push.apply(self.data.mainData, res.info.data);
+				} else {
+					self.data.isLoadAll = true;
+					api.showToast('没有更多了', 'none', 1000);
+				};
+				api.buttonCanClick(self, true);
+				api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self);
+				self.setData({
+					web_mainData: self.data.mainData,
+				});
+			} else {
+				api.showToast('网络故障', 'none')
+			}
+		};
+		api.productGet(postData, callback);
+	},
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
 
-  },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
 
-  },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
 
-  },
+	onReachBottom() {
+		const self = this;
+		if (!self.data.isLoadAll && self.data.buttonCanClick) {
+			self.data.paginate.currentPage++;
+			self.getMainData();
+		};
+	},
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+	intoPath(e) {
+		const self = this;
+		api.pathTo(api.getDataSet(e, 'path'), 'nav');
+	},
 
-  }
+	intoPathRedi(e) {
+		const self = this;
+		api.pathTo(api.getDataSet(e, 'path'), 'redi');
+	},
+
+
 })

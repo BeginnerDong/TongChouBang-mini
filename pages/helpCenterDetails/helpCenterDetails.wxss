@@ -31,3 +31,4 @@
   margin-top:15px;
   line-height:20px;
 }
+@import "../../wxParse/wxParse.wxss";

@@ -1,383 +1,307 @@
 <!--pages/goodsDetails/goodsDetails.wxml-->
-<view class="detail-img"><image src="/images/details-img1.png"/></view>
+
+<swiper class="detail-img" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+ interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+
+	<block wx:for="{{web_mainData.bannerImg}}" wx:index="{{index}}">
+		<swiper-item class="swiper-item" style="height:190px">
+			<image style="height:190px;width: 100%;" mode="aspectFill" src="{{item.url}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}" />
+		</swiper-item>
+	</block>
+</swiper>
 <!--详情  -->
 <view class="detail-container">
-<!--标题-->
-<view class="title-container">
-  <view class="title">标题标题标题标题</view>
-  <view class="price-container">
-    <view><text>价格:￥566</text></view>
-    <view><text>优惠价格:￥522</text></view>
-  </view>
-  </view>
-<!--标题-->
 
-<!--类别-->
-<view class="cate-container">
-  <view class="title-container">
-    <view class="cate">类别： 特色会场<span></span>￥566</view>
-    <view>地区: 北京区</view>
-  </view>
-   <view class="address">详细地址：北京区</view>
-  </view>
-<!--类别-->
+	<!--标题-->
+	<view class="title-container">
+		<view class="title">{{web_mainData.title}}</view>
+		<view class="price-container">
+			<view><text>价格:￥{{web_mainData.price}}</text></view>
+			<view><text>优惠价格:￥{{web_mainData.score}}</text></view>
+		</view>
+	</view>
+	<!--标题-->
 
-<!--中间-->
-<view class="center">
+	<!--类别-->
+	<view class="cate-container">
+		<view class="title-container">
+			<view class="cate">类别： {{web_mainData.category[0].title}}<span></span>￥{{web_mainData.score}}</view>
+			<view>地区: {{web_mainData.passage2}}</view>
+		</view>
+		<view class="address">详细地址：{{web_mainData.address}}</view>
+	</view>
+	<!--类别-->
 
-<!--会场介绍-->
-<view class="huichang-container">
-  
-  <view class="mianji-container">
-    <view ><image src="/images/details-icon1.png"/></view>
-    <view class="mianji">60-550m</view>
-    <view class="text">会场面积</view>
-  </view>
+	<!--中间-->
+	<view class="center">
 
-  <view class="mianji-container">
-    <view ><image src="/images/details-icon2.png"/></view>
-    <view class="mianji">60-550m</view>
-    <view class="text">容纳人数</view>
-  </view>
+		<!--会场介绍-->
+		<view class="huichang-container">
 
-  <view class="mianji-container">
-    <view ><image src="/images/details-icon3.png"/></view>
-    <view class="mianji">60-550m</view>
-    <view class="text">会场总数</view>
-  </view>
+			<view class="mianji-container">
+				<view>
+					<image src="/images/details-icon1.png" />
+				</view>
+				<view class="mianji">{{web_mainData.passage3[0]}}</view>
+				<view class="text">会场面积</view>
+			</view>
 
-  
-  <view class="mianji-container">
-    <view ><image src="/images/details-icon4.png"/></view>
-    <view class="mianji">60-550m</view>
-    <view class="text">会场参考价</view>
-  </view>
+			<view class="mianji-container">
+				<view>
+					<image src="/images/details-icon2.png" />
+				</view>
+				<view class="mianji">{{web_mainData.passage3[1]}}</view>
+				<view class="text">容纳人数</view>
+			</view>
 
-  <view class="mianji-container">
-    <view ><image src="/images/details-icon5.png"/></view>
-    <view class="mianji">60-550m</view>
-    <view class="text">客房数量</view>
-  </view>
-
-  <view class="mianji-container">
-    <view ><image src="/images/details-icon6.png"/></view>
-    <view class="mianji">60-550m</view>
-    <view class="text">停车位数</view>
-  </view>
-  
- </view>
-<!--会场介绍-->
- 
- 
- </view>
-
- <!--中间-->
-
-<!--会场预订-->
-<view class="order-container">
-  <view><image src="/images/details-img2.png"/></view>
-  <view class="order-text">
-      <view class="title">标题标题标题标题</view>
-      <view class="text">内容内容内容内容内容内容内容内容</view>
-      <view class="ordre-info">
-         <view class="price">￥<text>288</text>/人起</view>
-         <view class="button" bindtap="bookOrder"><button>预定</button></view>
-      </view>
-  </view>
- 
-</view>
- <!--会场预订-->
-
- <!--套餐A-->
-<view class="taocan-container" bindtap="bookOrder">
-  
-  <view class="banner">
-    <view>套餐名称</view>
-    <view>可用时段</view>
-    <view>价格</view>
-  </view>
-  <view class="banner-tips">
-    <view>A套餐单人含餐</view>
-    <view class="tips">0：00至24：00</view>
-    <view class="tips">￥288/人起</view>
-  </view>
-  <view>
-     <view class="detail">
-        <view><text>套餐信息：40人气起订，600平方米超大场地空间</text></view>
-        <view class="must"><text>预订须知：可用小时，40分起订，最多150人份</text></view>
-     </view>
-     <view><button>预定</button></view>
-  </view>
- 
-</view>
- <!--套餐A-->
+			<view class="mianji-container">
+				<view>
+					<image src="/images/details-icon3.png" />
+				</view>
+				<view class="mianji">{{web_mainData.passage3[2]}}</view>
+				<view class="text">会场总数</view>
+			</view>
 
 
-<!--套餐B-->
-<view class="taocan-container">
-  
-  <view class="banner">
-    <view>套餐名称</view>
-    <view>可用时段</view>
-    <view>价格</view>
-  </view>
-  <view class="banner-tips">
-    <view>B套餐单人含餐</view>
-    <view class="tips">0：00至24：00</view>
-    <view class="tips">￥288/人起</view>
-  </view>
-  <view>
-     <view class="detail">
-        <view><p>套餐信息：40人气起订，600平方米超大场地空间</p></view>
-        <view><p>预订须知：可用小时，40分起订，最多150人份</p></view>
-     </view>
-     <view><button>预定</button></view>
-  </view>
- 
-</view>
- <!--套餐B-->
+			<view class="mianji-container">
+				<view>
+					<image src="/images/details-icon4.png" />
+				</view>
+				<view class="mianji">{{web_mainData.passage3[3]}}</view>
+				<view class="text">会场参考价</view>
+			</view>
 
- <!--会议设施-->
-<view class="sheshi-container">
+			<view class="mianji-container">
+				<view>
+					<image src="/images/details-icon5.png" />
+				</view>
+				<view class="mianji">{{web_mainData.passage3[4]}}</view>
+				<view class="text">客房数量</view>
+			</view>
 
-  <!--设施顶部-->
-  <view class="sheshi-top">
-  <view class="banner-container">
-    <view class="title">会议设施</view>
-    <view class="item">
-      <view>投影仪</view>
-      <view>投影幕布</view>
-      <view>演讲台</view>
-      <view>白板</view>
-      <view>签到台</view>
-      <view>桌签</view>
-      <view>纸笔</view>     
-      <view>茶歇</view>
-    </view>
-  </view>
+			<view class="mianji-container">
+				<view>
+					<image src="/images/details-icon6.png" />
+				</view>
+				<view class="mianji">{{web_mainData.passage3[5]}}</view>
+				<view class="text">停车位数</view>
+			</view>
 
-  <view class="banner-container">
-    <view class="title">娱乐休闲</view>
-    <view class="item">
-      <view><text>电子游戏</text></view>
-      <view><text>KTV</text></view>
-      <view><text>桌游</text></view>
-      <view><text>桌球</text></view>
-      <view><text>麻将桌</text></view>
-    </view>
-  </view>
-
- <view class="banner-container">
-    <view class="title">娱乐休闲</view>
-    <view class="item">
-      <view><text>电子游戏</text></view>
-      <view><text>KTV</text></view>
-      <view><text>桌游</text></view>
-      <view><text>桌球</text></view>
-      <view><text>麻将桌</text></view>
-    </view>
-  </view>
-
- <view class="banner-container">
-    <view class="title">娱乐休闲</view>
-    <view class="item">
-      <view><text>电子游戏</text></view>
-      <view><text>KTV</text></view>
-      <view><text>桌游</text></view>
-      <view><text>桌球</text></view>
-      <view><text>麻将桌</text></view>
-    </view>
-  </view>
-
-<view class="banner-container">
-    <view class="title">通用设施</view>
-    <view class="item">
-      <view><text>WIFI</text></view>
-      <view><text>麦克风</text></view>
-      <view><text>有限宽带</text></view>
-      <view><text>音响</text></view>
-      <view><text>电脑</text></view>
-    </view>
-  </view>
-
-  </view>
-  <!--设施顶部-->
-  <view class="sheshi-content">
-    <p>美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式美式</p>
-  </view>
-
-</view>
- <!--会议设施-->
-
- <!--关于公司-->
-  <view class="gongsi-container">
-    <view class="title">关于公司</view>
-    <view>开业时间:2016年10月<span></span>营业时间:周一至周日</view>
-    <view>开业时间:2016年10月<span></span>营业时间:周一至周日</view>
-    <view class="t">开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间开业时间</view>
-  </view>
-
- <!--关于公司-->
-
- <!--酒店图集-->
- <view class="jiudian-container">
-    <view class="title">北京帝京豪庭酒店图集</view>
-    <scroll-view class="tuji" scroll-x="true">
-       <image src="/images/details-img3.png"/>
-       <image src="/images/details-img3.png"/>
-       <image src="/images/details-img3.png"/>
-    </scroll-view>
- </view>
- <!--酒店图集-->
+		</view>
+		<!--会场介绍-->
 
 
- <!--位置地图-->
- <view class="weizhi-container">
-    <view class="title">位置地图</view>
-       <view><image src="/images/details-img4.png"/></view>
-    </view>
- <!--位置地图-->
+	</view>
 
- <!--历史活动-->
- <view class="his-container">
-    <view class="title">历史活动</view>
-    <scroll-view class="his-content-container" scroll-x="true">
-   
-    <view class="his-text">
-       <view><image src="/images/details-img3.png"/></view>
-       <view>
-         <view class="text-title">开会聚会两不误</view>
-         <view class="date">2017-09-10</view>
-       </view>
-    </view>
+	<!--中间-->
 
-    <view class="his-text">
-       <view><image src="/images/details-img3.png"/></view>
-       <view>
-         <view class="text-title">开会聚会两不误</view>
-         <view class="date">2017-09-10</view>
-       </view>
-    </view>
+	<!--会场预订-->
+	<view class="order-container">
+		<view>
+			<image src="{{web_mainData.mainImg[0].url}}" />
+		</view>
+		<view class="order-text">
+			<view class="title">{{web_mainData.small_title}}</view>
+			<view class="text">{{web_mainData.description}}</view>
+			<view class="ordre-info">
+				<view class="price">￥<text>{{web_mainData.score}}</text>/人起</view>
+				<view class="button" bindtap="intoPath" data-path="/pages/bookOrder/bookOrder?id={{web_mainData.id}}&type=product"><button>预定</button></view>
+			</view>
+		</view>
+	</view>
+	<!--会场预订-->
 
-    <view class="his-text">
-       <view><image src="/images/details-img3.png"/></view>
-       <view class="text">
-         <view class="text-title">开会聚会两不误</view>
-         <view class="date">2017-09-10</view>
-       </view>
-    </view>
+	<!--套餐A-->
+	<block wx:for="{{web_skuData}}">
+	<view class="taocan-container" bindtap="intoPath" data-path="/pages/bookOrder/bookOrder?id={{item.id}}&type=sku">
 
-    </scroll-view>
- 
- </view>
- <!--历史活动-->
+		<view class="banner">
+			<view>套餐名称</view>
+			<view>可用时段</view>
+			<view>价格</view>
+		</view>
+		<view class="banner-tips">
+			<view>{{item.title}}
+				</view> <view class="tips">{{item.book_time}}
+			</view>
+			<view class="tips">￥{{item.price}}/人起</view>
+		</view>
+		<view>
+			<view class="detail">
+				<view><text>套餐信息：{{item.content}}</text></view>
+				<view class="must"><text>预订须知：{{item.description}}</text></view>
+			</view>
+			<view><button bindtap="intoPath" data-path="/pages/bookOrder/bookOrder?id={{web_mainData.id}}&type=sku">预定</button></view>
+		</view>
 
- <!--评论-->
- <view class="pinglun-container">
-   <view class="title">评论</view>
-<!--评论内容-->
-<view class="pinglun-card">
-    <!--评论 一栏-->
-<view class="pinglun-dar">
-<view class="pinglun-text-container">
-    <view class="star-container">
-       <view class="nickname">用户名称：张三</view>
-       <view class="star-img">
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-       </view>
-    </view>
-    <view class="text">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</view>
-    </view>
-</view>
-   <!--评论 一栏-->
+	</view>
+	<!--套餐A-->
+	</block>
+	<!--套餐B-->
 
-   <!--评论 一栏-->
-<view class="pinglun-dar">
-<view class="pinglun-text-container">
-    <view class="star-container">
-       <view class="nickname">用户名称：张三</view>
-       <view class="star-img">
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-       </view>
-    </view>
-    <view class="text">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</view>
-    </view>
-</view>
-   <!--评论 一栏-->
+	<!--会议设施-->
+	<view class="sheshi-container">
+
+		<!--设施顶部-->
+		<view class="sheshi-top">
+			<view class="banner-container">
+				<view class="title">会议设施</view>
+				<view class="item">
+					<block wx:for="{{web_mainData.meet_facility}}">
+						<view>{{item}}</view>
+					</block>
+				</view>
+			</view>
+
+			<view class="banner-container">
+				<view class="title">娱乐休闲</view>
+				<view class="item">
+					<block wx:for="{{web_mainData.entertainment}}">
+						<view><text>{{item}}</text></view>
+					</block>
+				</view>
+			</view>
+
+			<view class="banner-container">
+				<view class="title">通用设施</view>
+				<view class="item">
+					<block wx:for="{{web_mainData.common_facility}}">
+						<view><text>{{item}}</text></view>
+					</block>
+				</view>
+			</view>
+
+			<view class="banner-container">
+				<view class="title">特殊设施</view>
+				<view class="item">
+					<block wx:for="{{web_mainData.special_facility}}">
+						<view><text>{{item}}</text></view>
+					</block>
+				</view>
+			</view>
+
+			<view class="banner-container">
+				<view class="title">餐饮设施</view>
+				<view class="item">
+					<block wx:for="{{web_mainData.food_facility}}">
+						<view><text>{{item}}</text></view>
+					</block>
+				</view>
+			</view>
+
+		</view>
+		<!--设施顶部-->
+		<view class="sheshi-content">
+			<p>
+				<view class="content ql-editor">
+					<import src="../../wxParse/wxParse.wxml" />
+					<template is="wxParse" data="{{wxParseData:web_mainData.content}}" />
+				</view>
+			</p>
+		</view>
+
+	</view>
+	<!--会议设施-->
+
+	<!--关于公司-->
+	<view class="gongsi-container">
+		<view class="title">关于公司</view>
+		<view class="t">{{web_mainData.company}}</view>
+	</view>
+
+	<!--关于公司-->
+
+	<!--酒店图集-->
+	<view class="jiudian-container">
+		<view class="title">{{web_mainData.company1[0].title}}图集</view>
+		<scroll-view class="tuji" scroll-x="true">
+			<view class="tuji">
+				<block wx:for="{{web_imgData}}">
+					<view style="position:relative;width: 130px;height:100px" bindtap="previewImg" data-index="{{index}}">
+						<image src="{{item.mainImg[0].url}}" />
+						<view style="height: 25px;width: 130px;background: black;opacity: 0.6;position: absolute;bottom:0;display: flex;">
+							<view style="font-size:10px;color: #fff;float: left;margin-left: 10px;">{{item.description}}</view>
+							<view style="font-size:10px;color: #fff;float: right;margin-right: 10px;">{{item.mainImg.length}}张</view>
+						</view>
+					</view>
+					
+				</block>
+				
+			</view>
+			
+		</scroll-view>
+	</view>
+	<!--酒店图集-->
 
 
-<!--评论 一栏-->
-<view class="pinglun-dar">
-<view class="pinglun-text-container">
-    <view class="star-container">
-       <view class="nickname">用户名称：张三</view>
-       <view class="star-img">
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-       </view>
-    </view>
-    <view class="text">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</view>
-    </view>
-</view>
-   <!--评论 一栏-->
+	<!--位置地图-->
+	<view class="weizhi-container">
+		<view class="title">位置地图</view>
+		<block wx:for="{{web_mapData}}">
+			<view>
+				<image src="{{item.mainImg[0].url}}" />
+			</view>
+		</block>
+
+	</view>
+	<!--位置地图-->
+
+	<!--历史活动-->
+	<view class="his-container">
+		<view class="title">历史活动</view>
+		<scroll-view class="his-content-container" scroll-x="true">
+			<block wx:for="{{web_actData}}">
+				<view class="his-text" bindtap="previewImgTwo" data-index="{{index}}">
+					<view>
+						<image src="{{item.mainImg[0].url}}" />
+					</view>
+					<view>
+						<view class="text-title">{{item.description}}</view>
+						<view class="date">{{item.book_time}}</view>
+					</view>
+				</view>
+			</block>
 
 
-<!--评论 一栏-->
-<view class="pinglun-dar">
-<view class="pinglun-text-container">
-    <view class="star-container">
-       <view class="nickname">用户名称：张三</view>
-       <view class="star-img">
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-       </view>
-    </view>
-    <view class="text">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</view>
-    </view>
-</view>
-   <!--评论 一栏-->
+		</scroll-view>
 
+	</view>
+	<!--历史活动-->
 
-<!--评论 一栏-->
-<view class="pinglun-dar">
-<view class="pinglun-text-container">
-    <view class="star-container">
-       <view class="nickname">用户名称：张三</view>
-       <view class="star-img">
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-         <view><image src="/images/details-icon7.png"/></view>
-       </view>
-    </view>
-    <view class="text">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</view>
-    </view>
-</view>
-   <!--评论 一栏-->
+	<!--评论-->
+	<view class="pinglun-container">
+		<view class="title">评论</view>
+		<!--评论内容-->
+		<view class="pinglun-card">
+			<!--评论 一栏-->
+			<block wx:for="{{web_messageData}}">
+				<view class="pinglun-dar">
+					<view class="pinglun-text-container">
+						<view class="star-container">
+							<view class="nickname">用户名称：{{item.UserInfo.name}}</view>
+							<view class="star-img">
+								<block wx:for="{{stars}}" wx:for-item="c_item">
+									<view>
+										<image src="{{item.score>=c_item?'/images/details-icon7.png':'/images/details-icon8.png'}}" />
+									</view>
+									
+								</block>
+								
+							</view>
+						</view>
+						<view class="text">{{item.content}}</view>
+					</view>
+				</view>
+			<!--评论 一栏-->
+			</block>
+		</view>
+		<!--评论内容-->
+	</view>
+	<!--评论-->
 
-   </view>
-   <!--评论内容-->
-</view>   
- <!--评论-->
-
- <!--加载更多-->
-   <view class="more">加载更多</view>
- <!--加载更多-->
+	<!--加载更多-->
+	<view class="more">加载更多</view>
+	<!--加载更多-->
 
 </view>
 <!--详情-->

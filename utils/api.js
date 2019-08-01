@@ -40,10 +40,10 @@ class Api extends Base {
 			}
 		});
 	}
-
-	register(param, callback) {
+	
+	resetPassword(param, callback) {
 		var allParams = {
-			url: 'Project/Solely/updateInfo',
+			url: 'Project/Solely/resetPassword',
 			type: 'post',
 			data: param,
 			sCallback: function(data) {
@@ -52,6 +52,31 @@ class Api extends Base {
 		};
 		this.request(allParams);
 	}
+
+	register(param, callback) {
+		var allParams = {
+			url: 'Project/Solely/signup',
+			type: 'post',
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+	
+	addMessage(param, callback) {
+		var allParams = {
+			url: 'Project/Solely/addMessage',
+			type: 'post',
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+
 
 	codeGet(param, callback) {
 		var allParams = {

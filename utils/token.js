@@ -37,7 +37,7 @@ class Token {
 	        wx.removeStorageSync('threeToken');
 	        wx.removeStorageSync('threeInfo');
 	        wx.redirectTo({
-	          url: '/pages/storeLogin/storeLogin'
+	          url: '/pages/login/login'
 	        });
 	    }else{
 	        return wx.getStorageSync('threeToken');
@@ -113,7 +113,7 @@ class Token {
 				};
 				console.log('postData', postData)
 				wx.request({
-					url: 'https://xcx.bsn100.com/api/public/index.php/api/v1/Base/ProgramToken/get',
+					url: 'https://tongchoubang.com/api/public/index.php/api/v1/Base/ProgramToken/get',
 					method: 'POST',
 					data: postData,
 					success: function(res) {
@@ -152,7 +152,7 @@ class Token {
 				password: wx.getStorageSync('login').password,
 			}
 			wx.request({
-				url: 'https://xcx.bsn100.com/api/public/index.php/api/v1/Func/Common/loginByUp',
+				url: 'https://tongchoubang.com/api/public/index.php/api/v1/Func/Common/loginByUp',
 				method: 'POST',
 				data: postData,
 				success: function(res) {

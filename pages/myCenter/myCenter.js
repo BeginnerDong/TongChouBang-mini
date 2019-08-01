@@ -1,115 +1,59 @@
 // pages/myCenter/myCenter.js
 import {
-  Api
+	Api
 } from '../../utils/api.js';
 var api = new Api();
 const app = getApp();
 import {
-  Token
+	Token
 } from '../../utils/token.js';
-const token = new Token(); 
+const token = new Token();
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  
-  },
-  myOrder: function () {
-    wx.redirectTo({
-      url: '/pages/myOrder/myOrder'
-    })
-  },
-  detail: function () {
-    wx.navigateTo({
-      url: '/pages/goodsDetails/goodsDetails'
-    })
-  },
-  myOrder: function () {
-    wx.navigateTo({
-      url: '/pages/myOrder/myOrder'
-    })
-  },
-  applyEnter: function () {
-    wx.navigateTo({
-      url: '/pages/applyEnter/applyEnter'
-    })
-  },
-  helpCenter:function() {
-    wx.navigateTo({
-      url: '/pages/helpCenter/helpCenter'
-    })
-  },
-  connectUs: function () {
-    wx.navigateTo({
-      url: '/pages/connectUs/connectUs'
-    })
-  },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
+	data: {
+	
+		searchItem: {},
+	
+		isFirstLoadAllStandard: ['getUserInfoData']
+	},
+	
+	onLoad(options) {
+		const self = this;
+		api.commonInit(self);
+		self.getUserInfoData()
+	
+	},
+	
+	getUserInfoData() {
+		const self = this;
+		const postData = {};
+		postData.tokenFuncName = 'getThreeToken';
+		postData.searchItem = {
+			user_no:wx.getStorageSync('threeInfo').user_no
+		};
+		const callback = (res) => {
+			if (res.info.data.length > 0) {
+				self.data.userInfoData = res.info.data[0];
+			};
+			self.setData({
+				web_userInfoData: self.data.userInfoData
+			})
+			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getUserInfoData', self);
+		};
+		api.userInfoGet(postData, callback);
+	},
+	
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
-  intoPathRedirect(e) {
-    const self = this;
-    api.pathTo(api.getDataSet(e, 'path'), 'redi');
-  },
-  intoPath(e) {
-    const self = this;
-    api.pathTo(api.getDataSet(e, 'path'), 'nav');
-  }
+	intoPathRedirect(e) {
+		const self = this;
+		api.pathTo(api.getDataSet(e, 'path'), 'redi');
+	},
+	intoPath(e) {
+		const self = this;
+		api.pathTo(api.getDataSet(e, 'path'), 'nav');
+	}
 
 })

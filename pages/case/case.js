@@ -1,96 +1,157 @@
-// pages/case/case.js
 import {
-  Api
+	Api
 } from '../../utils/api.js';
-var api = new Api();
+const api = new Api();
 const app = getApp();
 import {
-  Token
+	Token
 } from '../../utils/token.js';
-const token = new Token();  
+const token = new Token();
+
+
 
 Page({
+	data: {
+		num: '',
+		mainData: [],
+		searchItem: {},
+		isFirstLoadAllStandard: ['getMainData'],
+		labelData:[]
+	},
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  num:0
-  },
-  menuClick: function (e) {
-    console.log(e);
-    this.setData({
-      num: e.currentTarget.dataset.num
-    })
-    },
-  search: function () {
-    wx.navigateTo({
-      url: '/pages/search/search'
-    })
-  },
-  caseDetail: function () {
-    wx.navigateTo({
-      url: '/pages/caseDetails/caseDetails'
-    })
-  },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
+	onLoad(options) {
+		const self = this;
+		api.commonInit(self);
+		console.log(options)
+		self.getLabelData();
+		
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
+	},
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
+	onShow() {
+		const self = this;
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
+	},
+	getLabelData() {
+		var self = this;
+		var postData = {};
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
+		postData.searchItem = api.cloneForm(self.data.searchItem);
+		postData.getBefore = {
+			Label: {
+				tableName: 'Label',
+				middleKey: 'parentid',
+				key: 'id',
+				searchItem: {
+					title: ['in', ['精选案例']]
+				},
+				condition: 'in'
+			}
+		};
+		postData.order = {
+			listorder: 'desc'
+		};
+		var callback = function(res) {
+			if (res.info.data.length > 0) {
+				self.data.labelData.push.apply(self.data.labelData, res.info.data);
+				self.data.num = self.data.labelData[0].id; 
+				self.data.searchItem.menu_id = self.data.num
+			}
+			self.setData({
+				num:self.data.num,
+				web_labelData: self.data.labelData,
+			});
+			self.getMainData()
+		};
+		api.labelGet(postData, callback);
+	},
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
-  intoPathRedirect(e) {
-    const self = this;
-    api.pathTo(api.getDataSet(e, 'path'), 'redi');
-  }
+	getMainData(isNew) {
+		const self = this;
+		if (isNew) {
+			api.clearPageIndex(self);
+		};
+		const postData = {};
+		postData.paginate = api.cloneForm(self.data.paginate);
+		postData.searchItem = api.cloneForm(self.data.searchItem);
+		if (!self.data.searchItem.menu_id) {
+			postData.getBefore = {
+				Label: {
+					tableName: 'Label',
+					middleKey: 'menu_id',
+					key: 'id',
+					searchItem: {
+						status: ['in', [1]],
+						parentid: ['in', [106]]
+					},
+					condition: 'in'
+				}
+			};
+		};
+		postData.order = {
+			listorder: 'desc'
+		};
+		const callback = (res) => {
+			if (res.solely_code == 100000) {
+				if (res.info.data.length > 0) {
+					self.data.mainData.push.apply(self.data.mainData, res.info.data);
+				} else {
+					self.data.isLoadAll = true;
+					api.showToast('没有更多了', 'none', 1000);
+				};
+				api.buttonCanClick(self, true);
+				api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getMainData', self);
+				self.setData({
+					web_mainData: self.data.mainData,
+				});
+			} else {
+				api.showToast('网络故障', 'none')
+			}
+		};
+		api.articleGet(postData, callback);
+	},
+
+
+
+
+	menuClick: function(e) {
+		const self = this;
+		api.buttonCanClick(self)
+		const num = e.currentTarget.dataset.num;
+		self.changeSearch(num);
+	},
+
+	changeSearch(num) {
+		const self = this;
+		this.setData({
+			num: num
+		});
+		
+		self.data.searchItem.menu_id = num
+		self.getMainData(true);
+	},
+
+
+	onReachBottom() {
+		const self = this;
+		if (!self.data.isLoadAll && self.data.buttonCanClick) {
+			self.data.paginate.currentPage++;
+			self.getMainData();
+		};
+	},
+
+	intoPath(e) {
+		const self = this;
+		api.pathTo(api.getDataSet(e, 'path'), 'nav');
+	},
+
+	intoPathRedi(e) {
+		const self = this;
+		api.pathTo(api.getDataSet(e, 'path'), 'redi');
+	},
+
+
 })

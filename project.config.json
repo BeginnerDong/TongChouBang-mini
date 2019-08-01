@@ -1,16 +1,28 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
-	"appid": "touristappid",
+	"appid": "wx2717939a44c2865d",
 	"projectname": "tongchoubang",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -29,7 +41,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 11,
 			"list": [
 				{
 					"id": 0,
@@ -98,10 +110,11 @@
 					"query": ""
 				},
 				{
-					"id": 12,
+					"id": 11,
 					"name": "预约订单",
 					"pathName": "pages/bookOrder/bookOrder",
-					"query": ""
+					"query": "id=4&type=sku",
+					"scene": null
 				},
 				{
 					"id": 12,

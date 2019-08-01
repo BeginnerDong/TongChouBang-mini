@@ -21,3 +21,4 @@ image{
 .second{
   margin-top:15px;
 }
+@import "../../wxParse/wxParse.wxss";

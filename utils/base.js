@@ -18,7 +18,7 @@ class Base {
 	request(params) {
 		var that = this;
 		getApp().globalData.buttonClick = true;
-		var baseRestUrl = 'https://xcx.bsn100.com/api/public/index.php/api/v1/';
+		var baseRestUrl = 'https://tongchoubang.com/api/public/index.php/api/v1/';
 		
 		var url = baseRestUrl + params.url;
 		const callback = (res) => {
@@ -97,7 +97,7 @@ class Base {
 			};
 		};
 		wx.uploadFile({
-			url: 'https://xcx.bsn100.com/api/public/index.php/api/v1/Base/FtpFile/upload',
+			url: 'https://tongchoubang.com/api/public/index.php/api/v1/Base/FtpFile/upload',
 			
 			filePath: filePath,
 			name: name,
@@ -554,6 +554,10 @@ class Base {
 			choosed_skuData: choosed_skuData,
 			can_choose_sku_item: this.uniqueArray(can_choose_sku_item)
 		};
+	};
+	
+	inArray(value,array){
+	    return  array.indexOf(parseInt(value));
 	};
 
 	uniqueArray(array) {

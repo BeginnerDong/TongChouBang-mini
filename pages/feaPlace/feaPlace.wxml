@@ -1,142 +1,87 @@
-<!--pages/feaPlace/feaPlace.wxml-->
+<wxs src="../../utils/func.wxs" module="func" />
 <view style="background-color:#F5F5F5;padding-top:10px;position:relative;">
-    <!--搜索框-->
-     
-	<view class="center-container" style="display: flex;" bindtap="search">
-		<view class="search-container" style="width: 84%;">
-			<input type="text" placeholder="搜索团建游,目的地等" />
-		</view>
-		
-		<view class="search-img">
+	<view class="search-container" style="z-index: 999;">
+		<view style="width: 84%;"><input type="text" placeholder="搜索案例" placeholder-style="margin-left:10px;"  value="{{web_search.title}}"  data-key="title" bindblur="bindInputChange"/></view>
+		<view class="search-img" bindtap="goSearch">
 			<image src="/images/home-icon1.png" />
 		</view>
 	</view>
-    <!--搜索框-->
-
-    <!--内容-->
-      <view class="center-container">
-         
-         <!-- <view class="center-banner-container">
-            <view class="active-item">推荐排序</view>
-            <view class="item">价格排序</view>
-            <view class="item">销量排序</view>
-            <view class="item">折扣排序</view>
-         </view> -->
-
-         <view class="tip-container">
-           <view class="item"><text>场地类型</text></view>
-           <view class="item"><text>位置区域</text></view>
-           <view class="item"><text>价格</text></view>
-           <view class="item"><text>场地特点</text></view>
-           <view class="item"><text>层高</text></view>
-           <view class="item"><text>面积</text></view>
-           <view class="item"><text>容纳人数</text></view>
-           <view class="item"><text>场地设施</text></view>
-           <view class="item"><text>可接活动类型</text></view>
-         </view>
-
-           <scroll-view class="img-container" scroll-x="true">
-              <image src="/images/goods-img1.png"/>
-              <image src="/images/goods-img3.png"/>
-              <image src="/images/goods-img1.png"/>
-              <image src="/images/goods-img3.png"/>
-              <image src="/images/goods-img1.png"/>
-           </scroll-view>
-     <!-- 预订价格  -->
-          <view class="price-container">
-          <!-- 一个-->
-           <view class="price-little-container">
-              <!--图片、文字  -->
-              <view class="price-img-container">
-                
-                <view><image src="/images/goods-img2.png"/></view>
-                <view class="text-cotainer">
-                    <view class="title"><text>标题标题标题标题标题标题</text></view>
-                    <view class="content"><text>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</text></view>
-                     <view class="tip2-container">
-                      <view class="now-price">现价:988元/起</view>
-                      <view class="init-price">原价:1888元/起</view>
-                      <view class="discount">7折</view>
-                     </view> 
-                 </view>
-              
-               </view>
-              <!--图片、文字  -->
-               
-               <!--按钮  -->
-              <view class="button-container">
-                  <view></view>
-                  <view class="button" bindtap="bookOrder"><button>立即预定</button></view>
-              </view>
-               <!--按钮  -->
-            </view> 
-          <!-- 一个-->
-
-              <!-- 一个-->
-           <view class="price-little-container">
-              <!--图片、文字  -->
-              <view class="price-img-container">
-                
-                <view><image src="/images/goods-img2.png"/></view>
-                <view class="text-cotainer">
-                    <view class="title"><text>标题标题标题标题标题标题</text></view>
-                    <view class="content"><text>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</text></view>
-                     <view class="tip2-container">
-                      <view class="now-price">现价:988元/起</view>
-                      <view class="init-price">原价:1888元/起</view>
-                      <view class="discount">7折</view>
-                     </view> 
-                 </view>
-              
-               </view>
-              <!--图片、文字  -->
-               
-               <!--按钮-->
-              <view class="button-container">
-                  <view></view>
-                  <view class="button" bindtap="bookOrder"><button>立即预定</button></view>
-              </view>
-               <!--按钮  -->
-            </view> 
-          <!-- 一个-->
+	<view style="background: rgba(0,0,0,0.6);position: absolute;top: 60px;z-index: 998;width: 100%;height: 100%;min-height: 605px;" wx:if="{{web_isSelect}}"></view>
+	<view class="center-container">
+		<view class="tip-container" style="z-index: 999;">
+			<block wx:for="{{web_labelData}}">
+				<view class="item" bindtap="select" data-index="{{index}}"><text>{{item.title[1]}}</text></view>
+			</block>
 
 
+		</view>
+		
+		<view class="tip-container" style="width: 100%;background: #fff;position: absolute;z-index: 999;display: block;padding: 0;top:60px;" wx:if="{{web_isSelect}}">
+			<view class="tip-container" style="z-index: 999;">
+				<block wx:for="{{web_labelData}}">
+					<view class="item" bindtap="select" data-index="{{index}}"><text>{{item.title[1]}}</text></view>
+				</block>
+			
+			
+			</view>
+			<view style="height: 1px;width: 100%;background: #f7f7f7;"></view>
+			<view style="display: flex;padding: 0 5%;flex-wrap: wrap;">
+				<block wx:for="{{web_labelData[web_index].child}}" >
+					<view class="item" bindtap="selectChild" data-id="{{item.id}}">
+						<text style="{{func.inArray(item.id,web_spuArray)>=0?'background: #FF556F;color: #fff':'background: #f7f7f7;color: #666666'}}">{{item.title}}{{func.inArray(item.id,web_spuArray)}}</text></view>
+				</block>		
+			</view>
+				
+			<view class="button" style="margin: 50px 0;"><button bindtap="confirm">确定</button></view>
+		</view>
+		<scroll-view class="img-container" scroll-x="true">
+			<block wx:for="{{web_mainData}}">
+				<image src="{{item.mainImg[0].url}}" />
+			</block>
+			
+		</scroll-view>
+		
+		<!-- 预订价格  -->
+		<view class="price-container">
+			<!-- 一个-->
+			<block wx:for="{{web_mainData}}">
+				<view class="price-little-container">
+					<!--图片、文字  -->
+					<view class="price-img-container">
 
-              <!-- 一个-->
-           <view class="price-little-container">
-              <!--图片、文字  -->
-              <view class="price-img-container">
-                
-                <view><image src="/images/goods-img2.png"/></view>
-                <view class="text-cotainer">
-                    <view class="title"><text>标题标题标题标题标题标题</text></view>
-                    <view class="content"><text>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</text></view>
-                     <view class="tip2-container">
-                      <view class="now-price">现价:988元/起</view>
-                      <view class="init-price">原价:1888元/起</view>
-                      <view class="discount">7折</view>
-                     </view> 
-                 </view>
-              
-               </view>
-              <!--图片、文字  -->
-               
-               <!--按钮  -->
-              <view class="button-container">
-                  <view></view>
-                  <view class="button" bindtap="bookOrder"><button>立即预定</button></view>
-              </view>
-               <!--按钮  -->
-            </view> 
-          <!-- 一个-->
-          
-          </view>
- <!-- 预订价格  -->
-      
-      </view>
-    <!--内容-->
+						<view>
+							<image src="{{item.mainImg[0].url}}" />
+						</view>
+						<view class="text-cotainer">
+							<view class="title"><text>{{item.title}}</text></view>
+							<view class="content"><text>{{item.description}}</text></view>
+							<view class="tip2-container">
+								<view class="now-price">现价:{{item.score}}元/起</view>
+								<view class="init-price">原价:{{item.price}}元/起</view>
+								<view class="discount">{{item.discount}}折</view>
+							</view>
+						</view>
 
-    <!--活动需求 -->
-        <view class="need" bindtap="activityNeed"><text>活动需求</text></view>
-    <!--活动需求 -->
+					</view>
+					<!--图片、文字  -->
+
+					<!--按钮  -->
+					<view class="button-container">
+						<view></view>
+						<view class="button" bindtap="intoPath" data-path="/pages/goodsDetails/goodsDetails?id={{item.id}}"><button>立即预定</button></view>
+					</view>
+					<!--按钮  -->
+				</view>
+			</block>
+
+
+		</view>
+
+
+	</view>
+	<!--内容-->
+
+	<!--活动需求 -->
+	<view class="need" bindtap="intoPathRedi" data-path="/pages/activityNeed/activityNeed"><text>活动需求</text></view>
+	<!--活动需求 -->
 </view>

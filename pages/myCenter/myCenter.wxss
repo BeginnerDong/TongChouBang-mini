@@ -1,4 +1,11 @@
 /* pages/myCenter/myCenter.wxss */
+ .user_img{
+ 	width:120rpx;
+ 	height:120rpx;
+ 	border-radius:50%;
+ 	overflow:hidden;
+ 
+ }
 .myCenter-container{
   width:100%;
   height:100%;
@@ -14,6 +21,7 @@
   padding:0px 6%;
   display:flex;
   flex-direction:row;
+  align-items: center;
 }
 .nickname-container image{
   width:80px;
@@ -24,7 +32,7 @@
 .nickname-container .nickname{
   color:#ffffff;
   font-size:14px;
-  margin-top:45px;
+  margin-left:15px;
   letter-spacing:2px;
 }
 .big-container{

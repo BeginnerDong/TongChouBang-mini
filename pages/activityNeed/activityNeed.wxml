@@ -4,32 +4,39 @@
       
       <view class="container">
           <view><text>活动类型：</text></view>
-          <view><input type="text" placeholder="不限"  placeholder-style="color:#212121;font-size:12px;" auto-focus/></view>
+          <view style="width: 40%;height: 20px;line-height: 20px;"><picker bindchange="typeChange" style="color:#212121;font-size:12px;width: 100%;height: 100%;" range="{{type}}" range-key="name">
+			{{type[web_index].name?type[web_index].name:'请选择'}}
+		  </picker></view>
           <view class="icon"><image src="/images/home-icon2.png"/></view>     
       </view>
 
       <view class="container">
           <view><text>活动时间：</text></view>
-          <view><input type="text" placeholder="不限"  placeholder-style="color:#212121;font-size:12px;"/></view>
+          <view style="width: 40%;height: 20px;line-height: 20px;"><picker bindchange="timeChange" style="color:#212121;font-size:12px;width: 100%;height: 100%;" mode="date">
+          			{{web_time?web_time:'请选择'}}
+          </picker></view>
           <view class="icon"><image src="/images/home-icon2.png"/></view>     
       </view>
 
 
       <view class="container">
           <view><text>预算：</text></view>
-          <view><input type="text" placeholder="请输入您的预算"  placeholder-style="color:#545454;font-size:12px;" style="margin-left:20px;"/></view>
+          <view><input type="text" placeholder="请输入您的预算"  placeholder-style="color:#545454;font-size:12px;" style="margin-left:20px;"  
+		   value="{{web_submitData.keywords}}"  data-key="keywords" bindblur="bindInputChange"/></view>
           <view class="icon"><image src="/images/home-icon2.png"/></view>     
       </view>
 
       <view class="container">
           <view><text>联系人姓名：</text></view>
-          <view><input type="text" placeholder="请输入联系人姓名"  placeholder-style="color:#545454;font-size:12px;" style="margin-left:-15px;"/></view>
+          <view><input type="text" placeholder="请输入联系人姓名"  placeholder-style="color:#545454;font-size:12px;" style="margin-left:-15px;"
+		   value="{{web_submitData.passage1}}"  data-key="passage1" bindblur="bindInputChange"/></view>
           <view class="icon"><image src="/images/home-icon2.png"/></view>     
       </view>
 
       <view class="container">
           <view><text>联系电话：</text></view>
-          <view><input type="text" placeholder="请输入您的联系电话"  placeholder-style="color:#545454;font-size:12px;"/></view>
+          <view><input type="text" placeholder="请输入您的联系电话"  placeholder-style="color:#545454;font-size:12px;"
+		   value="{{web_submitData.phone}}"  data-key="phone" bindblur="bindInputChange"/></view>
           <view class="icon"><image src="/images/home-icon2.png"/></view>     
       </view>
 
@@ -41,7 +48,8 @@
 
       <view class="container">
           <view><text>备注：</text></view>
-          <view><input type="text"/></view>
+          <view><input type="text"
+		   value="{{web_submitData.content}}"  data-key="content" bindblur="bindInputChange"/></view>
           <view class="icon"></view>     
       </view>
       
@@ -49,7 +57,7 @@
 
     <view class="footer-text"><text class="tip">不想自己找?</text><text>把您的计划要求告诉我们,统筹帮免费为您推荐最合适的需求,帮您做活动统筹计划。</text></view>
     <view class="phone"><text>咨询热线:13126608897</text></view>
-    <view class="button"><button>提交需求</button></view>
+    <view class="button"><button bindtap="{{web_buttonCanClick?'submit':''}}">提交需求</button></view>
 </view>
 
 

@@ -1,0 +1,200 @@
+<!--pages/goodsDetails/goodsDetails.wxml-->
+
+<swiper class="detail-img" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+ interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+
+	<block wx:for="{{web_mainData.bannerImg}}" wx:index="{{index}}">
+		<swiper-item class="swiper-item" style="height:190px">
+			<image style="height:190px;width: 100%;" mode="aspectFill" src="{{item.url}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}" />
+		</swiper-item>
+	</block>
+</swiper>
+<!--详情  -->
+<view class="detail-container">
+
+	<!--标题-->
+	<view class="title-container">
+		<view class="title">{{web_mainData.title}}</view>
+		<view class="price-container">
+			<view><text>价格:￥{{web_mainData.price}}</text></view>
+			<view><text>优惠价格:￥{{web_mainData.score}}</text></view>
+		</view>
+	</view>
+	<!--标题-->
+
+	<!--类别-->
+	<view class="cate-container">
+		<view class="title-container">
+			<view class="cate">类别： {{web_mainData.category[0].title}}<span></span>￥{{web_mainData.score}}</view>
+			<view>地区: {{web_mainData.passage2}}</view>
+		</view>
+		<view class="address">详细地址：{{web_mainData.address}}</view>
+	</view>
+	<!--类别-->
+
+	<!--中间-->
+	<view class="center">
+
+		<!--会场介绍-->
+		<view class="content ql-editor" style="font-size:14px">
+			<import src="../../wxParse/wxParse.wxml" />
+			<template is="wxParse" data="{{wxParseData:web_mainData.content}}" />
+		</view>
+		<!--会场介绍-->
+
+
+	</view>
+
+	<!--中间-->
+
+	<!--会场预订-->
+	<view class="order-container">
+		<view>
+			<image src="{{web_mainData.mainImg[0].url}}"/>
+		</view>
+		<view class="order-text">
+			<view class="title">{{web_mainData.small_title}}</view>
+			<view class="text">{{web_mainData.description}}</view>
+			<view class="ordre-info">
+				<view class="price">￥<text>{{web_mainData.score}}</text>/人起</view>
+				<view class="button" bindtap="intoPath" data-path="/pages/bookOrder/bookOrder?id={{web_mainData.id}}&type=product"><button>预定</button></view>
+			</view>
+		</view>
+	</view>
+	<!--会场预订-->
+
+	<!--套餐A-->
+	<block wx:for="{{web_skuData}}">
+	<view class="taocan-container" bindtap="intoPath" data-path="/pages/bookOrder/bookOrder?id={{item.id}}&type=sku">
+
+		<view class="banner">
+			<view>套餐名称</view>
+			<view>可用时段</view>
+			<view>价格</view>
+		</view>
+		<view class="banner-tips">
+			<view>{{item.title}}
+				</view> <view class="tips">{{item.book_time}}
+			</view>
+			<view class="tips">￥{{item.price}}/人起</view>
+		</view>
+		<view>
+			<view class="detail">
+				<view><text>套餐信息：{{item.content}}</text></view>
+				<view class="must"><text>预订须知：{{item.description}}</text></view>
+			</view>
+			<view><button data-path="/pages/bookOrder/bookOrder?id={{web_mainData.id}}&type=sku">预定</button></view>
+		</view>
+
+	</view>
+	<!--套餐A-->
+	</block>
+	<!--套餐B-->
+
+	<!--会议设施-->
+
+	<!--会议设施-->
+
+	<!--关于公司-->
+	<view class="gongsi-container">
+		<view class="title">关于公司</view>
+		<view class="t">{{web_mainData.company}}</view>
+	</view>
+
+	<!--关于公司-->
+
+	<!--酒店图集-->
+		<view class="jiudian-container">
+		<view class="title">{{web_mainData.company1[0].title}}图集</view>
+		<scroll-view class="tuji" scroll-x="true">
+			<view class="tuji">
+				<block wx:for="{{web_imgData}}">
+					<view style="position:relative;width: 130px;height:100px" bindtap="previewImg" data-index="{{index}}">
+						<image src="{{item.mainImg[0].url}}" />
+						<view style="height: 25px;width: 130px;background: black;opacity: 0.6;position: absolute;bottom:0;display: flex;">
+							<view style="font-size:10px;color: #fff;float: left;margin-left: 10px;">{{item.description}}</view>
+							<view style="font-size:10px;color: #fff;float: right;margin-right: 10px;">{{item.mainImg.length}}张</view>
+						</view>
+					</view>
+					
+				</block>
+				
+			</view>
+			
+		</scroll-view>
+	</view>
+	<!--酒店图集-->
+
+
+	<!--位置地图-->
+	<view class="weizhi-container">
+		<view class="title">位置地图</view>
+		<block wx:for="{{web_mapData}}">
+			<view>
+				<image src="{{item.mainImg[0].url}}" />
+			</view>
+		</block>
+
+	</view>
+	<!--位置地图-->
+
+	<!--历史活动-->
+	<view class="his-container">
+		<view class="title">历史活动</view>
+		<scroll-view class="his-content-container" scroll-x="true">
+			<block wx:for="{{web_actData}}">
+				<view class="his-text" bindtap="previewImgTwo" data-index="{{index}}">
+					<view>
+						<image src="{{item.mainImg[0].url}}" />
+					</view>
+					<view>
+						<view class="text-title">{{item.description}}</view>
+						<view class="date">{{item.book_time}}</view>
+					</view>
+				</view>
+			</block>
+	
+	
+		</scroll-view>
+	
+	</view>
+	<!--历史活动-->
+
+	<!--评论-->
+	<view class="pinglun-container">
+		<view class="title">评论</view>
+		<!--评论内容-->
+		<view class="pinglun-card">
+			<!--评论 一栏-->
+			<block wx:for="{{web_messageData}}">
+				<view class="pinglun-dar">
+					<view class="pinglun-text-container">
+						<view class="star-container">
+							<view class="nickname">用户名称：{{item.UserInfo.name}}</view>
+							<view class="star-img">
+								<block wx:for="{{stars}}" wx:for-item="c_item">
+									<view>
+										<image src="{{item.score>=c_item?'/images/details-icon7.png':'/images/details-icon8.png'}}" />
+									</view>
+									
+								</block>
+								
+								
+							</view>
+						</view>
+						<view class="text">{{item.content}}</view>
+					</view>
+				</view>
+			<!--评论 一栏-->
+			</block>
+		</view>
+		<!--评论内容-->
+	</view>
+	<!--评论-->
+
+	<!--加载更多-->
+	<view class="more">加载更多</view>
+	<!--加载更多-->
+
+</view>
+<!--详情-->

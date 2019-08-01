@@ -1,65 +1,89 @@
 <!--pages/addPingjia/addPingjia.wxml-->
 <view class="addPingjia-container">
-   <view class="big-container">
-       <!--导航栏-->
-       <scroll-view class="banner-container" scroll-x="true">
-          <view data-num="0" class="item {{num==0?'active-item':''}}" bindtap="menuClick">全部</view>
-          <view data-num="1" class="item {{num==1?'active-item':''}}" bindtap="menuClick">待确认</view>
-          <view data-num="2" class="item {{num==2?'active-item':''}}" bindtap="menuClick">进行中</view>
-          <view data-num="3" class="item {{num==3?'active-item':''}}" bindtap="menuClick">待评价</view>
-          <view data-num="4" class="item {{num==4?'active-item':''}}" bindtap="menuClick">已评价</view>
-          <view data-num="5" class="item {{num==5?'active-item':''}}" bindtap="menuClick">已取消</view>
-       </scroll-view>
-       <!--导航栏-->
+	<view class="big-container">
+		<!--导航栏-->
+		<scroll-view class="banner-container" scroll-x="true">
+			<view data-num="0" class="item {{num==0?'active-item':''}}" bindtap="menuClick">全部</view>
+			<view data-num="1" class="item {{num==1?'active-item':''}}" bindtap="menuClick">待确认</view>
+			<view data-num="2" class="item {{num==2?'active-item':''}}" bindtap="menuClick">进行中</view>
+			<view data-num="3" class="item {{num==3?'active-item':''}}" bindtap="menuClick">待评价</view>
+			<view data-num="4" class="item {{num==4?'active-item':''}}" bindtap="menuClick">已评价</view>
+			<view data-num="5" class="item {{num==5?'active-item':''}}" bindtap="menuClick">已取消</view>
+		</scroll-view>
+		<!--导航栏-->
 
-       <!--待添加评价-->
-         <view class="pingjia-container">
-             <!--一个待添加评价-->
-               <view class="pingjia-container-text">
-                  <view class="date-container">
-                    <view class="date">交易时间:2018-08-30</view>
-                    <view class="tips">待评价</view>
-                  </view>
-                  <view class="img-text-container">
-                    <view><image src="/images/details-img2.png"/></view>
-                    <view class="text-container">
-                       <view class="title">标题标题标题标题标题标题</view>
-                       <view class="neirong">内容内容内容内容内容</view>
-                       <view class="price">￥566.00</view>
-                    </view>
-                  </view>
-                  <!--按钮-->
-                  <view class="button" bindtap="addPingjia">
-                    <view></view>
-                    <view><button>去评价</button></view>
-                  </view>
-                  <!--按钮-->
-               </view>
-             <!--一个待添加评价-->
+		<!--待添加评价-->
+		<view class="pingjia-container">
+			<!--一个待添加评价-->
+			<block wx:for="{{web_mainData}}" wx:key="id" wx:if="{{item.products[0].sku_id!=0}}">
+				<view class="pingjia-container-text">
+					<view class="date-container">
+						<view class="date">交易时间:{{item.create_time}}</view>
+						<view class="tips" wx:if="{{item.order_step=='0'}}">待确认</view>
+						<view class="tips" wx:if="{{item.order_step=='1'}}">进行中</view>
+						<view class="tips" wx:if="{{item.order_step=='2'}}">待评价</view>
+						<view class="tips" wx:if="{{item.order_step=='3'}}">已评价</view>
+						<view class="tips" wx:if="{{item.order_step=='4'}}">已取消</view>
+					
+					</view>
+					<view class="img-text-container">
+						<view>
+							<image src="{{item.products[0].snap_product.product.mainImg[0].url}}" />
+						</view>
+						<view class="text-container">
+							<view class="title">{{item.products[0].snap_product.title}}</view>
+							<view class="neirong">{{item.products[0].snap_product.content}}</view>
+							<view class="price">￥{{item.price}}</view>
+						</view>
+					</view>
+					<!--按钮-->
+					<view class="button">
+						<view wx:if="{{item.order_step=='0'}}" bindtap="deleteOrder" data-index="{{index}}"><button>取消预约</button></view>
+						<view wx:if="{{item.order_step=='2'}}" bindtap="intoPath" data-path="/pages/addPingjia/addPingjia?id={{item.id}}">
+							<button>去评价</button>
+						</view>
+					</view>
+					<!--按钮-->
+				</view>
 
-              <!--一个待添加评价-->
-               <view class="pingjia-container-text">
-                  <view class="date-container">
-                    <view class="date">交易时间:2018-08-30</view>
-                    <view class="tips">待评价</view>
-                  </view>
-                  <view class="img-text-container">
-                    <view><image src="/images/details-img2.png"/></view>
-                    <view class="text-container">
-                       <view class="title">标题标题标题标题标题标题</view>
-                       <view class="neirong">内容内容内容内容内容</view>
-                       <view class="price">￥566.00</view>
-                    </view>
-                  </view>
-                  <!--按钮-->
-                  <view class="button" bindtap="addPingjia">
-                    <view></view>
-                    <view><button>去评价</button></view>
-                  </view>
-                  <!--按钮-->
-               </view>
-             <!--一个待添加评价-->
-         </view>
-       <!--待添加评价-->
-   </view>
+			</block>
+
+			<!--一个待添加评价-->
+
+			<!--一个待添加评价-->
+			<block wx:for="{{web_mainData}}" wx:key="id" wx:if="{{item.products[0].sku_id==0}}">
+				<view class="pingjia-container-text">
+					<view class="date-container">
+						<view class="date">交易时间:{{item.create_time}}</view>
+						<view class="tips" wx:if="{{item.order_step=='0'}}">待确认</view>
+						<view class="tips" wx:if="{{item.order_step=='1'}}">进行中</view>
+						<view class="tips" wx:if="{{item.order_step=='2'}}">待评价</view>
+						<view class="tips" wx:if="{{item.order_step=='3'}}">已评价</view>
+						<view class="tips" wx:if="{{item.order_step=='4'}}">已取消</view>
+					
+					</view>
+					<view class="img-text-container">
+						<view>
+							<image src="{{item.products[0].snap_product.mainImg[0].url}}" />
+						</view>
+						<view class="text-container">
+							<view class="title">{{item.products[0].snap_product.title}}</view>
+							<view class="neirong">{{item.products[0].snap_product.description}}</view>
+							<view class="price">￥{{item.price}}</view>
+						</view>
+					</view>
+					<!--按钮-->
+					<view class="button" bindtap="addPingjia" wx:if="{{item.order_step=='0'||item.order_step=='2'}}">
+						<view wx:if="{{item.order_step=='0'}}" bindtap="deleteOrder" data-index="{{index}}"><button>取消预约</button></view>
+						<view wx:if="{{item.order_step=='2'}}" bindtap="intoPath" data-path="/pages/addPingjia/addPingjia?id={{item.id}}">
+							<button>去评价</button>
+						</view>
+					</view>
+					<!--按钮-->
+				</view>
+			
+			</block>
+		</view>
+		<!--待添加评价-->
+	</view>
 </view>

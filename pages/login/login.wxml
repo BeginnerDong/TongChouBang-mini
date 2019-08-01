@@ -1,24 +1,24 @@
 <!--pages/login/login.wxml-->
-<view class="login-container">
+<view class="login-container" wx:if="{{web_show}}">
    <view><image src="/images/login-icon1.png"/></view>
    <view class="text-container">
       <view class="phone-container">
          <view ><image src="/images/login-icon2.png"/></view>
-         <view><input type="text" placeholder="输入手机号码"  placeholder-style="color:#999999;font-size:13px;"/></view>
+         <view><input type="text" placeholder="输入手机号码"  placeholder-style="color:#999999;font-size:13px;" data-key="login_name" bindinput="bindInputChange"/></view>
       </view>
       <view class="password-container"> 
          <view><image src="/images/login-icon3.png"/></view>
-         <view><input type="text" placeholder="输入登录密码"/></view>
+         <view><input type="password" placeholder="输入登录密码" data-key="password" bindinput="bindInputChange"/></view>
       </view>
    </view>
 <!--登录、免责  -->
    <view class="login-container">
 
-    <view class="button" bindtap="myCenter"><button>登录</button></view>
+    <view class="button" bindtap="myCenter" bindtap="submit"><button>登录</button></view>
     
-    <view class="mianze-container" bindtap="isShow">
+    <view class="mianze-container" bindtap="isShow1">
      <view class="mianze">
-       <view class="tips"><image src="/images/login-icon5.png"/></view>
+		<view class="tips" bindtap="read"><image src="{{web_isRead?'/images/login-icon6.png':'/images/login-icon5.png'}}"/></view>
        <view class="exceptions">免责条款</view>
        <view class="icon"><image src="/images/login-icon4.png"/></view>
      </view>
@@ -29,9 +29,9 @@
    <view class="foot-container">
      <view></view>
      <view class="footer-center">
-       <view class="register" bindtap="register">注册</view>
+       <view class="register" bindtap="intoPath" data-path="/pages/register/register">注册</view>
        <view>|</view>
-       <view class="login" bindtap="changePassword">修改密码</view>
+       <view class="login" bindtap="intoPath" data-path="/pages/changePassword/changePassword">修改密码</view>
      </view> 
      <view></view>
    </view> 
@@ -40,12 +40,17 @@
     <!--弹框-->
 </view>
 
- <view class="model-container"  wx:if="{{web_show}}"> 
+ <view class="model-container"  wx:if="{{web_show1}}"> 
 	<view class="model">
-	  <view class="close">免责条款</view>
-	    <view class="con">1.内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容.</view>
-	    <view class=".text"><text>1.内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容.</text></view>
-	    <view class="close2"  bindtap="isShow">
+	  <view class="close">{{web_mainData.title}}</view>
+	    <view class="con">
+			<view class="content ql-editor">
+			    <import src="../../wxParse/wxParse.wxml"/>
+			    <template is="wxParse" data="{{wxParseData:web_mainData.content}}"/>
+			</view>
+		</view>
+	    
+	    <view class="close2"  bindtap="isShow1">
 			<image  src="../../images/login-icon5.png" />
 		</view>
 	 </view>

@@ -1,71 +1,109 @@
-// pages/changePassword/changePassword.js
+// pages/myCenter/myCenter.js
+import {
+	Api
+} from '../../utils/api.js';
+var api = new Api();
+const app = getApp();
+import {
+	Token
+} from '../../utils/token.js';
+const token = new Token();
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  
-  },
-  login: function () {
-    wx.navigateTo({
-      url: '/pages/login/login'
-    })
-  },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
+	data: {
+	
+		submitData: {
+			phone:'',
+			password:'',
+			passwordNew:''
+		},
+		buttonCanClick:false,
+		isRead:false
+	},
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
+	onLoad(options) {
+		const self = this;
+		
+		
+		self.setData({
+			web_buttonCanClick:self.data.buttonCanClick
+		})		
+	},
+	
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
+	
+	bindInputChange(e) {
+		const self = this;
+		api.fillChange(e, self, 'submitData');
+		console.log('self.data.submitData',self.data.submitData)
+		self.setData({
+			web_submitData: self.data.submitData,
+		});
+	},
+	
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
+	resetPassword() {
+		const self = this;
+		const postData = {};
+		postData.data = {};
+		postData.data = api.cloneForm(self.data.submitData);
+		postData.tokenFuncName = 'getThreeToken';
+		const callback = (res) => {
+			api.buttonCanClick(self,true);
+			if (res.solely_code == 100000) {
+				api.showToast('修改成功','none');
+				setTimeout(function() {
+					wx.navigateBack({
+						delta: 1
+					});
+				}, 300);
+				
+			} else {
+				api.showToast(res.msg,'none')
+			}
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
+		};
+		api.resetPassword(postData, callback);
+	},
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
+	
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
+	submit() {
+		const self = this;
+		api.buttonCanClick(self);
+		console.log(self.data.submitData)
+		const pass = api.checkComplete(self.data.submitData);
+		console.log('pass', pass)
+		if (pass) {
+			if(!self.data.submitData.password!=self.data.submitData.passwordNew){
+				api.buttonCanClick(self, true);
+				api.showToast('两次密码不一致', 'none')
+				return
+			};
+			self.resetPassword();
+		} else {
+			api.buttonCanClick(self,true);
+			api.showToast('请补全信息','none');
+		};
+	},
+
+
+
+
+
+
+
+
+	intoPathRedirect(e) {
+		const self = this;
+		api.pathTo(api.getDataSet(e, 'path'), 'redi');
+	},
+	intoPath(e) {
+		const self = this;
+		api.pathTo(api.getDataSet(e, 'path'), 'nav');
+	}
+
 })

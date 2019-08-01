@@ -1,66 +1,48 @@
-// pages/helpCenterDetails/helpCenterDetails.js
+//logs.js
+import {Api} from '../../utils/api.js';
+const api = new Api();
+const app = getApp();
+import {Token} from '../../utils/token.js';
+const token = new Token();
+
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+
+
+    isFirstLoadAllStandard:['getMainData'],
+    searchItem:{
+      thirdapp_id:2
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  onLoad(options) {
+    const self = this;
+    api.commonInit(self);
+
+    self.data.id = options.id;
+    self.getMainData();
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  getMainData(){
+    const self= this;
+    const postData = {};
+    postData.searchItem =api.cloneForm(self.data.searchItem)
+    postData.searchItem.id=self.data.id;
+    const callback = (res)=>{
+      self.data.mainData = {};
+      if(res.info.data.length>0){
+        self.data.mainData = res.info.data[0];
+        self.data.mainData.content = api.wxParseReturn(res.info.data[0].content).nodes;
+      };
+      console.log(self.data.mainData);
+      api.checkLoadAll(self.data.isFirstLoadAllStandard,'getMainData',self);
+      self.setData({
+        web_mainData:self.data.mainData,
+      });  
+    };
+    api.articleGet(postData,callback);
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
   
-  },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })

@@ -5,30 +5,35 @@
    <view class="text-container">
       <view class="phone-container">
          <view><image src="/images/registered-icon1.png"/></view>
-         <view><input type="text" placeholder="输入姓名" placeholder-style="font-size:13px;color:#999999;"/></view>
+         <view><input type="text" placeholder="输入姓名" placeholder-style="font-size:13px;color:#999999;" 
+		 value="{{web_submitData.name}}"  data-key="name" bindblur="bindInputChange"/></view>
       </view>
       <view class="password-container">
          <view><image src="/images/registered-icon2.png" id="img2"/></view>
-         <view><input type="text" placeholder="输入手机号码" placeholder-style="font-size:13px;color:#999999;"/></view>
+         <view><input type="text" placeholder="输入手机号码" placeholder-style="font-size:13px;color:#999999;" 
+		 value="{{web_submitData.phone}}"  data-key="phone" bindblur="bindInputChange"/></view>
       </view>
       <view class="password-container">
          <view ><image src="/images/registered-icon3.png" placeholder-style="font-size:13px;color:#999999;" id="img3"/></view>
-         <view><input type="text" placeholder="输入地区" placeholder-style="font-size:13px;color:#999999;" id="img4"/></view>
+         <view><input type="text" placeholder="输入地区" placeholder-style="font-size:13px;color:#999999;" id="img4" 
+		 value="{{web_submitData.address}}"  data-key="address" bindblur="bindInputChange"/></view>
       </view>
       <view class="password-container">
          <view ><image src="/images/registered-icon4.png" id="img5"/></view>
-         <view><input type="text" placeholder="输入账号" placeholder-style="font-size:13px;color:#999999;"/></view>
+         <view><input type="text" placeholder="输入账号" placeholder-style="font-size:13px;color:#999999;" 
+		 value="{{web_submitData.login_name}}"  data-key="login_name" bindblur="bindInputChange"/></view>
       </view>
       <view class="password-container"> 
          <view><image src="/images/registered-icon5.png"/></view>
-         <view><input type="text" placeholder="输入登录密码" placeholder-style="font-size:13px;color:#999999;"/></view>
+         <view><input type="password" placeholder="输入登录密码" placeholder-style="font-size:13px;color:#999999;"
+		 value="{{web_submitData.password}}"  data-key="password" bindblur="bindInputChange"/></view>
       </view>
-      <view class="button"><button>注册</button></view>
+      <view class="button" bindtap="submit"><button>注册</button></view>
 
       <!--免责条款-->
     <view class="mianze-container">
      <view class="mianze">
-      <view class="tips"><image src="/images/login-icon5.png"/></view>
+      <view class="tips" bindtap="read"><image src="{{web_isRead?'/images/login-icon6.png':'/images/login-icon5.png'}}"/></view>
       <view class="exceptions">免责条款</view>
       <view class="icon"><image src="/images/login-icon4.png"/></view>
     </view>

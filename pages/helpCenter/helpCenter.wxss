@@ -13,7 +13,7 @@
 }
 .text-container{
   width:90%;
-  height:100px;
+
   box-shadow:0.5px 0.5px 4px #9E9E9E;
   padding:15px;
   border-radius:10px;

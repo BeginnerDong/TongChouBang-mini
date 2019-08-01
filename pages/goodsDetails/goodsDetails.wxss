@@ -1,7 +1,8 @@
 /* pages/goodsDetails/goodsDetails.wxss */
-.detail-img image{
+@import "../../wxParse/wxParse.wxss";
+.detail-img{
   width:100%;
-  height:160px;
+  height:190px;
 }
 .detail-container{
   width:100%;
@@ -221,7 +222,7 @@
 .banner-container{
   width:90%;
   display:flex;
-  white-space:nowrap;
+
   background-color:#ffffff;
   padding:15px 0% 0px 6%;
 }
@@ -305,11 +306,13 @@
   display:flex;
   white-space:nowrap;
   width:100%;
+  margin-right:15px;
+  justify-content: space-between;
 }
 .jiudian-container image{
   width:130px;
   height:100px;
-  margin-right:15px;
+  
   display:inline-block;
 }
 /*************酒店图集**********/

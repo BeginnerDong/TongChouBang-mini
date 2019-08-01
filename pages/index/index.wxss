@@ -15,6 +15,7 @@
   white-space:nowrap;
   text-align:center;
   border-bottom:0.5px solid #D3D3D3;
+  height: 75rpx;
 }
 .banner-container .active-item{
   font-size:15px;
@@ -58,6 +59,7 @@
 	height: 100%;
 	border-radius:15px 0 0 15px;
 	background-color: #fff;
+	padding: 0 15px;
 }
 .search-img{
 border:0.5px solid #D3D3D3;
@@ -147,7 +149,7 @@ justify-content: center;
  padding:8px;
  margin-top:-8px;
  border:0.5px solid #F1F1F1;
- 
+ height: 35px;
 }
 .img-text .title{
  display:flex;
@@ -168,7 +170,7 @@ justify-content: center;
   margin-top:5px;
 }
 span{
-  margin:0px 8px;
+  margin:0px 2px;
   font-size:13px;
   color:#FE546F;
 }
