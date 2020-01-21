@@ -52,6 +52,32 @@ class Api extends Base {
 		};
 		this.request(allParams);
 	}
+	
+	login(param, callback) {
+		var allParams = {
+			url: 'Project/Solely/loginByUp',
+			type: 'post',
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+	
+	sendCode(param, callback) {
+		var allParams = {
+			url: 'Base/BaiduSms/sendCode',
+			type: 'post',
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+	
+	
 
 	register(param, callback) {
 		var allParams = {
@@ -105,6 +131,18 @@ class Api extends Base {
 	rankGet(param, callback) {
 		var allParams = {
 			url: 'Common/Rank/get',
+			type: 'post',
+			data: param,
+			sCallback: function(data) {
+				callback && callback(data);
+			}
+		};
+		this.request(allParams);
+	}
+	
+	relationGet(param, callback) {
+		var allParams = {
+			url: 'Common/Relation/get',
 			type: 'post',
 			data: param,
 			sCallback: function(data) {

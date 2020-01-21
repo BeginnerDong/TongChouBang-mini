@@ -35,10 +35,10 @@ Page({
 
 
 	},
+	
 	getLabelData() {
 		var self = this;
 		var postData = {};
-
 		postData.searchItem = api.cloneForm(self.data.searchItem);
 		postData.getBefore = {
 			Label: {
@@ -120,7 +120,13 @@ Page({
 
 	intoPath(e) {
 		const self = this;
-		api.pathTo(api.getDataSet(e, 'path'), 'nav');
+		var category_id = api.getDataSet(e,'category_id');
+		var id = api.getDataSet(e,'id')
+		if(category_id==1){
+			api.pathTo('/pages/goodsDetails/goodsDetails?id='+id, 'nav');
+		}else{
+			api.pathTo('/pages/goodsDetailsTwo/goodsDetailsTwo?id='+id, 'nav');
+		}	
 	},
 
 	intoPathRedi(e) {

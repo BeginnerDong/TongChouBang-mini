@@ -1,4 +1,4 @@
-
+<wxs src="../../utils/func.wxs" module="func" />
 <view style="background-color:#F5F5F5;padding-top:10px;position:relative;">
 	<view class="search-container">
 		<view style="width: 84%;"><input type="text" placeholder="搜索案例" placeholder-style="margin-left:10px;"  value="{{web_search.title}}"  data-key="title" bindblur="bindInputChange"/></view>
@@ -8,12 +8,12 @@
 	</view>
 	
 	<view class="center-container">
-		<view class="tip-container">
+		<view class="tip-container" style="z-index: 999;">
 			<block wx:for="{{web_labelData}}">
-				<view class="item"><text>{{item.title[1]}}</text></view>
+				<view class="item" bindtap="select" data-index="{{index}}"><text>{{item.title[1]}}</text></view>
 			</block>
-
-
+			<view class="item" bindtap="reset"><text  style="background-color: #FF556F;color: #ffffff;border:none">清除筛选条件</text></view>
+		
 		</view>
 		<view class="tip-container" style="width: 100%;background: #fff;position: absolute;z-index: 999;display: block;padding: 0;top:60px;" wx:if="{{web_isSelect}}">
 			<view class="tip-container" style="z-index: 999;">
@@ -33,16 +33,16 @@
 				
 			<view class="button" style="margin: 50px 0;"><button bindtap="confirm">确定</button></view>
 		</view>
-		<scroll-view class="img-container" scroll-x="true">
+		<!-- <scroll-view class="img-container" scroll-x="true">
 			<block wx:for="{{web_mainData}}">
 				<image src="{{item.mainImg[0].url}}" />
 			</block>
-		</scroll-view>
+		</scroll-view> -->
 		<!-- 预订价格  -->
 		<view class="price-container">
 			<!-- 一个-->
 			<block wx:for="{{web_mainData}}">
-				<view class="price-little-container">
+				<view class="price-little-container"  bindtap="intoPath" data-path="/pages/goodsDetailsTwo/goodsDetailsTwo?id={{item.id}}">
 					<!--图片、文字  -->
 					<view class="price-img-container">
 
@@ -53,9 +53,9 @@
 							<view class="title"><text>{{item.title}}</text></view>
 							<view class="content"><text>{{item.description}}</text></view>
 							<view class="tip2-container">
-								<view class="now-price">现价:{{item.score}}元/起</view>
-								<view class="init-price">原价:{{item.price}}元/起</view>
-								<view class="discount">{{item.discount}}折</view>
+								<view class="now-price">现价:{{item.score}}</view>
+								<view class="init-price">原价:{{item.price}}</view>
+								<view class="discount">{{item.discount==0?'10':item.discount}}折</view>
 							</view>
 						</view>
 
@@ -64,8 +64,13 @@
 
 					<!--按钮  -->
 					<view class="button-container">
-						<view></view>
-						<view class="button" bindtap="intoPath" data-path="/pages/goodsDetailsTwo/goodsDetailsTwo?id={{item.id}}"><button>立即预定</button></view>
+						<view class="xing" style="display: flex;">
+							<span wx:for="{{stars}}" wx:for-item="c_item">
+								<image  src="/images/evaluation-icon7.png" wx:if="{{item.averageScore>=c_item}}"  style="width:30rpx;height:30rpx;margin-right: 10px;" />
+								<image src="/images/evaluation-icon4.png" wx:else style="width:30rpx;height:30rpx;margin-right: 10px;" />
+							</span>
+						</view>
+						<view class="button"><button>详细信息</button></view>
 					</view>
 					<!--按钮  -->
 				</view>

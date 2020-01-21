@@ -26,6 +26,10 @@ Page({
 	
 	},
 	
+	removeStorageSync() {
+		api.logOff();
+	},
+	
 	getUserInfoData() {
 		const self = this;
 		const postData = {};

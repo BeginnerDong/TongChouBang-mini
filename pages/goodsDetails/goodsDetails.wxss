@@ -56,7 +56,7 @@
   font-size:13px;
   color:#747474;
   padding-left:8%;
-  margin-top:-5px;
+  
   font-family:PingFang-SC-Medium;
 }
 
@@ -105,7 +105,7 @@
 /**************预定信息**********/
 .order-container{
   margin-top:10px;
-  display:flex;
+  
   padding:4% 4% 10px 4%;
   background-color:#ffffff;
   flex-direction:row;
@@ -125,11 +125,11 @@
   font-size:12px;
   color:#666666;
   margin-top:10px;
-  overflow: hidden;
+ /* overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: vertical; */
 }
 .order-info{
   display:flex;
@@ -168,7 +168,7 @@
   width:100%;
   height:20px;
   display:flex;
-  justify-content:space-around;
+  justify-content:center;
   background-color:#ECECEC;
   padding-top:8px;
   margin:10px 0px;
@@ -178,10 +178,10 @@
 }
 .taocan-container .banner-tips{
   width:100%;
-  height:8px;
+ 
   display:flex;
-  justify-content:space-around;
-  padding:1px 0px 13px 0px;
+
+  align-items: center;
   margin-bottom:8px;
   font-size:12px;
   border-left:3px solid #FF3B5F;
@@ -197,7 +197,7 @@
 .taocan-container .detail{
   color:#9C9C9C;
   font-size:11px;
-  height:20px;
+  
   padding:15px 4% 0px 4%;
   border-top:1px solid #EBEBEB;
 }

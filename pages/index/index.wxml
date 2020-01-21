@@ -31,18 +31,8 @@
 		</view>
 	</scroll-view>
 	<!--导航栏-->
-	<view style="width: 100%;height: 30rpx;"></view>
+	
 	<!--搜索框-->
-	
-	<swiper style="width: 86%;height: 195px;"  indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
-	 interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
-	
-		<block wx:for="{{web_swiperData.mainImg}}" wx:index="{{index}}">
-			<swiper-item  style="width: 100%;height: 195px;" >
-				<image   style="width: 100%;height: 195px;"  mode="aspectFill" src="{{item.url}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}" />
-			</swiper-item>
-		</block>
-	</swiper>
 	<view class="center-container" style="display: flex;">
 		<view class="search-container" style="width: 84%;">
 			<input type="text" placeholder="搜索团建游,目的地等" value="{{web_search.title}}"  data-key="title" bindblur="bindInputChange"/>
@@ -52,6 +42,17 @@
 			<image src="/images/home-icon1.png" />
 		</view>
 	</view>
+	<view style="width: 100%;height: 30rpx;"></view>
+	<swiper style="width: 86%;height: 195px;"  indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+	 interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+	
+		<block wx:for="{{web_swiperData.mainImg}}" wx:index="{{index}}">
+			<swiper-item  style="width: 100%;height: 195px;" >
+				<image   style="width: 100%;height: 195px;"  mode="" src="{{item.url}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}" />
+			</swiper-item>
+		</block>
+	</swiper>
+	
 	<!--搜索框-->
 
 	<!--场地-->
@@ -63,20 +64,22 @@
 			<view class="center">
 				<view class="title-container">
 					<view class="item">年会场地</view>
-					<view class="more">查看更多></view>
+					<view class="more"  bindtap="intoPath"  
+						data-path="/pages/feaPlace/feaPlace?id={{web_id1}}">查看更多></view>
 				</view>
 
 				<!--{{item.title}}-->
 				<view class="center-content">
-					<block wx:for="{{web_productOneData}}" wx:key="id" wx:if="{{index<4}}">
-						<view class="center-little-container" bindtap="intoPath"  data-path="/pages/goodsDetails/goodsDetails?id={{item.id}}">
+					<block wx:for="{{web_productOneData}}" wx:key="id">
+						<view class="center-little-container" bindtap="intoPath"  
+						data-path="/pages/goodsDetails/goodsDetails?id={{item.id}}">
 							<view>
 								<image src="{{item.mainImg[0].url}}" />
 							</view>
 							<view class="img-text">
 								<view class="title">
 									<view style="width: 70%;" class="avoidOverflow">{{item.title}}</view>
-									<view class="price">￥<span>{{item.score}}</span>起</view>
+									<view class="price"><span>{{item.score}}</span></view>
 								</view>
 								<view class="neirong avoidOverflow">{{item.description}}</view>
 							</view>
@@ -97,20 +100,22 @@
 			<view class="center">
 				<view class="title-container">
 					<view class="item">品牌推广专区</view>
-					<view class="more">查看更多></view>
+					<view class="more" bindtap="intoPath"  
+						data-path="/pages/feaPlace/feaPlace?id={{web_id2}}">查看更多></view>
 				</view>
 		
 				<!--{{item.title}}-->
 				<view class="center-content">
 					<block wx:for="{{web_productTwoData}}" wx:key="id" wx:if="{{index<4}}">
-						<view class="center-little-container" bindtap="intoPath"  data-path="/pages/goodsDetails/goodsDetails/goodsDetails?id={{item.id}}">
+						<view class="center-little-container" bindtap="intoPath"  
+						data-path="/pages/goodsDetails/goodsDetails?id={{item.id}}">
 							<view>
 								<image src="{{item.mainImg[0].url}}" />
 							</view>
 							<view class="img-text">
 								<view class="title">
 									<view style="width: 70%;" class="avoidOverflow">{{item.title}}</view>
-									<view class="price">￥<span>{{item.score}}</span>起</view>
+									<view class="price"><span>{{item.score}}</span></view>
 								</view>
 								<view class="neirong avoidOverflow">{{item.description}}</view>
 							</view>
@@ -131,20 +136,22 @@
 			<view class="center">
 				<view class="title-container">
 					<view class="item">发布会场地</view>
-					<view class="more">查看更多></view>
+					<view class="more" bindtap="intoPath"  
+						data-path="/pages/feaPlace/feaPlace?id={{web_id3}}">查看更多></view>
 				</view>
 		
 				<!--{{item.title}}-->
 				<view class="center-content">
 					<block wx:for="{{web_productThreeData}}" wx:key="id" wx:if="{{index<4}}">
-						<view class="center-little-container" bindtap="intoPath"  data-path="/pages/goodsDetails/goodsDetails?id={{item.id}}">
+						<view class="center-little-container" bindtap="intoPath"  
+						data-path="/pages/goodsDetails/goodsDetails?id={{item.id}}">
 							<view>
 								<image src="{{item.mainImg[0].url}}" />
 							</view>
 							<view class="img-text">
 								<view class="title">
 									<view style="width: 70%;" class="avoidOverflow">{{item.title}}</view>
-									<view class="price">￥<span>{{item.score}}</span>起</view>
+									<view class="price"><span>{{item.score}}</span></view>
 								</view>
 								<view class="neirong avoidOverflow">{{item.description}}</view>
 							</view>
@@ -165,20 +172,22 @@
 			<view class="center">
 				<view class="title-container">
 					<view class="item">婚宴场地</view>
-					<view class="more">查看更多></view>
+					<view class="more" bindtap="intoPath"  
+						data-path="/pages/feaPlace/feaPlace?id={{web_id4}}">查看更多></view>
 				</view>
 		
 				<!--{{item.title}}-->
 				<view class="center-content">
 					<block wx:for="{{web_productFourData}}" wx:key="id" wx:if="{{index<4}}">
-						<view class="center-little-container" bindtap="intoPath"  data-path="/pages/goodsDetails/goodsDetails?id={{item.id}}">
+						<view class="center-little-container" bindtap="intoPath"  
+						data-path="/pages/goodsDetails/goodsDetails?id={{item.id}}">
 							<view>
 								<image src="{{item.mainImg[0].url}}" />
 							</view>
 							<view class="img-text">
 								<view class="title">
 									<view style="width: 70%;" class="avoidOverflow">{{item.title}}</view>
-									<view class="price">￥<span>{{item.score}}</span>起</view>
+									<view class="price"><span>{{item.score}}</span></view>
 								</view>
 								<view class="neirong avoidOverflow">{{item.description}}</view>
 							</view>
@@ -197,20 +206,22 @@
 			<view class="center">
 				<view class="title-container">
 					<view class="item">商务会议场地</view>
-					<view class="more">查看更多></view>
+					<view class="more" bindtap="intoPath"  
+						data-path="/pages/feaPlace/feaPlace?id={{web_id5}}">查看更多></view>
 				</view>
 		
 				<!--{{item.title}}-->
 				<view class="center-content">
 					<block wx:for="{{web_productFiveData}}" wx:key="id" wx:if="{{index<4}}">
-						<view class="center-little-container" bindtap="intoPath"  data-path="/pages/goodsDetails/goodsDetails?id={{item.id}}">
+						<view class="center-little-container" bindtap="intoPath"  
+						data-path="/pages/goodsDetails/goodsDetails?id={{item.id}}">
 							<view>
 								<image src="{{item.mainImg[0].url}}" />
 							</view>
 							<view class="img-text">
 								<view class="title">
 									<view style="width: 70%;" class="avoidOverflow">{{item.title}}</view>
-									<view class="price">￥<span>{{item.score}}</span>起</view>
+									<view class="price"><span>{{item.score}}</span></view>
 								</view>
 								<view class="neirong avoidOverflow">{{item.description}}</view>
 							</view>
@@ -229,20 +240,22 @@
 			<view class="center">
 				<view class="title-container">
 					<view class="item">团建场地</view>
-					<view class="more">查看更多></view>
+					<view class="more" bindtap="intoPath"  
+						data-path="/pages/feaPlace/feaPlace?id={{web_id6}}">查看更多></view>
 				</view>
 		
 				<!--{{item.title}}-->
 				<view class="center-content">
 					<block wx:for="{{web_productSixData}}" wx:key="id" wx:if="{{index<4}}">
-						<view class="center-little-container" bindtap="intoPath"  data-path="/pages/goodsDetails/goodsDetails?id={{item.id}}">
+						<view class="center-little-container" bindtap="intoPath"  
+						data-path="/pages/goodsDetails/goodsDetails?id={{item.id}}">
 							<view>
 								<image src="{{item.mainImg[0].url}}" />
 							</view>
 							<view class="img-text">
 								<view class="title">
 									<view style="width: 70%;" class="avoidOverflow">{{item.title}}</view>
-									<view class="price">￥<span>{{item.score}}</span>起</view>
+									<view class="price"><span>{{item.score}}</span></view>
 								</view>
 								<view class="neirong avoidOverflow">{{item.description}}</view>
 							</view>
@@ -273,11 +286,11 @@
 		</view>
 		<view class="text">需求</view>
 	</view>
-	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/case/case">
+	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/feaPlaceTwo/feaPlaceTwo">
 		<view class="nav_img">
 			<image src="/images/nabar3.png" style="width: 50rpx;"></image>
 		</view>
-		<view class="text">案例</view>
+		<view class="text">找会场</view>
 	</view>
 	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/login/login">
 		<view class="nav_img">

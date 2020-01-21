@@ -26,7 +26,9 @@
 	"pages/lease/lease",
 	"pages/advertising/advertising",
 	"pages/giftPurchasing/giftPurchasing",
-	"pages/applyEnter/applyEnter"
+	"pages/applyEnter/applyEnter",
+	"pages/feaPlaceTwo/feaPlaceTwo",
+	"pages/orderKnow/orderKnow"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -13,8 +13,12 @@
 		<!--导航栏-->
 
 		<!--待添加评价-->
+		<view style="text-align: center;margin-top: 300rpx;" wx:if="{{web_mainData.length==0}}">
+			<image style="width: 400rpx;height: 460rpx;" src="../../images/nodata.png"></image>
+		</view>
 		<view class="pingjia-container">
 			<!--一个待添加评价-->
+			
 			<block wx:for="{{web_mainData}}" wx:key="id" wx:if="{{item.products[0].sku_id!=0}}">
 				<view class="pingjia-container-text">
 					<view class="date-container">
@@ -32,8 +36,8 @@
 						</view>
 						<view class="text-container">
 							<view class="title">{{item.products[0].snap_product.title}}</view>
-							<view class="neirong">{{item.products[0].snap_product.content}}</view>
-							<view class="price">￥{{item.price}}</view>
+							<view class="neirong avoidOverflow2">{{item.products[0].snap_product.content}}</view>
+							<view class="price">￥{{item.products[0].snap_product.price}}</view>
 						</view>
 					</view>
 					<!--按钮-->
@@ -68,8 +72,8 @@
 						</view>
 						<view class="text-container">
 							<view class="title">{{item.products[0].snap_product.title}}</view>
-							<view class="neirong">{{item.products[0].snap_product.description}}</view>
-							<view class="price">￥{{item.price}}</view>
+							<view class="neirong avoidOverflow2">{{item.products[0].snap_product.description}}</view>
+							<view class="price">￥{{item.products[0].snap_product.price}}</view>
 						</view>
 					</view>
 					<!--按钮-->

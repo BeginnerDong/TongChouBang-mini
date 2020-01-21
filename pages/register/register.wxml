@@ -13,32 +13,59 @@
          <view><input type="text" placeholder="输入手机号码" placeholder-style="font-size:13px;color:#999999;" 
 		 value="{{web_submitData.phone}}"  data-key="phone" bindblur="bindInputChange"/></view>
       </view>
+	  <view class="password-container">
+	     <view><image src="/images/login-icon3.png"/></view>
+	     <view style="display: flex; border-bottom:0.5px solid #F1F1F1;">
+	  			 <input type="password" placeholder="输入验证码" placeholder-style="font-size:13px;color:#999999;" data-key="code" bindinput="bindInputChange" style="width: 340rpx;"/>
+	  			 <view style="font-size:14px;color:#FF556f" bindtap="{{!hasSend?'sendCode':''}}">{{text}}</view>
+	  		</view>
+	  </view>
       <view class="password-container">
          <view ><image src="/images/registered-icon3.png" placeholder-style="font-size:13px;color:#999999;" id="img3"/></view>
          <view><input type="text" placeholder="输入地区" placeholder-style="font-size:13px;color:#999999;" id="img4" 
 		 value="{{web_submitData.address}}"  data-key="address" bindblur="bindInputChange"/></view>
       </view>
-      <view class="password-container">
+      <!-- <view class="password-container">
          <view ><image src="/images/registered-icon4.png" id="img5"/></view>
          <view><input type="text" placeholder="输入账号" placeholder-style="font-size:13px;color:#999999;" 
 		 value="{{web_submitData.login_name}}"  data-key="login_name" bindblur="bindInputChange"/></view>
-      </view>
-      <view class="password-container"> 
+      </view> -->
+      <!-- <view class="password-container"> 
          <view><image src="/images/registered-icon5.png"/></view>
          <view><input type="password" placeholder="输入登录密码" placeholder-style="font-size:13px;color:#999999;"
 		 value="{{web_submitData.password}}"  data-key="password" bindblur="bindInputChange"/></view>
-      </view>
+      </view> -->
+	  
       <view class="button" bindtap="submit"><button>注册</button></view>
 
       <!--免责条款-->
     <view class="mianze-container">
      <view class="mianze">
       <view class="tips" bindtap="read"><image src="{{web_isRead?'/images/login-icon6.png':'/images/login-icon5.png'}}"/></view>
-      <view class="exceptions">免责条款</view>
-      <view class="icon"><image src="/images/login-icon4.png"/></view>
+      <view class="exceptions"  bindtap="isShow1">免责条款</view>
+      <view class="icon"  bindtap="isShow1"><image src="/images/login-icon4.png"/></view>
     </view>
    </view>
       <!--免责条款-->
    </view> 
 </view>
-
+ <view class="model-container"  wx:if="{{web_show1}}"> 
+	<view class="model">
+	  <view class="close" style="height: 5%;line-height: 25px;">{{web_mainData.title}}</view>
+	    <view class="con" style="height: 80%;">
+			<view class="content ql-editor">
+			    <import src="../../wxParse/wxParse.wxml"/>
+			    <template is="wxParse" data="{{wxParseData:web_mainData.content}}"/>
+			</view>
+		</view>
+	    
+	    <view style="width: 100%;display: flex;height: 15%;">
+	    	<view style="width: 50%;display: flex;justify-content: center;align-items: center;">
+	    		<button class="button" style="width: auto;margin-top: 0;" bindtap="read">同意</button>
+	    	</view>
+	    	<view style="width: 50%;display: flex;justify-content: center;align-items: center;">
+	    		<button class="button" style="width: auto;margin-top: 0;" bindtap="isShow1">拒绝</button>
+	    	</view>
+	    </view>
+	 </view>
+ </view>

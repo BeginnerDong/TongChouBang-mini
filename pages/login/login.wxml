@@ -4,11 +4,14 @@
    <view class="text-container">
       <view class="phone-container">
          <view ><image src="/images/login-icon2.png"/></view>
-         <view><input type="text" placeholder="输入手机号码"  placeholder-style="color:#999999;font-size:13px;" data-key="login_name" bindinput="bindInputChange"/></view>
+         <view><input style="border-bottom:0.5px solid #F1F1F1;" type="number" placeholder="输入手机号码"  placeholder-style="color:#999999;font-size:13px;" data-key="login_name" bindinput="bindInputChange"/></view>
       </view>
       <view class="password-container"> 
          <view><image src="/images/login-icon3.png"/></view>
-         <view><input type="password" placeholder="输入登录密码" data-key="password" bindinput="bindInputChange"/></view>
+         <view style="display: flex; border-bottom:0.5px solid #F1F1F1;">
+			 <input type="text" placeholder="输入验证码" data-key="code" bindinput="bindInputChange" style="width: 340rpx;"/>
+			 <view style="font-size:14px;color:#FF556f" bindtap="{{!hasSend?'sendCode':''}}">{{text}}</view>
+		</view>
       </view>
    </view>
 <!--登录、免责  -->
@@ -16,11 +19,11 @@
 
     <view class="button" bindtap="myCenter" bindtap="submit"><button>登录</button></view>
     
-    <view class="mianze-container" bindtap="isShow1">
+    <view class="mianze-container">
      <view class="mianze">
 		<view class="tips" bindtap="read"><image src="{{web_isRead?'/images/login-icon6.png':'/images/login-icon5.png'}}"/></view>
-       <view class="exceptions">免责条款</view>
-       <view class="icon"><image src="/images/login-icon4.png"/></view>
+       <view class="exceptions"  bindtap="isShow1">免责条款</view>
+       <view class="icon"  bindtap="isShow1"><image src="/images/login-icon4.png"/></view>
      </view>
     </view>
    
@@ -42,17 +45,22 @@
 
  <view class="model-container"  wx:if="{{web_show1}}"> 
 	<view class="model">
-	  <view class="close">{{web_mainData.title}}</view>
-	    <view class="con">
+	  <view class="close" style="height: 5%;line-height: 25px;">{{web_mainData.title}}</view>
+	    <view class="con" style="height: 80%;overflow: scroll;">
 			<view class="content ql-editor">
 			    <import src="../../wxParse/wxParse.wxml"/>
 			    <template is="wxParse" data="{{wxParseData:web_mainData.content}}"/>
 			</view>
 		</view>
-	    
-	    <view class="close2"  bindtap="isShow1">
-			<image  src="../../images/login-icon5.png" />
+	    <view style="width: 100%;display: flex;height: 15%;">
+			<view style="width: 50%;display: flex;justify-content: center;align-items: center;">
+				<button class="button" style="width: auto;margin-top: 0;" bindtap="read">同意</button>
+			</view>
+			<view style="width: 50%;display: flex;justify-content: center;align-items: center;">
+				<button class="button" style="width: auto;margin-top: 0;" bindtap="isShow1">拒绝</button>
+			</view>
 		</view>
+	    
 	 </view>
  </view>
    

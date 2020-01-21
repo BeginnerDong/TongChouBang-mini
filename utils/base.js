@@ -865,7 +865,7 @@ class Base {
 		wx.removeStorageSync('threeToken');
 		wx.removeStorageSync('threeInfo');
 		if (!wx.getStorageSync('login')) {
-			self.pathTo('/pages/storeLogin/storeLogin', 'redi')
+			self.pathTo('/pages/index/index', 'redi')
 		} else {
 			self.showToast('系统故障', 'fail')
 		}

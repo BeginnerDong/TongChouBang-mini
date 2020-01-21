@@ -59,7 +59,7 @@
 }
 .img-text-container image{
   width:94px;
-  height:77px;
+  height:94px;
   margin-right:10px;
 }
 .text-container  .title{

@@ -16,12 +16,12 @@
   text-align:center;
   border-bottom:0.5px solid #D3D3D3;
   height: 75rpx;
+  padding-left: 10px;
 }
 .banner-container .active-item{
   font-size:15px;
   margin-right:20px;
   color:#FE546F;
-  width:15%;
   display:inline-block;
   padding-bottom:15px;
   font-weight: bold;
@@ -29,7 +29,6 @@
 }
 .banner-container .item{
   font-size:13px;
-  width:15%;
   display:inline-block;
   padding-bottom:15px;
   margin-right:20px;
@@ -50,12 +49,11 @@
   height:30px;
   display: flex;
   border-radius:15px;
-  position: absolute;
-  top:12%;
+
 }
 .search-container input{
  border:0.5px solid #D3D3D3;
-	width:100%;
+	width:90%;
 	height: 100%;
 	border-radius:15px 0 0 15px;
 	background-color: #fff;

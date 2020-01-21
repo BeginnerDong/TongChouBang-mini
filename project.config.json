@@ -41,7 +41,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 26,
 			"list": [
 				{
 					"id": 0,
@@ -123,10 +123,11 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 13,
 					"name": "商品详情",
 					"pathName": "pages/goodsDetails/goodsDetails",
-					"query": ""
+					"query": "id=223",
+					"scene": null
 				},
 				{
 					"id": 14,
@@ -175,6 +176,41 @@
 					"name": "个人中心",
 					"pathName": "pages/myCenter/myCenter",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "pages/activityNeed/activityNeed",
+					"pathName": "pages/activityNeed/activityNeed",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/feaPlace/feaPlace",
+					"pathName": "pages/feaPlace/feaPlace",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/orderKnow/orderKnow",
+					"pathName": "pages/orderKnow/orderKnow",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/goodsDetails/goodsDetails",
+					"pathName": "pages/goodsDetails/goodsDetails",
+					"query": "id=42",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/goodsDetails/goodsDetails",
+					"pathName": "pages/goodsDetails/goodsDetails",
+					"query": "id=37",
+					"scene": null
 				}
 			]
 		}

@@ -1,48 +1,58 @@
 <!--pages/bookOrder/bookOrder.wxml-->
 <view class="bookOrder-container">
-  
-  <view class="info-containner">
-    <!-- 预约信息-->
-      <view class="book-info">
-         <view class="title"><text>预约信息</text></view>
-         <view class="content">
-            <view class="tip"><text>*</text></view>
-            <view class="little-title"><text>活动日期</text></view>
-            <view><picker bindchange="timeChange" style="color:#212121;font-size:12px;width: 100%;height: 100%;height: 30px;line-height: 30px;border: 1px solid lightgrey;padding-left: 8px;color: #272727;width: 220px;" mode="date">
-          			{{web_time?web_time:'请选择'}}
-          </picker></view>
-         </view>
 
-         <view class="content">
-            <view class="tip"><text>*</text></view>
-            <view class="little-title"><text>使用时段</text></view>
-            <view><input type="text" style="border:none;font-size:10px" placeholder="0:00-24:00" disabled="true" placeholder-type="color:#272727;font-size:10px;"/></view>
-         </view>
-         
-         <view class="content">
-            <view class="tip"><text>*</text></view>
-            <view class="little-title"><text>购买数量</text></view>
-            <view class="num-container">
-               <view class="icon" bindtap="counter" data-type="-">-</view>
-               <view><input type="number" value="{{web_count}}" placeholder-type="color:#272727;font-weight:bold;"/></view>
-               <view class="icon2" bindtap="counter" data-type="+">+</view>
-            </view>
-            <view class="num-info"><text>最小购买数量为40,最大购买数量为150</text></view>
-         </view>
+	<view class="info-containner">
+		<!-- 预约信息-->
+		<view class="book-info">
+			<view class="title"><text>预约信息</text></view>
+			<view class="content">
+				<view class="tip"><text>*</text></view>
+				<view class="little-title"><text>活动日期</text></view>
+				<view>
+					<picker bindchange="timeChange" style="color:#212121;font-size:12px;width: 100%;height: 100%;height: 30px;line-height: 30px;border: 1px solid lightgrey;padding-left: 8px;color: #272727;width: 220px;"
+					 mode="date">
+						{{web_time?web_time:'请选择'}}
+					</picker>
+				</view>
+			</view>
 
-         <view class="content">
-            <view class="tip"><text>*</text></view>
-            <view class="little-title"><text>活动规模</text></view>
-            <view><input type="text" placeholder="请正确填写活动规模" style="font-size:10px;"
-			value="{{web_submitData.scale}}"  data-key="scale" bindblur="bindInputChange"/></view>
-         </view>
+			<view class="content">
+				<view class="tip"><text>*</text></view>
+				<view class="little-title"><text>使用时段</text></view>
+				<view>
+					<picker bindchange="startChange" mode="time" style="color:#212121;font-size:12px;width: 100%;height: 100%;height: 30px;line-height: 30px;border: 1px solid lightgrey;padding-left: 8px;color: #272727;">
+						{{web_startTime?web_startTime:'请选择开始时间'}}
+					</picker>
+				</view>
+				<view>
+					<picker bindchange="endChange" mode="time" style="margin-left: 20px;color:#212121;font-size:12px;width: 100%;height: 100%;height: 30px;line-height: 30px;border: 1px solid lightgrey;padding-left: 8px;color: #272727;">
+						{{web_endTime?web_endTime:'请选择结束时间'}}
+					</picker>
+				</view>
+			</view>
+			<view class="content">
+				<view class="tip"><text>*</text></view>
+				<view class="little-title"><text>购买数量</text></view>
+				<view class="num-container">
+					<view class="icon" bindtap="counter" data-type="-">-</view>
+					<view><input type="number" value="{{web_count}}" placeholder-type="color:#272727;font-weight:bold;" /></view>
+					<view class="icon2" bindtap="counter" data-type="+">+</view>
+				</view>
 
-          <view class="content">
-            <view><text></text></view>
-            <view class="little-title"><text style="margin-left:10px;">备注信息</text></view>
-            <view><textarea type="text" placeholder="请简单描述您需要的设施与服务,如投影仪、白板等（非必填）" 
-			placeholder-style="font-size:10px;color:#999999;" auto-focus
-			value="{{web_submitData.remarks}}"  data-key="remarks" bindblur="bindInputChange"/></view>
+			</view>
+
+			<view class="content">
+				<view class="tip"><text>*</text></view>
+				<view class="little-title"><text>活动规模</text></view>
+				<view><input type="text" placeholder="请填写参会人数" style="font-size:10px;" value="{{web_submitData.scale}}" data-key="scale"
+					 bindblur="bindInputChange" /></view>
+			</view>
+
+			<view class="content">
+				<view><text></text></view>
+				<view class="little-title"><text style="margin-left:10px;">备注信息</text></view>
+				<view><textarea type="text" placeholder="请简单描述您需要的设施与服务,如投影仪、白板等（非必填）" placeholder-style="font-size:10px;color:#999999;"
+					 auto-focus value="{{web_submitData.remarks}}" data-key="remarks" bindblur="bindInputChange" /></view>
          </view> 
       
       </view>
@@ -61,31 +71,31 @@
             <view class="content">
               <view class="tip"><text>*</text></view>
               <view class="little-title" style="margin-right:20px;"><text>联系电话</text></view>
-              <view><input type="text" placeholder="请输入联系人电话"
+              <view><input type="number" placeholder="请输入联系人电话"
 			  value="{{web_submitData.phone}}"  data-key="phone" bindblur="bindInputChange"/></view>
             </view>
 
-            <view class="content">
+           <!-- <view class="content">
               <view class="tip"><text>*</text></view>
               <view class="little-title" style="margin-right:20px;"><text>联系邮箱</text></view>
               <view><input type="text" placeholder="请输入联系人邮箱(非必填)"
 			  value="{{web_submitData.email}}"  data-key="email" bindblur="bindInputChange"/></view>
-            </view>
+            </view> -->
         </view>    
     <!-- 联系信息-->
   </view>
     <!--按钮-->
-      <view class="button"  bindtap="addOrder"><button>提交</button></view>
+      <view class="button"  bindtap="{{web_buttonCanClick?'addOrder':''}}"><button>提交</button></view>
     <!--按钮-->
     
     <!--弹框-->
-   <!-- <view class="model-container">
-   <view class="model">
-     <view class="close">*</view>
-       <view class="con">提交预约成功,负责人会在八小时之内联系你,请注意接听电话.</view>
-       <view class=".text"><text>咨询热线:00000000</text></view>
-    </view>
-     </view> -->
+  <!-- <view class="model-container">
+	   <view class="model">
+		 <view class="close">*</view>
+		   <view class="con">提交预约成功,负责人会在八小时之内联系你,请注意接听电话.</view>
+		   <view class=".text"><text>咨询热线:00000000</text></view>
+		</view>
+    </view> -->
     <!--弹框-->
 
 </view>

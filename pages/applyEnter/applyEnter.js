@@ -53,24 +53,68 @@ Page({
 			}
 		],
 		cityData:[],
-		isRead:false
+		isRead:false,
+		show:false
 	},
 
 	onLoad(options) {
 		const self = this;
+		self.data.getBefore = {
+			caseData: {
+				tableName: 'Label',
+				searchItem: {
+					title: ['=', ['免责声明']],
+				},
+				middleKey: 'menu_id',
+				key: 'id',
+				condition: 'in',
+			},
+		};
 		api.commonInit(self);
 		self.getUserInfoData()
 		self.getCityData();
 		self.setData({
+			web_show: self.data.show,
 			web_isRead:self.data.isRead
 		})		
 	},
 	
-	read(){
+	getMainData() {
+		const self = this;
+		const postData = {};
+		postData.searchItem = {
+			thirdapp_id: getApp().globalData.thirdapp_id,
+		};
+	
+		postData.getBefore = api.cloneForm(self.data.getBefore);
+		const callback = (res) => {
+			if (res.info.data.length > 0) {
+				self.data.mainData = res.info.data[0];
+				self.data.mainData.content = api.wxParseReturn(res.info.data[0].content).nodes;	
+			} 
+			self.setData({
+				web_mainData: self.data.mainData,
+			});
+		};
+		api.articleGet(postData, callback);
+	},
+	
+	isShow(){
+		const self = this;
+		self.getMainData();
+		self.data.show = !self.data.show;
+		self.setData({
+			web_show: self.data.show
+		})
+	},
+	
+	read() {
 		const self = this;
 		self.data.isRead = !self.data.isRead;
+		self.data.show1 = false;
 		self.setData({
-			web_isRead:self.data.isRead
+			web_show1: self.data.show1,
+			web_isRead: self.data.isRead
 		})
 	},
 	

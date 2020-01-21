@@ -52,9 +52,8 @@ Page({
 		})
 		self.getLabelData();
 		self.getMainData()
+
 	},
-	
-	
 	
 	select(e){
 		const self = this;
@@ -75,7 +74,6 @@ Page({
 			self.data.spuArray.push(id);		
 		}
 		console.log(self.data.spuArray)
-		console.log(self.data.getBefore)
 		self.setData({
 			web_spuArray:self.data.spuArray
 		})
@@ -200,7 +198,7 @@ Page({
 		postData.order = {
 			create_time: 'asc'
 		};
-		postData.getAfter = {	
+		postData.getAfter = {
 			message:{
 				tableName:'Message',
 				middleKey:'id',
@@ -244,7 +242,6 @@ Page({
 					web_mainData: self.data.mainData,
 				});
 			} else {
-				api.buttonCanClick(self, true);
 				api.showToast('网络故障', 'none')
 			}
 		};
@@ -270,6 +267,11 @@ Page({
 	},
 
 	intoPathRedi(e) {
+		const self = this;
+		api.pathTo(api.getDataSet(e, 'path'), 'redi');
+	},
+	
+	intoPathRedirect(e) {
 		const self = this;
 		api.pathTo(api.getDataSet(e, 'path'), 'redi');
 	},

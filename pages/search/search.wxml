@@ -6,10 +6,10 @@
 
 
 		<!-- 预订价格  -->
-		<view class="price-container">
+		<view class="price-container" wx:if="{{web_mainData.length>0}}">
 			<!-- 一个-->
 			<block wx:for="{{web_mainData}}">
-				<view class="price-little-container">
+				<view class="price-little-container" bindtap="intoPath" data-category_id="{{item.category_id}}" data-id="{{item.id}}">
 					<!--图片、文字  -->
 					<view class="price-img-container">
 
@@ -20,9 +20,9 @@
 							<view class="title"><text>{{item.title}}</text></view>
 							<view class="content"><text>{{item.description}}</text></view>
 							<view class="tip-container">
-								<view class="now-price">现价:{{item.score}}元/起</view>
-								<view class="init-price">原价:{{item.price}}元/起</view>
-								<view class="discount">{{item.discount}}折</view>
+								<view class="now-price">现价:{{item.score}}</view>
+								<view class="init-price">原价:{{item.price}}</view>
+								<view class="discount">{{item.discount==0?'10':item.discount}}折</view>
 							</view>
 						</view>
 
@@ -31,8 +31,13 @@
 
 					<!--按钮  -->
 					<view class="button-container">
-						<view></view>
-						<view class="button" bindtap="intoPath" data-path="{{item.category_id==1?'/pages/goodsDetails/goodsDetails':'/pages/goodsDetailsTwo/goodsDetailsTwo'}}"><button>立即预定</button></view>
+						<view class="xing" style="display: flex;">
+							<span wx:for="{{stars}}" wx:for-item="c_item">
+								<image  src="/images/evaluation-icon7.png" wx:if="{{item.averageScore>=c_item}}"  style="width:30rpx;height:30rpx;margin-right: 10px;" />
+								<image src="/images/evaluation-icon4.png" wx:else style="width:30rpx;height:30rpx;margin-right: 10px;" />
+							</span>
+						</view>
+						<view class="button" ><button>详细信息</button></view>
 					</view>
 					<!--按钮  -->
 				</view>
@@ -47,11 +52,12 @@
 
 		</view>
 		<!-- 预订价格  -->
-
+		
 	</view>
 	<!--内容-->
 
 	<!--活动需求 -->
-	<view class="need" bindtap="activityNeed" style="top:{{winHeight-380}}px;left:{{winWidth-70}}px;"><text>活动需求</text></view>
+	<view class="need" bindtap="intoPathRedi" data-path="/pages/activityNeed/activityNeed"><text>活动需求</text></view>
 	<!--活动需求 -->
 </view>
+<view style="width: 100%;text-align: center;font-size:15px;margin-top: 50%;"  wx:if="{{web_mainData.length==0}}">没有找到您想要的内容~</view>

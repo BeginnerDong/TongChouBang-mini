@@ -18,7 +18,7 @@ Page({
 		vertical: false,
 		autoplay: true,
 		circular: true,
-		interval: 2000,
+		interval: 4000,
 		duration: 1000,
 		previousMargin: 0,
 		nextMargin: 0,
@@ -35,19 +35,21 @@ Page({
 		},
 		search:{
 			title:''
-		}
+		},
+		isFirstLoadAllStandard:['getProductOneData']
 		
 	},
 
 	onLoad(options) {
 		const self = this;
+		api.commonInit(self);
 		self.getSliderData();
 		self.getLabelOneData();
-		self.getLabelTwoData();
+	/* 	self.getLabelTwoData();
 		self.getLabelThreeData();
 		self.getLabelFourData();
 		self.getLabelFiveData();
-		self.getLabelSixData();
+		self.getLabelSixData(); */
 	},
 	
 	goSearch(){
@@ -150,8 +152,12 @@ Page({
 
 		var callback = function(res) {
 			if (res.info.data.length > 0) {
+				self.data.id1 = res.info.data[0].id;
 				self.getProductOneData(res.info.data[0].id)
 			}
+			self.setData({
+				web_id1:self.data.id1
+			})
 		};
 
 		api.labelGet(postData, callback);
@@ -160,10 +166,15 @@ Page({
 	getProductOneData(id) {
 		var self = this;
 		var postData = {};
-
+		postData.paginate={
+			count: 0,
+			currentPage:1,
+			pagesize:4,
+			is_page:true,
+		};
 		postData.searchItem = {
 			status: 1,
-			
+			listorder:['not in',0]
 		};
 		postData.getBefore = {
 			Label: {
@@ -177,13 +188,19 @@ Page({
 				condition: 'in'
 			}
 		};
+		postData.order = {
+			listorder:'desc'
+		};
 		var callback = function(res) {
 			if (res.info.data.length > 0) {
-				self.data.productOneData.push.apply(self.data.productOneData, res.info.data)
+				self.data.productOneData.push.apply(self.data.productOneData, res.info.data);
+				self.getLabelTwoData();
 			}
 			self.setData({
 				web_productOneData:self.data.productOneData
 			})
+			console.log('self.data.productOneData',self.data.productOneData)
+			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getProductOneData', self);
 		};
 
 		api.productGet(postData, callback);
@@ -200,8 +217,12 @@ Page({
 
 		var callback = function(res) {
 			if (res.info.data.length > 0) {
+				self.data.id2 = res.info.data[0].id;
 				self.getProductTwoData(res.info.data[0].id)
 			}
+			self.setData({
+				web_id2:self.data.id2
+			})
 		};
 
 		api.labelGet(postData, callback);
@@ -210,10 +231,15 @@ Page({
 	getProductTwoData(id) {
 		var self = this;
 		var postData = {};
-
+		postData.paginate={
+			count: 0,
+			currentPage:1,
+			pagesize:4,
+			is_page:true,
+		};
 		postData.searchItem = {
 			status: 1,
-			
+			listorder:['not in',0]
 		};
 		postData.getBefore = {
 			Label: {
@@ -227,13 +253,18 @@ Page({
 				condition: 'in'
 			}
 		};
+		postData.order = {
+			listorder:'desc'
+		};
 		var callback = function(res) {
 			if (res.info.data.length > 0) {
-				self.data.productTwoData.push.apply(self.data.productTwoData, res.info.data)
+				self.data.productTwoData.push.apply(self.data.productTwoData, res.info.data);
+				self.getLabelThreeData();
 			}
 			self.setData({
 				web_productTwoData:self.data.productTwoData
 			})
+			//api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getProductTwoData', self);
 		};
 
 		api.productGet(postData, callback);
@@ -250,8 +281,12 @@ Page({
 
 		var callback = function(res) {
 			if (res.info.data.length > 0) {
+				self.data.id3 = res.info.data[0].id;
 				self.getProductThreeData(res.info.data[0].id)
 			}
+			self.setData({
+				web_id3:self.data.id3
+			})
 		};
 
 		api.labelGet(postData, callback);
@@ -260,10 +295,15 @@ Page({
 	getProductThreeData(id) {
 		var self = this;
 		var postData = {};
-
+		postData.paginate={
+			count: 0,
+			currentPage:1,
+			pagesize:4,
+			is_page:true,
+		};
 		postData.searchItem = {
 			status: 1,
-			
+			listorder:['not in',0]
 		};
 		postData.getBefore = {
 			Label: {
@@ -277,13 +317,18 @@ Page({
 				condition: 'in'
 			}
 		};
+		postData.order = {
+			listorder:'desc'
+		};
 		var callback = function(res) {
 			if (res.info.data.length > 0) {
-				self.data.productThreeData.push.apply(self.data.productThreeData, res.info.data)
+				self.data.productThreeData.push.apply(self.data.productThreeData, res.info.data);
+				self.getLabelFourData();
 			}
 			self.setData({
 				web_productThreeData:self.data.productThreeData
 			})
+			//api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getProductThreeData', self);
 		};
 
 		api.productGet(postData, callback);
@@ -300,8 +345,12 @@ Page({
 
 		var callback = function(res) {
 			if (res.info.data.length > 0) {
+				self.data.id4 = res.info.data[0].id;
 				self.getProductFourData(res.info.data[0].id)
 			}
+			self.setData({
+				web_id4:self.data.id4
+			})
 		};
 
 		api.labelGet(postData, callback);
@@ -310,10 +359,15 @@ Page({
 	getProductFourData(id) {
 		var self = this;
 		var postData = {};
-
+		postData.paginate={
+			count: 0,
+			currentPage:1,
+			pagesize:4,
+			is_page:true,
+		};
 		postData.searchItem = {
 			status: 1,
-			
+			listorder:['not in',0]
 		};
 		postData.getBefore = {
 			Label: {
@@ -327,13 +381,18 @@ Page({
 				condition: 'in'
 			}
 		};
+		postData.order = {
+			listorder:'desc'
+		};
 		var callback = function(res) {
 			if (res.info.data.length > 0) {
-				self.data.productFourData.push.apply(self.data.productFourData, res.info.data)
+				self.data.productFourData.push.apply(self.data.productFourData, res.info.data);
+				self.getLabelFiveData();
 			}
 			self.setData({
 				web_productFourData:self.data.productFourData
 			})
+			//api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getProductFourData', self);
 		};
 
 		api.productGet(postData, callback);
@@ -350,8 +409,12 @@ Page({
 
 		var callback = function(res) {
 			if (res.info.data.length > 0) {
+				self.data.id5 = res.info.data[0].id;
 				self.getProductFiveData(res.info.data[0].id)
 			}
+			self.setData({
+				web_id5:self.data.id5
+			})
 		};
 
 		api.labelGet(postData, callback);
@@ -360,10 +423,15 @@ Page({
 	getProductFiveData(id) {
 		var self = this;
 		var postData = {};
-
+		postData.paginate={
+			count: 0,
+			currentPage:1,
+			pagesize:4,
+			is_page:true,
+		};
 		postData.searchItem = {
 			status: 1,
-			
+			listorder:['not in',0]
 		};
 		postData.getBefore = {
 			Label: {
@@ -377,13 +445,18 @@ Page({
 				condition: 'in'
 			}
 		};
+		postData.order = {
+			listorder:'desc'
+		};
 		var callback = function(res) {
 			if (res.info.data.length > 0) {
 				self.data.productFiveData.push.apply(self.data.productFiveData, res.info.data)
+				self.getLabelSixData();
 			}
 			self.setData({
 				web_productFiveData:self.data.productFiveData
 			})
+			//api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getProductFiveData', self);
 		};
 
 		api.productGet(postData, callback);
@@ -400,8 +473,12 @@ Page({
 
 		var callback = function(res) {
 			if (res.info.data.length > 0) {
+				self.data.id6 = res.info.data[0].id;
 				self.getProductSixData(res.info.data[0].id)
 			}
+			self.setData({
+				web_id6:self.data.id6
+			})
 		};
 
 		api.labelGet(postData, callback);
@@ -410,10 +487,15 @@ Page({
 	getProductSixData(id) {
 		var self = this;
 		var postData = {};
-
+		postData.paginate={
+			count: 0,
+			currentPage:1,
+			pagesize:4,
+			is_page:true,
+		};
 		postData.searchItem = {
 			status: 1,
-			
+			listorder:['not in',0]
 		};
 		postData.getBefore = {
 			Label: {
@@ -427,6 +509,9 @@ Page({
 				condition: 'in'
 			}
 		};
+		postData.order = {
+			listorder:'desc'
+		};
 		var callback = function(res) {
 			if (res.info.data.length > 0) {
 				self.data.productSixData.push.apply(self.data.productSixData, res.info.data)
@@ -434,6 +519,7 @@ Page({
 			self.setData({
 				web_productSixData:self.data.productSixData
 			})
+			//api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getProductSixData', self);
 		};
 
 		api.productGet(postData, callback);

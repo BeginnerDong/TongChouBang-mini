@@ -84,7 +84,8 @@ Page({
 				socre:self.data.submitData.score,
 				relation_id: self.data.mainData.id,
 				user_no:wx.getStorageSync('threeInfo').user_no,
-				type: 3
+				type: 3,
+				order_no:self.data.mainData.order_no
 			}
 		};
 		if(self.data.mainData.products[0].sku_id!=0){

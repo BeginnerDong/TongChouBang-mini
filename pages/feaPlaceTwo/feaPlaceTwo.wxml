@@ -13,13 +13,15 @@
 				<view class="item" bindtap="select" data-index="{{index}}"><text>{{item.title[1]}}</text></view>
 			</block>
 			<view class="item" bindtap="reset"><text  style="background-color: #FF556F;color: #ffffff;border:none">清除筛选条件</text></view>
-		</view>	
+		
+		</view>
+		
 		<view class="tip-container" style="width: 100%;background: #fff;position: absolute;z-index: 999;display: block;padding: 0;top:60px;" wx:if="{{web_isSelect}}">
 			<view class="tip-container" style="z-index: 999;">
 				<block wx:for="{{web_labelData}}">
 					<view class="item" bindtap="select" data-index="{{index}}"><text>{{item.title[1]}}</text></view>
 				</block>
-				
+			
 			
 			</view>
 			<view style="height: 1px;width: 100%;background: #f7f7f7;"></view>
@@ -81,6 +83,32 @@
 		</view>
 
 
+	</view>
+	<view class="navbar">
+		<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/index/index">
+			<view class="nav_img">
+				<image src="/images/nabar1.png"></image>
+			</view>
+			<view class="text">首页</view>
+		</view>
+		<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/activityNeed/activityNeed">
+			<view class="nav_img">
+				<image src="/images/nabar2.png"></image>
+			</view>
+			<view class="text">需求</view>
+		</view>
+		<view class="navbar_item">
+			<view class="nav_img">
+				<image src="/images/nabar3-a.png" style="width: 50rpx;"></image>
+			</view>
+			<view class="text this-text">找会场</view>
+		</view>
+		<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/login/login">
+			<view class="nav_img">
+				<image src="/images/nabar4.png" style="width: 44rpx;"></image>
+			</view>
+			<view class="text">我的</view>
+		</view>
 	</view>
 	<!--内容-->
 

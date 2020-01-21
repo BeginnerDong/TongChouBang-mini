@@ -16,7 +16,7 @@ Page({
 		vertical: false,
 		autoplay: true,
 		circular: true,
-		interval: 2000,
+		interval: 5000,
 		duration: 1000,
 		previousMargin: 0,
 		nextMargin: 0,
@@ -42,6 +42,47 @@ Page({
 
 		self.data.id = options.id;
 		self.getCityData();
+		//self.getUserInfoData()
+	},
+	
+	getUserInfoData() {
+		const self = this;
+		const postData = {};
+		postData.tokenFuncName = 'getThreeToken';
+		postData.searchItem = {
+			user_no:wx.getStorageSync('threeInfo').user_no
+		};
+		const callback = (res) => {
+			if (res.info.data.length > 0) {
+				self.data.userInfoData = res.info.data[0];
+			};
+			self.setData({
+				web_userInfoData: self.data.userInfoData
+			})
+			api.checkLoadAll(self.data.isFirstLoadAllStandard, 'getUserInfoData', self);
+		};
+		api.userInfoGet(postData, callback);
+	},
+	
+	intoMap() {
+		const self = this;
+		wx.openLocation({ //所以这里会显示你当前的位置
+			// longitude: 109.045249,
+			// latitude: 34.325841,
+			longitude: parseFloat(self.data.mainData.longitude),
+			latitude: parseFloat(self.data.mainData.latitude),
+			name: self.data.mainData.title,
+			address: self.data.mainData.address,
+			scale: 28
+		})
+		/* wx.getLocation({
+			type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+			success: function(res) { //因为这里得到的是你当前位置的经纬度
+				var latitude = res.latitude
+				var longitude = res.longitude
+				
+			}
+		}) */
 	},
 
 
@@ -132,10 +173,13 @@ Page({
 					self.data.actData.push(self.data.mainData.sku[j])
 				}
 			}
+			for (var i = 0; i < self.data.skuData.length; i++) {
+				self.data.skuData[i].content = api.wxParseReturn(self.data.skuData[i].content).nodes;
+			};
 			console.log('self.data.skuData', self.data.skuData)
 			console.log('self.data.imgData', self.data.imgData)
 			console.log('self.data.actData', self.data.actData)
-
+			
 			self.setData({
 				web_mainData: self.data.mainData,
 				web_skuData: self.data.skuData,
@@ -193,7 +237,7 @@ Page({
 				user_type: 0
 			}
 		};
-		postData.tokenFuncName = 'getThreeToken';
+		//postData.tokenFuncName = 'getThreeToken';
 		postData.searchItem.relation_id = self.data.id;
 		postData.getAfter = {
 			UserInfo: {

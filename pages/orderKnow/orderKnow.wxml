@@ -1,0 +1,14 @@
+<!--pages/casedetails/casedetails.wxml-->
+<view calss="caseDetails-container">
+   <view style="text-align: center;font-size: 15px;margin-top: 10px;">{{web_mainData.title}}</view>
+   <view class="details-content">
+      <view class="content ql-editor">
+      	<import src="../../wxParse/wxParse.wxml" />
+      	<template is="wxParse" data="{{wxParseData:web_mainData.content}}" />
+      </view>
+   </view>
+   <button class="button" bindtap="into" 
+   style="width: 60%;margin: 0 auto;background: #FE546F;color: #fff;font-size:14px;height: 40px;line-height:40px;margin-top: 20px;">确定</button>
+</view>
+
+

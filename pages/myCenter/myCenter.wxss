@@ -95,7 +95,7 @@
 .enter-container{
   width:79%;
   box-shadow:0.5px 0.5px 2px #9E9E9E;
-  margin:25px 0px 220px 0px;
+  margin:25px 0px 50px 0px;
   border-radius:8px;
   padding:9px 20px 0px 15px;
 }

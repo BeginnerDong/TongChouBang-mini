@@ -18,6 +18,10 @@ Page({
 		isFirstLoadAllStandard: ['getMainData'],
 		labelData: [],
 		spuArray: [],
+		search:{
+			title:''
+		},
+		stars:[1,2,3,4,5]
 	},
 
 
@@ -40,6 +44,50 @@ Page({
 		self.getLabelData();
 		self.getMainData()
 
+	},
+	
+	select(e){
+		const self = this;
+		var index =api.getDataSet(e,'index');
+		self.setData({
+			web_isSelect:true,
+			web_index:index
+		})
+	},
+	
+	selectChild(e){
+		const self = this;
+		var id = api.getDataSet(e,'id');
+		var position = self.data.spuArray.indexOf(id);
+		if(position >= 0){			
+			self.data.spuArray.splice(position, 1);					
+		}else{
+			self.data.spuArray.push(id);		
+		}
+		console.log(self.data.spuArray)
+		self.setData({
+			web_spuArray:self.data.spuArray
+		})
+	},
+	
+	reset(){
+		const self = this;
+		api.buttonCanClick(self, false);
+		self.data.spuArray = [];
+		self.getMainData(true);
+		self.setData({
+			web_isSelect:false,
+			web_spuArray:self.data.spuArray
+		})
+	},
+	
+	confirm(){
+		const self = this;
+		api.buttonCanClick(self, false);
+		self.getMainData(true);
+		self.setData({
+			web_isSelect:false,
+		})
 	},
 
 	goSearch(){
@@ -121,17 +169,48 @@ Page({
 		postData.paginate = api.cloneForm(self.data.paginate);
 		postData.searchItem = {
 			category_id: 100,
+			listorder:0
 		};
 		if (self.data.spuArray.length > 0) {
 			postData.getBefore = api.cloneForm(self.getBefore);
 		};
 		postData.order = {
-			listorder: 'desc'
+			create_time: 'asc'
+		};
+		postData.getAfter = {
+			message:{
+				tableName:'Message',
+				middleKey:'id',
+				key:'relation_id',
+				searchItem:{
+					status:1
+				},
+				condition:'=',
+				compute:{
+				  score:[
+				    'sum',
+				    'score',
+				    {
+				      status:1,
+				    }
+				  ],
+				  count:[
+				    'count',
+				    'count',
+				    {
+				      status:1,
+				    }
+				  ]
+				},
+			}
 		};
 		const callback = (res) => {
 			if (res.solely_code == 100000) {
 				if (res.info.data.length > 0) {
 					self.data.mainData.push.apply(self.data.mainData, res.info.data);
+					for (var i = 0; i < self.data.mainData.length; i++) {
+						self.data.mainData[i].averageScore = self.data.mainData[i].message.score/self.data.mainData[i].message.count
+					}
 				} else {
 					self.data.isLoadAll = true;
 					api.showToast('没有更多了', 'none', 1000);

@@ -92,7 +92,7 @@ button{
 
 /****************活动需求******************/
 .need{
-  position:absolute;
+  position:fixed;
   width:60px;
   height:60px;
   background-color:#FF556F;
@@ -101,6 +101,8 @@ button{
   font-size:12px;
   align-items: center;
   text-align:center;
+  top: 60%;
+  right: 0;
 }
 .need text{
   position:absolute;

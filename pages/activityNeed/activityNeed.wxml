@@ -4,7 +4,7 @@
       
       <view class="container">
           <view><text>活动类型：</text></view>
-          <view style="width: 40%;height: 20px;line-height: 20px;"><picker bindchange="typeChange" style="color:#212121;font-size:12px;width: 100%;height: 100%;" range="{{type}}" range-key="name">
+          <view style="width: 70%;height: 20px;line-height: 20px;"><picker bindchange="typeChange" style="color:#212121;font-size:12px;width: 100%;height: 100%;" range="{{type}}" range-key="name">
 			{{type[web_index].name?type[web_index].name:'请选择'}}
 		  </picker></view>
           <view class="icon"><image src="/images/home-icon2.png"/></view>     
@@ -12,7 +12,7 @@
 
       <view class="container">
           <view><text>活动时间：</text></view>
-          <view style="width: 40%;height: 20px;line-height: 20px;"><picker bindchange="timeChange" style="color:#212121;font-size:12px;width: 100%;height: 100%;" mode="date">
+          <view style="width: 70%;height: 20px;line-height: 20px;"><picker bindchange="timeChange" style="color:#212121;font-size:12px;width: 100%;height: 100%;" mode="date">
           			{{web_time?web_time:'请选择'}}
           </picker></view>
           <view class="icon"><image src="/images/home-icon2.png"/></view>     
@@ -21,34 +21,37 @@
 
       <view class="container">
           <view><text>预算：</text></view>
-          <view><input type="text" placeholder="请输入您的预算"  placeholder-style="color:#545454;font-size:12px;" style="margin-left:20px;"  
+          <view style="width: 80%;"><input style="width: 100%;" type="number" placeholder="请输入您的预算"  
+		  placeholder-style="color:#545454;font-size:12px;"   
 		   value="{{web_submitData.keywords}}"  data-key="keywords" bindblur="bindInputChange"/></view>
           <view class="icon"><image src="/images/home-icon2.png"/></view>     
       </view>
 
       <view class="container">
           <view><text>联系人姓名：</text></view>
-          <view><input type="text" placeholder="请输入联系人姓名"  placeholder-style="color:#545454;font-size:12px;" style="margin-left:-15px;"
+          <view style="width: 70%;"><input type="text" style="width: 100%;" placeholder="请输入联系人姓名" 
+		   placeholder-style="color:#545454;font-size:12px;" 
 		   value="{{web_submitData.passage1}}"  data-key="passage1" bindblur="bindInputChange"/></view>
           <view class="icon"><image src="/images/home-icon2.png"/></view>     
       </view>
 
       <view class="container">
           <view><text>联系电话：</text></view>
-          <view><input type="text" placeholder="请输入您的联系电话"  placeholder-style="color:#545454;font-size:12px;"
+          <view style="width: 74%;"><input style="width: 100%;" type="number" placeholder="请输入您的联系电话"  
+		  placeholder-style="color:#545454;font-size:12px;"
 		   value="{{web_submitData.phone}}"  data-key="phone" bindblur="bindInputChange"/></view>
           <view class="icon"><image src="/images/home-icon2.png"/></view>     
       </view>
 
       <view class="container">
           <view style="width:50px;"><text>验证码：</text></view>
-          <view><input type="text" style="width:45px;"/></view>
-          <view class="icon" style="width:90px;">获取验证码</view>     
+          <view style="width: 50%;"><input type="number" style="width:100%;" value="{{web_submitData.code}}"  data-key="code" bindblur="bindInputChange"/></view>
+          <view class="icon" style="width:90px;" bindtap="{{!hasSend?'sendCode':''}}">{{text}}</view>     
       </view>
 
       <view class="container">
           <view><text>备注：</text></view>
-          <view><input type="text"
+          <view style="width: 80%;"><input type="text"
 		   value="{{web_submitData.content}}"  data-key="content" bindblur="bindInputChange"/></view>
           <view class="icon"></view>     
       </view>
@@ -75,11 +78,11 @@
 		</view>
 		<view class="text this-text">需求</view>
 	</view>
-	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/case/case">
+	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/feaPlaceTwo/feaPlaceTwo">
 		<view class="nav_img">
 			<image src="/images/nabar3.png" style="width: 50rpx;"></image>
 		</view>
-		<view class="text">案例</view>
+		<view class="text">找会场</view>
 	</view>
 	<view class="navbar_item" bindtap="intoPathRedirect" data-path="/pages/login/login">
 		<view class="nav_img">
